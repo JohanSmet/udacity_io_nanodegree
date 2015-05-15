@@ -21,6 +21,20 @@ class MemeEditorViewController: UIViewController,
     @IBOutlet weak var shareButton: UIBarButtonItem!
     
     @IBOutlet weak var memeImage: UIImageView!
+    @IBOutlet weak var topText: UITextField!
+    @IBOutlet weak var bottomText: UITextField!
+    
+    ///////////////////////////////////////////////////////////////////////////////////
+    //
+    // constants
+    //
+    
+    let memeTextAttributes = [
+        NSStrokeColorAttributeName : UIColor.blackColor(),
+        NSForegroundColorAttributeName : UIColor.whiteColor(),
+        NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+        NSStrokeWidthAttributeName : -2
+    ]
     
     ///////////////////////////////////////////////////////////////////////////////////
     //
@@ -39,9 +53,12 @@ class MemeEditorViewController: UIViewController,
     
         // only enable the share button when the meme is complete
         shareButton.enabled = memeIsComplete()
+        
+        // make sure the meme textfields are formatted appropriately
+        formatMemeTextField(topText)
+        formatMemeTextField(bottomText)
     }
-    
-    
+        
     ///////////////////////////////////////////////////////////////////////////////////
     //
     // UIImagePickerControllerDelegate overrides
@@ -99,6 +116,11 @@ class MemeEditorViewController: UIViewController,
         return false
     }
 
+    private func formatMemeTextField(p_field: UITextField) {
+        p_field.defaultTextAttributes = memeTextAttributes
+        p_field.textAlignment = NSTextAlignment.Center
+        p_field.autocapitalizationType = UITextAutocapitalizationType.AllCharacters
+    }
 
 }
 
