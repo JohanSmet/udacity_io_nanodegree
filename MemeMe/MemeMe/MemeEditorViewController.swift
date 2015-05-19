@@ -10,12 +10,15 @@ import UIKit
 
 class MemeEditorViewController: UIViewController,
                                 UIImagePickerControllerDelegate,
-                                UINavigationControllerDelegate {
+                                UINavigationControllerDelegate,
+                                UITextFieldDelegate {
 
     ///////////////////////////////////////////////////////////////////////////////////
     //
     // outlets
     //
+    
+    @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var shareButton: UIBarButtonItem!
@@ -57,8 +60,15 @@ class MemeEditorViewController: UIViewController,
         // make sure the meme textfields are formatted appropriately
         formatMemeTextField(topText)
         formatMemeTextField(bottomText)
-    }
         
+        // subscribe to keyboard notifications to scroll the current textfield to the visible portion of the screen
+        subscribeToKeyboardNotifications()
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        unsubscribeFromKeyboardNotifications()
+    }
+    
     ///////////////////////////////////////////////////////////////////////////////////
     //
     // UIImagePickerControllerDelegate overrides
@@ -80,6 +90,19 @@ class MemeEditorViewController: UIViewController,
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 
+    ///////////////////////////////////////////////////////////////////////////////////
+    //
+    // UITextFieldDelegate overrides
+    //
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        activeTextField = textField
+    }
+
+    func textFieldDidEndEditing(textField: UITextField) {
+        activeTextField = nil
+    }
+    
     
     ///////////////////////////////////////////////////////////////////////////////////
     //
@@ -106,6 +129,10 @@ class MemeEditorViewController: UIViewController,
         self.presentViewController(imagePicker, animated: true, completion: nil)
     }
     
+    @IBAction func cancelEditor(sender: AnyObject) {
+        self.view.frame.origin.y -= 5
+    }
+    
     ///////////////////////////////////////////////////////////////////////////////////
     //
     // utility functions
@@ -120,7 +147,63 @@ class MemeEditorViewController: UIViewController,
         p_field.defaultTextAttributes = memeTextAttributes
         p_field.textAlignment = NSTextAlignment.Center
         p_field.autocapitalizationType = UITextAutocapitalizationType.AllCharacters
+        p_field.borderStyle = UITextBorderStyle.None
     }
 
+    private func subscribeToKeyboardNotifications() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
+    private func unsubscribeFromKeyboardNotifications() {
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        // keyboard height
+        let kbHeight = getKeyboardHeight(notification)
+        
+        // update the insets of the scroll view
+        let contentInsets:UIEdgeInsets  = UIEdgeInsetsMake(0.0, 0.0, kbHeight, 0.0)
+        scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets
+
+        // check if the current control is outside the view or not
+        if let activeTextField = self.activeTextField {
+        
+            var aRect: CGRect = self.view.frame
+            aRect.size.height -= kbHeight
+        
+            if (!CGRectContainsPoint(aRect, activeTextField.frame.origin) ) {
+                let scrollPoint:CGPoint = CGPointMake(0.0, activeTextField.frame.origin.y - kbHeight)
+                scrollView.setContentOffset(scrollPoint, animated: true)
+            }
+        }
+        
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        let kbHeight = getKeyboardHeight(notification)
+     
+        // reset the insets of the scroll view
+        let contentInsets:UIEdgeInsets = UIEdgeInsetsZero
+        scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets
+    }
+    
+    private func getKeyboardHeight(notification : NSNotification) -> CGFloat {
+        let userInfo = notification.userInfo
+        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
+        return keyboardSize.CGRectValue().height
+    }
+    
+    ///////////////////////////////////////////////////////////////////////////////////
+    //
+    // member variables
+    //
+    
+    var activeTextField : UITextField? = nil
+    
 }
 
