@@ -148,6 +148,10 @@ class MemeEditorViewController: UIViewController,
         p_field.textAlignment = NSTextAlignment.Center
         p_field.autocapitalizationType = UITextAutocapitalizationType.AllCharacters
         p_field.borderStyle = UITextBorderStyle.None
+        // attributed placeholder
+        var f_attrs = memeTextAttributes
+        f_attrs[NSForegroundColorAttributeName] = UIColor.grayColor()
+        p_field.attributedPlaceholder = NSAttributedString(string:p_field.placeholder ?? "", attributes: f_attrs)
     }
 
     private func subscribeToKeyboardNotifications() {
