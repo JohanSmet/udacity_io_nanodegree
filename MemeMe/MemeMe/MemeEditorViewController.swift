@@ -103,6 +103,26 @@ class MemeEditorViewController: UIViewController,
         activeTextField = nil
     }
     
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        
+        // check the length of the new text
+        var newText: NSString = textField.text
+        newText = newText.stringByReplacingCharactersInRange(range, withString: string)
+        
+        // if the new text is empty: disable the share button and exit
+        if newText.length == 0 {
+            shareButton.enabled = false
+            return true;
+        }
+        
+        // there's text in this field : enable the share button if the other conditions are also met
+        if !shareButton.enabled {
+            shareButton.enabled = memeIsComplete()
+        }
+
+        return true;
+    }
+    
     
     ///////////////////////////////////////////////////////////////////////////////////
     //
@@ -140,7 +160,16 @@ class MemeEditorViewController: UIViewController,
     
     private func memeIsComplete() -> Bool {
         // TODO: complete == image + two text fields filled in
-        return false
+        
+        if memeImage!.image == nil {
+            return false
+        }
+        
+        if topText.text!.isEmpty  || bottomText.text!.isEmpty {
+            return false
+        }
+        
+        return true;
     }
 
     private func formatMemeTextField(p_field: UITextField) {
@@ -148,10 +177,13 @@ class MemeEditorViewController: UIViewController,
         p_field.textAlignment = NSTextAlignment.Center
         p_field.autocapitalizationType = UITextAutocapitalizationType.AllCharacters
         p_field.borderStyle = UITextBorderStyle.None
+        p_field.delegate = self
+        
         // attributed placeholder
         var f_attrs = memeTextAttributes
         f_attrs[NSForegroundColorAttributeName] = UIColor.grayColor()
         p_field.attributedPlaceholder = NSAttributedString(string:p_field.placeholder ?? "", attributes: f_attrs)
+
     }
 
     private func subscribeToKeyboardNotifications() {
