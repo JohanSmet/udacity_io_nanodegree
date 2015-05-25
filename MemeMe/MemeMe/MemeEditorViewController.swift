@@ -150,7 +150,12 @@ class MemeEditorViewController: UIViewController,
     }
     
     @IBAction func cancelEditor(sender: AnyObject) {
-        self.view.frame.origin.y -= 5
+        self.dismissViewControllerAnimated(false, completion: nil)
+    }
+    
+    @IBAction func shareMeme(sender: AnyObject) {
+        self.saveMeme()
+        self.dismissViewControllerAnimated(false, completion: nil)
     }
     
     ///////////////////////////////////////////////////////////////////////////////////
@@ -159,8 +164,7 @@ class MemeEditorViewController: UIViewController,
     //
     
     private func memeIsComplete() -> Bool {
-        // TODO: complete == image + two text fields filled in
-        
+    
         if memeImage!.image == nil {
             return false
         }
@@ -183,7 +187,15 @@ class MemeEditorViewController: UIViewController,
         var f_attrs = memeTextAttributes
         f_attrs[NSForegroundColorAttributeName] = UIColor.grayColor()
         p_field.attributedPlaceholder = NSAttributedString(string:p_field.placeholder ?? "", attributes: f_attrs)
-
+    }
+    
+    private func saveMeme() {
+        // create the meme
+        var meme = Meme(topText: topText.text!, bottomText: bottomText.text!, image: memeImage.image!, memedImage: memeImage.image!)
+        
+        // add it to the shared model
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.memes.append(meme)
     }
 
     private func subscribeToKeyboardNotifications() {
