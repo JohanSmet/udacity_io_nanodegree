@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="b39-Pg-mq4">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -226,23 +227,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="V9r-PV-Jet">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="88" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="V9r-PV-Jet">
                                 <rect key="frame" x="16" y="0.0" width="568" height="551"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" reuseIdentifier="SentMemeTableCell" textLabel="0td-ZE-dF5" style="IBUITableViewCellStyleDefault" id="8aS-fO-x9R">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" reuseIdentifier="SentMemeTableCell" id="8aS-fO-x9R" customClass="MemeTableCell" customModule="MemeMe" customModuleProvider="target">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8aS-fO-x9R" id="WH7-ug-e94">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0td-ZE-dF5">
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mfy-pX-oM4">
+                                                    <rect key="frame" x="300" y="33" width="244" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="s3h-wE-niA">
+                                                    <rect key="frame" x="0.0" y="0.0" width="284" height="87"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="87" id="fGy-a3-QYH"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="mfy-pX-oM4" firstAttribute="leading" secondItem="s3h-wE-niA" secondAttribute="trailing" constant="16" id="ISv-5I-1Gg"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="mfy-pX-oM4" secondAttribute="trailing" constant="16" id="QqC-O5-WcW"/>
+                                                <constraint firstAttribute="centerY" secondItem="mfy-pX-oM4" secondAttribute="centerY" id="bCO-BS-6qd"/>
+                                                <constraint firstItem="s3h-wE-niA" firstAttribute="top" secondItem="WH7-ug-e94" secondAttribute="topMargin" constant="-8" id="mrh-1X-GTx"/>
+                                                <constraint firstItem="s3h-wE-niA" firstAttribute="leading" secondItem="WH7-ug-e94" secondAttribute="leadingMargin" constant="-8" id="xgg-lh-mBQ"/>
+                                                <constraint firstAttribute="centerXWithinMargins" secondItem="s3h-wE-niA" secondAttribute="trailing" id="yyb-Q0-44a"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="memeImage" destination="s3h-wE-niA" id="gTZ-N3-XZt"/>
+                                            <outlet property="memeText" destination="mfy-pX-oM4" id="RJg-BF-w1z"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
