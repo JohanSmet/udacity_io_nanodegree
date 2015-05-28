@@ -19,6 +19,7 @@ class MemeEditorViewController: UIViewController,
     //
     
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var memeView: UIView!
     
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var shareButton: UIBarButtonItem!
@@ -191,11 +192,23 @@ class MemeEditorViewController: UIViewController,
     
     private func saveMeme() {
         // create the meme
-        var meme = Meme(topText: topText.text!, bottomText: bottomText.text!, image: memeImage.image!, memedImage: memeImage.image!)
+        var meme = Meme(topText: topText.text!, bottomText: bottomText.text!, image: memeImage.image!, memedImage: generateMemedImage())
         
         // add it to the shared model
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.memes.append(meme)
+    }
+    
+    private func generateMemedImage() -> UIImage {
+        
+        // render view to an image
+        UIGraphicsBeginImageContext(memeView.frame.size)
+        let c = UIGraphicsGetCurrentContext();
+        memeView.layer.renderInContext(c)
+        let memedImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return memedImage
     }
 
     private func subscribeToKeyboardNotifications() {

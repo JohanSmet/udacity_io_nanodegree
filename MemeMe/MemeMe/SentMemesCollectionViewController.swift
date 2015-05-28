@@ -58,7 +58,7 @@ class SentMemesCollectionViewController: UIViewController,
         
         // set the cell data
         let meme = appDelegate.memes[indexPath.row]
-        cell.image.image = meme.image
+        cell.image.image = meme.memedImage
     
         return cell
     }
