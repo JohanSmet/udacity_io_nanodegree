@@ -317,12 +317,18 @@
                                             <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1cX-93-edJ">
-                                                    <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1cX-93-edJ">
+                                                    <rect key="frame" x="8" y="8" width="134" height="134"/>
                                                 </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <constraints>
+                                            <constraint firstAttribute="bottomMargin" secondItem="1cX-93-edJ" secondAttribute="bottom" id="5OZ-8R-SNb"/>
+                                            <constraint firstItem="1cX-93-edJ" firstAttribute="leading" secondItem="0bg-dw-oIf" secondAttribute="leadingMargin" id="X64-E1-mYr"/>
+                                            <constraint firstItem="1cX-93-edJ" firstAttribute="top" secondItem="0bg-dw-oIf" secondAttribute="topMargin" id="ngG-VF-RWN"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="1cX-93-edJ" secondAttribute="trailing" id="wvo-PT-w8n"/>
+                                        </constraints>
                                         <connections>
                                             <outlet property="image" destination="1cX-93-edJ" id="qwb-tK-CtK"/>
                                         </connections>
