@@ -155,8 +155,20 @@ class MemeEditorViewController: UIViewController,
     }
     
     @IBAction func shareMeme(sender: AnyObject) {
-        self.saveMeme()
-        self.dismissViewControllerAnimated(false, completion: nil)
+        // generate a memed image
+        let memedImage = generateMemedImage()
+        
+        // launch the ActivityViewController
+        let activityVC = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
+        activityVC.completionWithItemsHandler = {(activityType, completed:Bool, returnItems:[AnyObject]!, activityError:NSError!) in
+            // 'save' the meme to the shared model
+            self.saveMeme(memedImage)
+            
+            // return to the sent memes view
+            self.dismissViewControllerAnimated(false, completion: nil)
+        }
+        
+        self.presentViewController(activityVC, animated: true, completion: nil)
     }
     
     ///////////////////////////////////////////////////////////////////////////////////
@@ -190,9 +202,9 @@ class MemeEditorViewController: UIViewController,
         p_field.attributedPlaceholder = NSAttributedString(string:p_field.placeholder ?? "", attributes: f_attrs)
     }
     
-    private func saveMeme() {
+    private func saveMeme(memedImage : UIImage) {
         // create the meme
-        var meme = Meme(topText: topText.text!, bottomText: bottomText.text!, image: memeImage.image!, memedImage: generateMemedImage())
+        var meme = Meme(topText: topText.text!, bottomText: bottomText.text!, image: memeImage.image!, memedImage: memedImage)
         
         // add it to the shared model
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
