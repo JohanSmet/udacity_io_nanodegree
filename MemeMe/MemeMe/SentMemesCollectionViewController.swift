@@ -70,7 +70,7 @@ class SentMemesCollectionViewController: UIViewController,
 
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let detailView = self.storyboard?.instantiateViewControllerWithIdentifier("MemeDetailViewController") as! MemeDetailViewController
-        detailView.memeImage = appDelegate.memes[indexPath.row].memedImage
+        detailView.memeIndex = indexPath.row
         self.navigationController?.pushViewController(detailView, animated: true)
     }
 

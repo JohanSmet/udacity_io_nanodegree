@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 class MemeDetailViewController: UIViewController {
     
@@ -16,7 +17,7 @@ class MemeDetailViewController: UIViewController {
     // public data
     //
     
-    var memeImage : UIImage!
+    var memeIndex : Int?
     
     ///////////////////////////////////////////////////////////////////////////////////
     //
@@ -32,7 +33,51 @@ class MemeDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        imageView.image = memeImage
+        
+        // navigation bar items
+        let buttonEdit = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Edit, target: self, action: "editMeme")
+        let buttonDelete = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Trash, target: self, action: "deleteMeme")
+        self.navigationItem.setRightBarButtonItems([buttonDelete, buttonEdit], animated: true)
+        
+        // load the image
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        imageView.image = appDelegate.memes[memeIndex!].memedImage
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "memeEditorSegue" {
+            if let editorVC = segue.destinationViewController as? MemeEditorViewController {
+                editorVC.memeIndex = self.memeIndex
+            }
+        }
+    }
+    
+    ///////////////////////////////////////////////////////////////////////////////////
+    //
+    // actions
+    //
+
+    func editMeme() {
+         self.performSegueWithIdentifier("memeEditorSegue", sender: self)
+    }
+    
+    func deleteMeme() {
+        
+        // confirmation dialog
+        var deleteAlert = UIAlertController(title: "Delete", message: "The meme will be lost.", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        deleteAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+            // remove the meme from the shared model
+            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            appDelegate.memes.removeAtIndex(self.memeIndex!)
+            
+            // close the detail view
+            self.navigationController?.popViewControllerAnimated(true)
+        }))
+        deleteAlert.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: nil));
+        
+        presentViewController(deleteAlert, animated: true, completion: nil)
     }
 
 }

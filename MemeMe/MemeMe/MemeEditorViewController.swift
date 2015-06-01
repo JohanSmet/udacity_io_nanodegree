@@ -47,7 +47,17 @@ class MemeEditorViewController: UIViewController,
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        // initialize the fields when an existing meme is being edited
+        if let memeIndex = self.memeIndex {
+            let meme = appDelegate.memes[memeIndex]
+            
+            topText.text = meme.topText
+            bottomText.text = meme.bottomText
+            memeImage.image = meme.image
+        }
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -277,6 +287,7 @@ class MemeEditorViewController: UIViewController,
     //
     
     var activeTextField : UITextField? = nil
+    var memeIndex : Int?
     
 }
 
