@@ -79,7 +79,7 @@ class MemeEditorViewController: UIViewController,
     override func viewDidDisappear(animated: Bool) {
         unsubscribeFromKeyboardNotifications()
     }
-    
+        
     ///////////////////////////////////////////////////////////////////////////////////
     //
     // UIImagePickerControllerDelegate overrides
@@ -134,6 +134,11 @@ class MemeEditorViewController: UIViewController,
         return true;
     }
     
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        // dismiss the keyboard when the enter key is pressed
+        textField.resignFirstResponder()
+        return false
+    }
     
     ///////////////////////////////////////////////////////////////////////////////////
     //
@@ -179,6 +184,10 @@ class MemeEditorViewController: UIViewController,
         }
         
         self.presentViewController(activityVC, animated: true, completion: nil)
+    }
+    
+    @IBAction func tapGesture(sender: AnyObject) {
+        self.view.endEditing(true)
     }
     
     ///////////////////////////////////////////////////////////////////////////////////

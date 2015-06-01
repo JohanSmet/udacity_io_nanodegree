@@ -125,12 +125,16 @@
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="WTq-Vn-57x" secondAttribute="trailing" constant="-16" id="bEP-L8-lwt"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="WTq-Vn-57x" secondAttribute="bottom" id="e6p-1u-ZMj"/>
                             <constraint firstItem="WTq-Vn-57x" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="mYF-Pg-0si"/>
                             <constraint firstItem="WTq-Vn-57x" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="u7d-C3-sRv"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="EmZ-Gi-gok" appends="YES" id="9Xz-ZG-xGV"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="bottomText" destination="pzZ-iF-auG" id="qKl-Zj-lsl"/>
@@ -143,6 +147,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="EmZ-Gi-gok">
+                    <connections>
+                        <action selector="tapGesture:" destination="vXZ-lx-hvc" id="dnd-23-mZn"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2118" y="1177"/>
         </scene>
