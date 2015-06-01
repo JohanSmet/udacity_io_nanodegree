@@ -21,9 +21,17 @@ class SentMemesViewController: UITabBarController {
         
         // navigation bar items
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "editNewMeme")
+    }
+
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         
         // show the editor if no memes are present in the model
-        editNewMeme()
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        if appDelegate.memes.isEmpty {
+            editNewMeme()
+        }
     }
     
     ///////////////////////////////////////////////////////////////////////////////////
