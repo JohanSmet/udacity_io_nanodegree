@@ -161,7 +161,7 @@ class MemeEditorViewController: UIViewController,
     }
     
     @IBAction func cancelEditor(sender: AnyObject) {
-        self.dismissViewControllerAnimated(false, completion: nil)
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     @IBAction func shareMeme(sender: AnyObject) {
