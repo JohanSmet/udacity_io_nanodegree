@@ -222,11 +222,18 @@ class MemeEditorViewController: UIViewController,
     }
     
     private func saveMeme(memedImage : UIImage) {
+
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        if let memeIndex = self.memeIndex {
+            // remove the original meme
+            var meme = appDelegate.memes.removeAtIndex(memeIndex)
+        }
+        
         // create the meme
         var meme = Meme(topText: topText.text!, bottomText: bottomText.text!, image: memeImage.image!, memedImage: memedImage)
         
         // add it to the shared model
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.memes.append(meme)
     }
     

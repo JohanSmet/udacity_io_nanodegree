@@ -38,10 +38,11 @@ class MemeDetailViewController: UIViewController {
         let buttonEdit = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Edit, target: self, action: "editMeme")
         let buttonDelete = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Trash, target: self, action: "deleteMeme")
         self.navigationItem.setRightBarButtonItems([buttonDelete, buttonEdit], animated: true)
-        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
         // load the image
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        
         imageView.image = appDelegate.memes[memeIndex!].memedImage
     }
     
@@ -59,7 +60,8 @@ class MemeDetailViewController: UIViewController {
     //
 
     func editMeme() {
-         self.performSegueWithIdentifier("memeEditorSegue", sender: self)
+        // meme to be edited is passed in prepareForSegue
+        self.performSegueWithIdentifier("memeEditorSegue", sender: self)
     }
     
     func deleteMeme() {
