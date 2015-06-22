@@ -19,10 +19,10 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UdacityLogo" translatesAutoresizingMaskIntoConstraints="NO" id="yJ6-cY-xk7">
-                                <rect key="frame" x="253" y="47" width="95" height="99"/>
+                                <rect key="frame" x="253" y="57" width="95" height="99"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Abj-6o-Umc" userLabel="LoginContainer">
-                                <rect key="frame" x="16" y="170" width="568" height="260"/>
+                                <rect key="frame" x="16" y="180" width="568" height="240"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login to Udacity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4mv-aq-uax">
                                         <rect key="frame" x="205" y="20" width="159" height="27"/>
@@ -56,7 +56,7 @@
                                                 <rect key="frame" x="8" y="7" width="552" height="28"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                         </subviews>
                                         <color key="backgroundColor" red="0.93725496529999996" green="0.83529418710000003" blue="0.73725491759999995" alpha="1" colorSpace="deviceRGB"/>
@@ -103,23 +103,34 @@
                                     <constraint firstItem="QZJ-aQ-eNu" firstAttribute="top" secondItem="mhN-4e-Y9d" secondAttribute="bottom" constant="6" id="XMF-o0-DEg"/>
                                     <constraint firstAttribute="centerX" secondItem="QZJ-aQ-eNu" secondAttribute="centerX" id="eAJ-pp-6ZL"/>
                                     <constraint firstAttribute="centerX" secondItem="4mv-aq-uax" secondAttribute="centerX" constant="-0.5" id="qwC-3I-PRQ"/>
-                                    <constraint firstAttribute="height" constant="260" id="rG9-zQ-DLB"/>
+                                    <constraint firstAttribute="height" constant="240" id="rG9-zQ-DLB"/>
                                     <constraint firstAttribute="centerX" secondItem="mhN-4e-Y9d" secondAttribute="centerX" id="uAk-qx-ouR"/>
                                     <constraint firstItem="gqX-Ge-mkl" firstAttribute="top" secondItem="QZJ-aQ-eNu" secondAttribute="bottom" constant="15" id="xQk-B7-1LM"/>
                                     <constraint firstAttribute="width" secondItem="QZJ-aQ-eNu" secondAttribute="width" id="y03-Gz-7k5"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error Message" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="Tja-IZ-wp4">
+                                <rect key="frame" x="24" y="436" width="552" height="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Abj-6o-Umc" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="0aw-FG-e4k"/>
                             <constraint firstItem="Abj-6o-Umc" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="BZZ-iy-463"/>
+                            <constraint firstItem="Tja-IZ-wp4" firstAttribute="top" secondItem="Abj-6o-Umc" secondAttribute="bottom" constant="16" id="BnG-hK-S6I"/>
+                            <constraint firstItem="Tja-IZ-wp4" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="8" id="QWl-Wc-0LH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Tja-IZ-wp4" secondAttribute="trailing" constant="8" id="U4L-Gj-4Al"/>
                             <constraint firstAttribute="centerX" secondItem="yJ6-cY-xk7" secondAttribute="centerX" constant="-0.5" id="ePT-OB-Mjh"/>
                             <constraint firstItem="Abj-6o-Umc" firstAttribute="top" secondItem="yJ6-cY-xk7" secondAttribute="bottom" constant="24" id="gFo-JO-frL"/>
                             <constraint firstAttribute="centerY" secondItem="Abj-6o-Umc" secondAttribute="centerY" constant="0.5" id="mgg-Xx-XgG"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="buttonLogin" destination="QZJ-aQ-eNu" id="IjI-rM-WC6"/>
+                        <outlet property="labelError" destination="Tja-IZ-wp4" id="c1o-YF-gyx"/>
                         <outlet property="textEmail" destination="9J5-AR-lvY" id="tNA-Ia-dfm"/>
                         <outlet property="textPassword" destination="a7O-jK-b1u" id="AZa-Jz-VZH"/>
                         <segue destination="RZD-41-Ij2" kind="presentation" identifier="segueLoginToMain" id="qBW-Iv-lHc"/>
