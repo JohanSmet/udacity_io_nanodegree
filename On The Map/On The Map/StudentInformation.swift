@@ -21,8 +21,8 @@ struct StudentInformation {
     var lastName    : String
     var mapString   : String
     var mediaURL    : String
-    var latitude    : Float
-    var longitude   : Float
+    var latitude    : Double
+    var longitude   : Double
     
     ///////////////////////////////////////////////////////////////////////////////////
     //
@@ -30,7 +30,7 @@ struct StudentInformation {
     //
     
     init(objectId : String, uniqueKey : String, firstName : String, lastName : String,
-         mapString : String, mediaURL : String, latitude : Float, longitude : Float) {
+         mapString : String, mediaURL : String, latitude : Double, longitude : Double) {
         self.objectId   = objectId
         self.uniqueKey  = uniqueKey
         self.firstName  = firstName
@@ -41,15 +41,15 @@ struct StudentInformation {
         self.longitude  = longitude
     }
     
-    init(values : [ String : String]) {
-        self.objectId   = values["objectId"]!
-        self.uniqueKey  = values["uniqueKey"]!
-        self.firstName  = values["firstName"]!
-        self.lastName   = values["lastName"]!
-        self.mapString  = values["mapString"]!
-        self.mediaURL   = values["mediaURL"]!
-        self.latitude   = (values["latitude"]! as NSString).floatValue
-        self.longitude  = (values["longitude"]! as NSString).floatValue
+    init(values : [ String : AnyObject]) {
+        self.objectId   = values["objectId"]! as! String
+        self.uniqueKey  = values["uniqueKey"]! as! String
+        self.firstName  = values["firstName"]! as! String
+        self.lastName   = values["lastName"]! as! String
+        self.mapString  = values["mapString"]! as! String
+        self.mediaURL   = values["mediaURL"]! as! String
+        self.latitude   = values["latitude"]! as! Double
+        self.longitude  = values["longitude"]! as! Double
     }
     
 }

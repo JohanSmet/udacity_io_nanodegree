@@ -22,13 +22,13 @@ class DataContext {
     // student manipulation
     //
     
-    func addStudents(studentList : [[String : String]]) {
+    func addStudents(studentList : [AnyObject]) {
         for student in studentList {
-            addStudent(student)
+            addStudent(student as! [String : AnyObject])
         }
     }
     
-    func addStudent(student : [String : String]) {
+    func addStudent(student : [String : AnyObject]) {
         studentLocations.append(StudentInformation(values: student))
     }
     

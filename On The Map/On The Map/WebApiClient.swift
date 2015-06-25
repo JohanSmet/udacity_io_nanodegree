@@ -31,16 +31,25 @@ class WebApiClient {
     
     ///////////////////////////////////////////////////////////////////////////////////
     //
-    // wrapper for GET-request
+    // wrappers for GET-request
     //
     
     func startTaskGET(serverURL: String, method: String, parameters : [String : AnyObject], completionHandler: (result: AnyObject!, error: AnyObject?) -> Void) -> NSURLSessionDataTask? {
+        return startTaskGET(serverURL, method: method, parameters: parameters, extraHeaders: [:], completionHandler: completionHandler)
+    }
+    
+    func startTaskGET(serverURL: String, method: String, parameters : [String : AnyObject], extraHeaders : [String : String],
+                      completionHandler: (result: AnyObject!, error: AnyObject?) -> Void) -> NSURLSessionDataTask? {
         
         // build the url
         let url = NSURL(string: serverURL + method + WebApiClient.formatURLParameters(parameters))!
         
         // configure the request
-        let request = NSURLRequest(URL: url)
+        let request = NSMutableURLRequest(URL: url)
+                        
+        for (hKey, hValue) in extraHeaders {
+            request.addValue(hValue, forHTTPHeaderField: hKey)
+        }
         
         // submit the request
         let task = urlSession.dataTaskWithRequest(request) { data, response, urlError in
@@ -76,8 +85,14 @@ class WebApiClient {
     //
     // wrapper for POST-request
     //
+    
+    func startTaskPOST(serverURL: String, method: String, parameters : [String : AnyObject], jsonBody: AnyObject,
+                       completionHandler: (result: AnyObject!, error: AnyObject?) -> Void) -> NSURLSessionDataTask? {
+        return startTaskPOST(serverURL, method: method, parameters: parameters, extraHeaders: [:], jsonBody: jsonBody, completionHandler: completionHandler)
+    }
 
-    func startTaskPOST(serverURL: String, method: String, parameters : [String : AnyObject], jsonBody: AnyObject, completionHandler: (result: AnyObject!, error: AnyObject?) -> Void) -> NSURLSessionDataTask? {
+    func startTaskPOST(serverURL: String, method: String, parameters : [String : AnyObject], extraHeaders: [String : String], jsonBody: AnyObject,
+                       completionHandler: (result: AnyObject!, error: AnyObject?) -> Void) -> NSURLSessionDataTask? {
         
         // build the url
         let url = NSURL(string: serverURL + method + WebApiClient.formatURLParameters(parameters))!
@@ -127,6 +142,8 @@ class WebApiClient {
         
         return task
     }
+   
+    
     
     ///////////////////////////////////////////////////////////////////////////////////
     //

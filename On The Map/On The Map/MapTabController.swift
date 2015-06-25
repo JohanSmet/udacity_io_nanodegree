@@ -24,6 +24,17 @@ class MapTabController : UIViewController {
     // UIViewController overrides
     //
     
+    override func viewDidLoad() {
+        DataLoader.loadStudentLocations() { error in
+            // XXX make this nicer
+            if let errorMsg = error {
+                var alert = UIAlertController(title: "Alert", message: errorMsg, preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
+            }
+        }
+    }
+    
     ///////////////////////////////////////////////////////////////////////////////////
     //
     // actions
