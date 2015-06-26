@@ -13,6 +13,7 @@
 		0407FD361B30C1B000E1FE41 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0407FD351B30C1B000E1FE41 /* Constants.swift */; };
 		0407FD381B30C2F700E1FE41 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0407FD371B30C2F700E1FE41 /* MainController.swift */; };
 		0409B4E71B34B71A00EA54FF /* WebApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0409B4E61B34B71A00EA54FF /* WebApiClient.swift */; };
+		041401641B3DE7030037042B /* TableTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041401631B3DE7030037042B /* TableTabController.swift */; };
 		041CABAD1B39F25500667C4B /* MapTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041CABAC1B39F25500667C4B /* MapTabController.swift */; };
 		041CABB01B39F5E000667C4B /* StudentInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041CABAF1B39F5E000667C4B /* StudentInformation.swift */; };
 		041CABB21B39F9B600667C4B /* DataContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041CABB11B39F9B600667C4B /* DataContext.swift */; };
@@ -42,6 +43,7 @@
 		0407FD351B30C1B000E1FE41 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0407FD371B30C2F700E1FE41 /* MainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		0409B4E61B34B71A00EA54FF /* WebApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebApiClient.swift; sourceTree = "<group>"; };
+		041401631B3DE7030037042B /* TableTabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableTabController.swift; sourceTree = "<group>"; };
 		041CABAC1B39F25500667C4B /* MapTabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapTabController.swift; sourceTree = "<group>"; };
 		041CABAF1B39F5E000667C4B /* StudentInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentInformation.swift; sourceTree = "<group>"; };
 		041CABB11B39F9B600667C4B /* DataContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataContext.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				0407FD321B30C05D00E1FE41 /* LoginController.swift */,
 				0407FD371B30C2F700E1FE41 /* MainController.swift */,
 				041CABAC1B39F25500667C4B /* MapTabController.swift */,
+				041401631B3DE7030037042B /* TableTabController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				041D51391B2B778E00DA7C08 /* AppDelegate.swift in Sources */,
 				0407FD331B30C05D00E1FE41 /* LoginController.swift in Sources */,
 				041CABB41B39FBCF00667C4B /* UdacityParseClient.swift in Sources */,
+				041401641B3DE7030037042B /* TableTabController.swift in Sources */,
 				04FE9C961B371E48007A47F1 /* UdacityApiClient.swift in Sources */,
 				041CABB01B39F5E000667C4B /* StudentInformation.swift in Sources */,
 				0406DEBF1B3B4A0A00A973F4 /* DataLoader.swift in Sources */,
