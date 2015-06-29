@@ -51,5 +51,13 @@ struct StudentInformation {
         self.latitude   = values["latitude"]! as! Double
         self.longitude  = values["longitude"]! as! Double
     }
+ 
+    ///////////////////////////////////////////////////////////////////////////////////
+    //
+    // public interface
+    //
     
+    func fullName() -> String {
+        return self.firstName + " " + self.lastName
+    }
 }

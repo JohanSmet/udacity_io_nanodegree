@@ -43,14 +43,19 @@ class TableTabController :  UIViewController,
         
         // set the cell data
         let student = DataContext.instance().studentLocations[indexPath.row]
-        cell.textLabel?.text = student.firstName + " " + student.lastName;
+        cell.textLabel?.text = student.fullName()
         
         return cell
     }
 
     ///////////////////////////////////////////////////////////////////////////////////
     //
-    // actions
+    // UITableViewDelegate overrides
     //
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let student = DataContext.instance().studentLocations[indexPath.row]
+        UIApplication.sharedApplication().openURL(NSURL(string: student.mediaURL)!)
+    }
     
 }
