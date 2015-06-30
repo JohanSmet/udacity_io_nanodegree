@@ -192,13 +192,13 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0KS-iC-9mK" userLabel="LocationContainer">
                                 <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your location" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hdw-PU-LcU">
-                                        <rect key="frame" x="1" y="117" width="600" height="348"/>
-                                        <color key="backgroundColor" red="0.31764705882352939" green="0.53725490196078429" blue="0.70588235294117641" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4qV-Gv-752">
+                                        <rect key="frame" x="0.0" y="124" width="600" height="348"/>
+                                        <color key="backgroundColor" red="0.31764705879999999" green="0.53725490200000003" blue="0.70588235290000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JRu-jp-QHS">
                                         <rect key="frame" x="77" y="508" width="450" height="42"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -269,24 +269,43 @@ Cg
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="centerX" secondItem="hdw-PU-LcU" secondAttribute="centerX" constant="-0.5" id="7pH-ex-894"/>
                                     <constraint firstAttribute="bottom" secondItem="JRu-jp-QHS" secondAttribute="bottom" constant="30" id="8dC-4z-z5e"/>
+                                    <constraint firstItem="4qV-Gv-752" firstAttribute="leading" secondItem="0KS-iC-9mK" secondAttribute="leading" id="CCF-JN-kwA"/>
                                     <constraint firstAttribute="centerX" secondItem="bxg-BR-s9P" secondAttribute="centerX" id="DkV-RW-jmu"/>
-                                    <constraint firstAttribute="centerY" secondItem="hdw-PU-LcU" secondAttribute="centerY" constant="-0.5" id="GPB-ZS-KqT"/>
-                                    <constraint firstAttribute="width" secondItem="hdw-PU-LcU" secondAttribute="width" id="GQU-ce-jh7"/>
                                     <constraint firstAttribute="width" secondItem="JRu-jp-QHS" secondAttribute="width" multiplier="1.33333" id="Kf8-ja-fZE"/>
                                     <constraint firstItem="bxg-BR-s9P" firstAttribute="top" secondItem="0KS-iC-9mK" secondAttribute="top" id="MQj-qz-Qgm"/>
-                                    <constraint firstAttribute="height" secondItem="hdw-PU-LcU" secondAttribute="height" multiplier="1.66667" id="Vwi-Z3-FMS"/>
+                                    <constraint firstItem="4qV-Gv-752" firstAttribute="top" secondItem="bxg-BR-s9P" secondAttribute="bottom" constant="8" id="Pz6-lr-FcN"/>
                                     <constraint firstAttribute="height" secondItem="bxg-BR-s9P" secondAttribute="height" multiplier="5" id="Yw9-PG-9MV"/>
+                                    <constraint firstItem="JRu-jp-QHS" firstAttribute="top" secondItem="4qV-Gv-752" secondAttribute="bottom" constant="36" id="bhh-X0-xFF"/>
                                     <constraint firstItem="j0B-fJ-bVP" firstAttribute="top" secondItem="0KS-iC-9mK" secondAttribute="top" id="ekR-W9-Ub8"/>
                                     <constraint firstAttribute="centerX" secondItem="JRu-jp-QHS" secondAttribute="centerX" constant="-1.5" id="fup-Gx-lFY"/>
                                     <constraint firstAttribute="trailing" secondItem="j0B-fJ-bVP" secondAttribute="trailing" constant="16" id="kVc-kp-cl1"/>
                                     <constraint firstAttribute="width" secondItem="bxg-BR-s9P" secondAttribute="width" id="r1I-Ds-rgG"/>
+                                    <constraint firstAttribute="trailing" secondItem="4qV-Gv-752" secondAttribute="trailing" id="u4l-Ni-pC7"/>
                                 </constraints>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GrZ-n0-ZvP" userLabel="LinkContainer">
                                 <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                                 <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nwf-OF-WNB">
+                                        <rect key="frame" x="536" y="0.0" width="48" height="30"/>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" red="0.87843137250000003" green="0.87843137250000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cancelPostFromLink:" destination="YpE-dJ-0m1" eventType="touchUpInside" id="PFJ-07-0ly"/>
+                                        </connections>
+                                    </button>
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="m69-mU-WKT">
+                                        <rect key="frame" x="0.0" y="160" width="600" height="420"/>
+                                    </mapView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Ajp-y9-ghf">
+                                        <rect key="frame" x="8" y="30" width="584" height="116"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oir-jB-mmQ">
                                         <rect key="frame" x="239" y="514" width="123" height="30"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -303,33 +322,21 @@ Cg
                                             <action selector="submitLocation:" destination="YpE-dJ-0m1" eventType="touchUpInside" id="TJu-2f-Wll"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nwf-OF-WNB">
-                                        <rect key="frame" x="536" y="0.0" width="48" height="30"/>
-                                        <state key="normal" title="Cancel">
-                                            <color key="titleColor" red="0.87843137250000003" green="0.87843137250000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="cancelPostFromLink:" destination="YpE-dJ-0m1" eventType="touchUpInside" id="PFJ-07-0ly"/>
-                                        </connections>
-                                    </button>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your link" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="90R-aT-H7S">
-                                        <rect key="frame" x="8" y="34" width="584" height="116"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
                                 </subviews>
                                 <color key="backgroundColor" red="0.31764705879999999" green="0.53725490200000003" blue="0.70588235290000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" secondItem="90R-aT-H7S" secondAttribute="height" multiplier="5" id="0l1-hq-C9W"/>
-                                    <constraint firstAttribute="trailing" secondItem="90R-aT-H7S" secondAttribute="trailing" constant="8" id="2DF-NB-hUC"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ajp-y9-ghf" secondAttribute="trailing" constant="8" id="0fu-KS-inF"/>
+                                    <constraint firstItem="m69-mU-WKT" firstAttribute="top" secondItem="Ajp-y9-ghf" secondAttribute="bottom" constant="14" id="8ds-qx-VrB"/>
                                     <constraint firstItem="nwf-OF-WNB" firstAttribute="top" secondItem="GrZ-n0-ZvP" secondAttribute="top" id="B0Z-I4-ySU"/>
                                     <constraint firstAttribute="centerX" secondItem="oir-jB-mmQ" secondAttribute="centerX" constant="-0.5" id="GTg-Og-0pN"/>
-                                    <constraint firstItem="90R-aT-H7S" firstAttribute="leading" secondItem="GrZ-n0-ZvP" secondAttribute="leading" constant="8" id="QIR-Qk-vaq"/>
-                                    <constraint firstItem="90R-aT-H7S" firstAttribute="top" secondItem="nwf-OF-WNB" secondAttribute="bottom" constant="4" id="XRV-d5-cbJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="m69-mU-WKT" secondAttribute="trailing" id="JnR-X7-JNH"/>
                                     <constraint firstAttribute="bottom" secondItem="oir-jB-mmQ" secondAttribute="bottom" constant="36" id="YXN-pt-PwO"/>
+                                    <constraint firstAttribute="height" secondItem="Ajp-y9-ghf" secondAttribute="height" multiplier="5" id="mN6-tH-Ivm"/>
+                                    <constraint firstItem="Ajp-y9-ghf" firstAttribute="leading" secondItem="GrZ-n0-ZvP" secondAttribute="leading" constant="8" id="rjQ-xc-wnU"/>
+                                    <constraint firstItem="Ajp-y9-ghf" firstAttribute="top" secondItem="GrZ-n0-ZvP" secondAttribute="top" constant="30" id="sgT-GB-V98"/>
                                     <constraint firstAttribute="trailing" secondItem="nwf-OF-WNB" secondAttribute="trailing" constant="16" id="ugC-0S-609"/>
+                                    <constraint firstItem="m69-mU-WKT" firstAttribute="leading" secondItem="GrZ-n0-ZvP" secondAttribute="leading" id="wKX-UU-c5S"/>
+                                    <constraint firstAttribute="bottom" secondItem="m69-mU-WKT" secondAttribute="bottom" id="zdt-Ca-GSE"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -347,8 +354,13 @@ Cg
                     </view>
                     <navigationItem key="navigationItem" id="mTW-qr-xlL"/>
                     <connections>
+                        <outlet property="buttonFindOnMap" destination="JRu-jp-QHS" id="OGA-wg-hg6"/>
+                        <outlet property="buttonSubmit" destination="oir-jB-mmQ" id="U2c-Ds-Mei"/>
                         <outlet property="containerLink" destination="GrZ-n0-ZvP" id="j2f-Mi-Teg"/>
                         <outlet property="containerLocation" destination="0KS-iC-9mK" id="1gy-by-ehu"/>
+                        <outlet property="linkText" destination="Ajp-y9-ghf" id="BkJ-tm-nEC"/>
+                        <outlet property="locationText" destination="4qV-Gv-752" id="TMb-Qk-9nA"/>
+                        <outlet property="mapView" destination="m69-mU-WKT" id="Heh-F1-4Hq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gou-3c-mjr" userLabel="First Responder" sceneMemberID="firstResponder"/>
