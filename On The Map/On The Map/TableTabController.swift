@@ -11,6 +11,7 @@ import UIKit
 import MapKit
 
 class TableTabController :  UIViewController,
+                            AppDataTab,
                             UITableViewDelegate, UITableViewDataSource {
     
     ///////////////////////////////////////////////////////////////////////////////////
@@ -26,6 +27,15 @@ class TableTabController :  UIViewController,
     //
     
     override func viewDidLoad() {
+    }
+    
+    ///////////////////////////////////////////////////////////////////////////////////
+    //
+    // AppDataTab overrides
+    //
+    
+    func refreshData() {
+        studentTable.reloadData()
     }
     
     ///////////////////////////////////////////////////////////////////////////////////

@@ -34,6 +34,7 @@ class StudentAnnotation : NSObject, MKAnnotation {
 }
 
 class MapTabController : UIViewController,
+                         AppDataTab,
                          MKMapViewDelegate {
     
     var studentAnnotations : [StudentAnnotation]! = []
@@ -54,16 +55,16 @@ class MapTabController : UIViewController,
         
         mapView.delegate = self
         
-        DataLoader.loadStudentLocations() { error in
-            // XXX make this nicer
-            if let errorMsg = error {
-                var alert = UIAlertController(title: "Alert", message: errorMsg, preferredStyle: UIAlertControllerStyle.Alert)
-                alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.Default, handler: nil))
-                self.presentViewController(alert, animated: true, completion: nil)
-            } else {
-                self.refreshPins()
-            }
-        }
+       
+    }
+    
+    ///////////////////////////////////////////////////////////////////////////////////
+    //
+    // AppDataTab overrides
+    //
+    
+    func refreshData() {
+        self.refreshPins()
     }
     
     ///////////////////////////////////////////////////////////////////////////////////

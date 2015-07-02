@@ -9,6 +9,10 @@
 import UIKit
 import Foundation
 
+protocol AppDataTab {
+    func refreshData()
+}
+
 class MainController: UITabBarController {
     
     ///////////////////////////////////////////////////////////////////////////////////
@@ -31,7 +35,9 @@ class MainController: UITabBarController {
         let buttonRefresh = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Refresh, target: self, action: "refreshData")
         let buttonPost = UIBarButtonItem(title: "Pin", style: UIBarButtonItemStyle.Plain, target: self, action: "postPin")
         self.navigationItem.setRightBarButtonItems([buttonRefresh, buttonPost], animated: true)
-
+        
+        // start loading the data of the application
+        refreshData()
     }
     
     ///////////////////////////////////////////////////////////////////////////////////
@@ -40,6 +46,20 @@ class MainController: UITabBarController {
     //
     
     func refreshData() {
+        
+        DataLoader.loadData() { error in
+            // XXX make this nicer
+            if let errorMsg = error {
+                var alert = UIAlertController(title: "Alert", message: errorMsg, preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
+            } else {
+                // refresh the active tab
+                if let tab = self.selectedViewController as? AppDataTab {
+                    tab.refreshData()
+                }
+            }
+        }
         
     }
     
