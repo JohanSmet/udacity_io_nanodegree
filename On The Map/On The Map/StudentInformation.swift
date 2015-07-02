@@ -29,6 +29,17 @@ struct StudentInformation {
     // initializers
     //
     
+    init (uniqueKey : String, firstName : String, lastName : String) {
+        self.objectId   = ""
+        self.uniqueKey  = uniqueKey
+        self.firstName  = firstName
+        self.lastName   = lastName
+        self.mapString  = ""
+        self.mediaURL   = ""
+        self.latitude   = 0
+        self.longitude  = 0
+    }
+    
     init(objectId : String, uniqueKey : String, firstName : String, lastName : String,
          mapString : String, mediaURL : String, latitude : Double, longitude : Double) {
         self.objectId   = objectId

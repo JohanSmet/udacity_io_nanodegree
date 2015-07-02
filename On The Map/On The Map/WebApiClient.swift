@@ -63,7 +63,7 @@ class WebApiClient {
             // check for HTTP errors
             if let httpResponse = response as? NSHTTPURLResponse {
                 
-                if httpResponse.statusCode != 200 {
+                if WebApiClient.httpStatusIsError(httpResponse.statusCode) {
                     completionHandler(result: nil, error: httpResponse)
                     return
                 }
@@ -112,6 +112,10 @@ class WebApiClient {
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.HTTPBody = body
+                        
+        for (hKey, hValue) in extraHeaders {
+            request.addValue(hValue, forHTTPHeaderField: hKey)
+        }
         
         // submit the request
         let task = urlSession.dataTaskWithRequest(request) { data, response, urlError in
@@ -124,8 +128,7 @@ class WebApiClient {
             
             // check for HTTP errors
             if let httpResponse = response as? NSHTTPURLResponse {
-                
-                if httpResponse.statusCode != 200 {
+                if WebApiClient.httpStatusIsError(httpResponse.statusCode) {
                     completionHandler(result: nil, error: httpResponse)
                     return
                 }
@@ -143,6 +146,67 @@ class WebApiClient {
         return task
     }
    
+    ///////////////////////////////////////////////////////////////////////////////////
+    //
+    // generic HTTP-request
+    //
+    
+    func startTaskHTTP(httpMethod : String, serverURL: String, apiMethod: String, parameters : [String : AnyObject], extraHeaders: [String : String], jsonBody: AnyObject?,
+        completionHandler: (result: AnyObject!, error: AnyObject?) -> Void) -> NSURLSessionDataTask? {
+            
+            // build the url
+            let url = NSURL(string: serverURL + apiMethod + WebApiClient.formatURLParameters(parameters))!
+            
+            // configure the request
+            let request = NSMutableURLRequest(URL: url)
+            request.HTTPMethod = httpMethod
+           
+            // headers
+            request.addValue("application/json", forHTTPHeaderField: "Accept")
+            
+            for (hKey, hValue) in extraHeaders {
+                request.addValue(hValue, forHTTPHeaderField: hKey)
+            }
+            
+            // optional body
+            if let jsonBody: AnyObject = jsonBody {
+                var jsonError : NSError? = nil
+                request.HTTPBody = NSJSONSerialization.dataWithJSONObject(jsonBody, options: NSJSONWritingOptions.PrettyPrinted, error: &jsonError)
+            
+                if let error = jsonError {
+                    completionHandler(result: nil, error: "Internal error : invalid jsonBody (error: \(error))")
+                    return nil                              // exit !!!
+                }
+            }
+            
+            // submit the request
+            let task = urlSession.dataTaskWithRequest(request) { data, response, urlError in
+                
+                // check for basic connectivity errors
+                if let error = urlError {
+                    completionHandler(result: nil, error: error)
+                    return
+                }
+                
+                // check for HTTP errors
+                if let httpResponse = response as? NSHTTPURLResponse {
+                    if WebApiClient.httpStatusIsError(httpResponse.statusCode) {
+                        completionHandler(result: nil, error: httpResponse)
+                        return
+                    }
+                }
+                
+                // parse the JSON
+                var parseError : NSError? = nil
+                let parseResult: AnyObject! = WebApiClient.parseJSON(data.subdataWithRange(NSMakeRange(self.dataOffset, data.length - self.dataOffset)), errorPtr: &parseError)
+                completionHandler(result: parseResult, error: parseError)
+            }
+            
+            // submit the request to the server
+            task.resume()
+            
+            return task
+    }
     
     
     ///////////////////////////////////////////////////////////////////////////////////
@@ -174,6 +238,12 @@ class WebApiClient {
     private class func parseJSON(data : NSData, errorPtr : NSErrorPointer) -> AnyObject! {
         let parsedResult : AnyObject? = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments, error: errorPtr)
         return parsedResult
+    }
+    
+    private class func httpStatusIsError(statusCode : Int) -> Bool {
+        
+        return statusCode >= 400
+        
     }
     
 }

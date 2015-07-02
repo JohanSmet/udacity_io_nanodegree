@@ -45,12 +45,19 @@ class InformationPostingController: UIViewController {
         // UI tweaks
         buttonSubmit.layer.cornerRadius = 5
         buttonFindOnMap.layer.cornerRadius = 5
+        
+        // show the information previously entered by the user
+        if let userLocation = DataContext.instance().userLocation {
+            locationText.text = userLocation.mapString
+            linkText.text = userLocation.mediaURL
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
         // make sure to show the correct view
         containerLocation.hidden = false
         containerLink.hidden = true
+        
     }
     
     ///////////////////////////////////////////////////////////////////////////////////
@@ -102,9 +109,34 @@ class InformationPostingController: UIViewController {
             alert("You must enter a link before you can continue!", title: "Attention")
             return
         }
+        
+        // build a studentinformation object
+        var studentInformation : StudentInformation
+        
+        if let userLocation = DataContext.instance().userLocation {
+            studentInformation = userLocation
+        } else {
+            let user = DataContext.instance().user!
+            studentInformation = StudentInformation(uniqueKey: user.userId, firstName: user.firstName, lastName: user.lastName)
+            DataContext.instance().userLocation = studentInformation
+        }
+        
+       studentInformation.mapString = locationText.text
+       studentInformation.mediaURL  = linkText.text
+       studentInformation.latitude  = locationCoordinate!.latitude
+       studentInformation.longitude = locationCoordinate!.longitude
        
         // submit the information to udacity
-        
+        UdacityParseClient.instance().postStudentLocation(studentInformation) { objectId, error in
+            if let error = error {
+                self.alert(error, title: "Attention")
+                return
+            }
+           
+            if let objectId = objectId {
+                DataContext.instance().userLocation!.objectId = objectId
+            }
+        }
     }
     
     ///////////////////////////////////////////////////////////////////////////////////

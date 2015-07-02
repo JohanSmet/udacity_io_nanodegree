@@ -77,14 +77,16 @@ class UdacityParseClient : WebApiClient {
         ]
         
         // this function can be used to create an new (no objectId present) or update an existing (objectId present) entity
-        var method = "StudentLocation"
+        var apiMethod  = "StudentLocation"
+        var httpMethod = "POST"
         
         if !studentLocation.objectId.isEmpty {
-            method += "/" + studentLocation.objectId
+            apiMethod += "/" + studentLocation.objectId
+            httpMethod = "PUT"
         }
         
         // make request
-        startTaskPOST(UdacityParseClient.BASE_URL, method: method, parameters: [:], extraHeaders: extraHeaders, jsonBody: postBody) { result, error in
+        startTaskHTTP(httpMethod, serverURL: UdacityParseClient.BASE_URL, apiMethod: apiMethod, parameters: [:], extraHeaders: extraHeaders, jsonBody: postBody) { result, error in
             if let basicError = error as? NSError {
                 completionHandler(objectId: nil, error: UdacityParseClient.formatBasicError(basicError))
             } else if let httpError = error as? NSHTTPURLResponse {
