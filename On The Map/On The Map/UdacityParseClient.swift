@@ -59,6 +59,75 @@ class UdacityParseClient : WebApiClient {
         }
     }
     
+    func postStudentLocation(studentLocation : StudentInformation, completionHandler : (objectId : String?, error : String?) -> Void) {
+        
+        let extraHeaders : [String : String] = [
+            "X-Parse-Application-Id" : UdacityParseClient.PARSE_APPLICATION_ID,
+            "X-Parse-REST-API-Key"  : UdacityParseClient.REST_API_KEY
+        ]
+        
+        let postBody : [ String : AnyObject] = [
+            "uniqueKey" : studentLocation.uniqueKey,
+            "firstName" : studentLocation.firstName,
+            "lastName"  : studentLocation.lastName,
+            "mapString" : studentLocation.mapString,
+            "mediaURL"  : studentLocation.mediaURL,
+            "latitude"  : studentLocation.latitude,
+            "longitude" : studentLocation.longitude
+        ]
+        
+        // this function can be used to create an new (no objectId present) or update an existing (objectId present) entity
+        var method = "StudentLocation"
+        
+        if !studentLocation.objectId.isEmpty {
+            method += "/" + studentLocation.objectId
+        }
+        
+        // make request
+        startTaskPOST(UdacityParseClient.BASE_URL, method: method, parameters: [:], extraHeaders: extraHeaders, jsonBody: postBody) { result, error in
+            if let basicError = error as? NSError {
+                completionHandler(objectId: nil, error: UdacityParseClient.formatBasicError(basicError))
+            } else if let httpError = error as? NSHTTPURLResponse {
+                completionHandler(objectId: nil, error: UdacityParseClient.formatHttpError(httpError))
+            } else {
+                let postResult = result as! NSDictionary;
+                completionHandler(objectId: postResult["objectId"] as? String, error: nil)
+            }
+        }
+    }
+    
+    func queryStudentLocation(studentId : String, completionHandler : (studentLocation : AnyObject?, error : String?) -> Void)  {
+        
+        let extraHeaders : [String : String] = [
+            "X-Parse-Application-Id" : UdacityParseClient.PARSE_APPLICATION_ID,
+            "X-Parse-REST-API-Key"   : UdacityParseClient.REST_API_KEY
+        ]
+        
+        let parameters : [String : String] = [
+            "where" : "{\"uniqueKey\":\"\(studentId)\"}"
+        ]
+        
+        // make request
+        startTaskGET(UdacityParseClient.BASE_URL, method: "StudentLocation", parameters: parameters, extraHeaders: extraHeaders) { result, error in
+            if let basicError = error as? NSError {
+                completionHandler(studentLocation: nil, error: UdacityParseClient.formatBasicError(basicError))
+            } else if let httpError = error as? NSHTTPURLResponse {
+                completionHandler(studentLocation: nil, error: UdacityParseClient.formatHttpError(httpError))
+            } else {
+                let postResult = result as! NSDictionary;
+                let studentLocations = postResult.valueForKey("results") as! [AnyObject]?
+                
+                if studentLocations?.count > 0 {
+                   completionHandler(studentLocation: studentLocations![0], error: nil)
+                } else {
+                   completionHandler(studentLocation: nil, error: nil)
+                }
+                
+            }
+        }
+        
+    }
+    
     ///////////////////////////////////////////////////////////////////////////////////
     //
     // helper functions

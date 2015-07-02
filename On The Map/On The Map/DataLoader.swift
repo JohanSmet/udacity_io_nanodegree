@@ -62,7 +62,16 @@ class DataLoader {
     }
     
     static func checkLocationCurrentUser(completionHandler : (error : String?) -> Void) {
-        completionHandler(error: nil)
+        // XXX todo: check if the location of the user isn't already loaded in the normal list
+        
+        UdacityParseClient.instance().queryStudentLocation(DataContext.instance().user!.userId) { studentLocation, error in
+            
+            if let studentLocation = studentLocation as? [String : AnyObject] {
+                DataContext.instance().userLocation = StudentInformation(values: studentLocation)
+            }
+            
+            completionHandler(error: error)
+        }
     }
     
     static func runCompletionHandler(error : String?, completionHandlerUI : (error : String?) -> Void) {

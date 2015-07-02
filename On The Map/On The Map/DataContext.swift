@@ -16,7 +16,9 @@ class DataContext {
     //
     
     var studentLocations : [StudentInformation] = []
+    
     var user : User?
+    var userLocation : StudentInformation?
     
     ///////////////////////////////////////////////////////////////////////////////////
     //
