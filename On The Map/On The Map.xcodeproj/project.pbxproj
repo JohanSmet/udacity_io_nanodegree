@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0404F47B1B32143000826619 /* InformationPostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0404F47A1B32143000826619 /* InformationPostingController.swift */; };
+		0405B2961B43387A00035DAB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405B2951B43387A00035DAB /* User.swift */; };
 		0406DEBF1B3B4A0A00A973F4 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0406DEBE1B3B4A0A00A973F4 /* DataLoader.swift */; };
 		0407FD331B30C05D00E1FE41 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0407FD321B30C05D00E1FE41 /* LoginController.swift */; };
 		0407FD361B30C1B000E1FE41 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0407FD351B30C1B000E1FE41 /* Constants.swift */; };
@@ -38,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		0404F47A1B32143000826619 /* InformationPostingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationPostingController.swift; sourceTree = "<group>"; };
+		0405B2951B43387A00035DAB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0406DEBE1B3B4A0A00A973F4 /* DataLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
 		0407FD321B30C05D00E1FE41 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		0407FD351B30C1B000E1FE41 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 			children = (
 				041CABB11B39F9B600667C4B /* DataContext.swift */,
 				041CABAF1B39F5E000667C4B /* StudentInformation.swift */,
+				0405B2951B43387A00035DAB /* User.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 				041D51391B2B778E00DA7C08 /* AppDelegate.swift in Sources */,
 				0407FD331B30C05D00E1FE41 /* LoginController.swift in Sources */,
 				041CABB41B39FBCF00667C4B /* UdacityParseClient.swift in Sources */,
+				0405B2961B43387A00035DAB /* User.swift in Sources */,
 				041401641B3DE7030037042B /* TableTabController.swift in Sources */,
 				04FE9C961B371E48007A47F1 /* UdacityApiClient.swift in Sources */,
 				041CABB01B39F5E000667C4B /* StudentInformation.swift in Sources */,

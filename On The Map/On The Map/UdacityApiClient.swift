@@ -10,7 +10,19 @@ import Foundation
 
 class UdacityApiClient : WebApiClient {
     
+    ///////////////////////////////////////////////////////////////////////////////////
+    //
+    // variables
+    //
     var sessionId : String = ""
+    var userId : String = ""
+    
+    ///////////////////////////////////////////////////////////////////////////////////
+    //
+    // constants
+    //
+    
+    static let BASE_URL : String = "https://www.udacity.com/"
 
     ///////////////////////////////////////////////////////////////////////////////////
     //
@@ -36,7 +48,8 @@ class UdacityApiClient : WebApiClient {
             ]
         ]
         
-        startTaskPOST("https://www.udacity.com/", method: "api/session", parameters: [:], jsonBody: postBody) { result, error in
+        // make the request
+        startTaskPOST(UdacityApiClient.BASE_URL, method: "api/session", parameters: [:], jsonBody: postBody) { result, error in
             
             if let basicError = error as? NSError {
                 completionHandler(error: UdacityApiClient.formatBasicError(basicError))
@@ -45,9 +58,57 @@ class UdacityApiClient : WebApiClient {
             } else {
                 let postResult = result as! NSDictionary
                 
+                // session-id
                 if let session = postResult.valueForKey("session") as? [String : AnyObject] {
                     self.sessionId = session["id"] as! String
-                    completionHandler(error: nil)
+                } else {
+                    completionHandler(error: "session-id missing from response")
+                    return
+                }
+                
+                // user-id
+                if let account = postResult.valueForKey("account") as? [String : AnyObject] {
+                    self.userId = account["key"] as! String
+                } else {
+                    completionHandler(error: "user-key missing from response")
+                    return
+                }
+                
+                completionHandler(error: nil)
+            }
+        }
+    }
+    
+    func getUserData(userId : String, completionHandler: (user : User?, error: String?) -> Void) {
+        
+        // make the request
+        startTaskGET(UdacityApiClient.BASE_URL, method: "api/users/" + userId, parameters: [:]) { result, error in
+            
+            if let basicError = error as? NSError {
+                completionHandler(user: nil, error: UdacityApiClient.formatBasicError(basicError))
+            } else if let httpError = error as? NSHTTPURLResponse {
+                completionHandler(user: nil, error: UdacityApiClient.formatHttpError(httpError))
+            } else {
+                if let userDict = (result as! NSDictionary).valueForKey("user") as? [String : AnyObject] {
+                    
+                    var user : User? = nil
+                    
+                    // parse the result
+                    if let firstName = userDict["first_name"] as? String,
+                       let lastName = userDict["last_name"] as? String {
+                        user = User(userId: userId, firstName: firstName, lastName: lastName)
+                    } else {
+                        completionHandler(user: nil, error: "Required field missing from response")
+                        return
+                    }
+                    
+                    if let linkedIn = userDict["linkedin_url"] as? String {
+                        user?.linkedInUrl = linkedIn
+                    }
+                    
+                    completionHandler(user: user, error: nil)
+                } else {
+                    completionHandler(user: nil, error: "Required field missing from response")
                 }
             }
         }
