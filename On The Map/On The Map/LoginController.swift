@@ -21,8 +21,10 @@ class LoginController: UIViewController,
     @IBOutlet weak var textPassword: UITextField!
     
     @IBOutlet weak var buttonLogin: UIButton!
+    @IBOutlet weak var loginIndicator: UIActivityIndicatorView!
     
     @IBOutlet weak var labelError: UILabel!
+    @IBOutlet weak var containerInput: UIView!
     
     ///////////////////////////////////////////////////////////////////////////////////
     //
@@ -90,6 +92,10 @@ class LoginController: UIViewController,
     // actions
     //
     
+    @IBAction func signupForAccount(sender: AnyObject) {
+        UIApplication.sharedApplication().openURL(NSURL(string: Urls.UDACITY_SIGNUP)!)
+    }
+    
     @IBAction func loginViaUdacity() {
         
         clearLoginError()
@@ -98,7 +104,11 @@ class LoginController: UIViewController,
             return
         }
         
+        uiLoginBegin()
+
         UdacityApiClient.instance().createSession(textEmail.text, password: textPassword.text) { apiError in
+            self.uiLoginEnd()
+            
             if let error = apiError {
                 self.showLoginErrorSync(error)
             } else {
@@ -115,6 +125,20 @@ class LoginController: UIViewController,
     private func initTextField(textField : UITextField) {
         textField.delegate = self
         textField.attributedPlaceholder = NSAttributedString(string: textField.placeholder!, attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
+    }
+    
+    private func uiLoginBegin() {
+        dispatch_async(dispatch_get_main_queue(), {
+            self.loginIndicator.hidden = false
+            self.buttonLogin.enabled = false
+        })
+    }
+    
+    private func uiLoginEnd() {
+        dispatch_async(dispatch_get_main_queue(), {
+            self.loginIndicator.hidden = true
+            self.buttonLogin.enabled = true
+        })
     }
     
     private func validateForm() -> Bool {
@@ -152,7 +176,7 @@ class LoginController: UIViewController,
     private func showLoginErrorSync(errorMessage : String) {
         dispatch_async(dispatch_get_main_queue(), {
             self.showLoginError(errorMessage)
+            animShakeHorizontal(self.containerInput)
         })
     }
-
 }

@@ -21,3 +21,9 @@ struct AssetIcons {
     static let List : String = "IconList"
     static let Map  : String = "IconMap"
 }
+
+struct Urls {
+    
+    static let UDACITY_SIGNUP : String = "https://www.udacity.com/account/auth#!/signin"
+    
+}
