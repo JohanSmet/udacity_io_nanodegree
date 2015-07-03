@@ -33,7 +33,7 @@ class MainController: UITabBarController {
         
         // right navigation bar items
         let buttonRefresh = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Refresh, target: self, action: "refreshData")
-        let buttonPost = UIBarButtonItem(title: "Pin", style: UIBarButtonItemStyle.Plain, target: self, action: "postPin")
+        let buttonPost = UIBarButtonItem(image: UIImage(named: AssetIcons.Pin), style: .Plain, target: self, action: "postPin")
         self.navigationItem.setRightBarButtonItems([buttonRefresh, buttonPost], animated: true)
         
         // start loading the data of the application

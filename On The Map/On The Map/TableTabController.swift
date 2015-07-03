@@ -53,7 +53,8 @@ class TableTabController :  UIViewController,
         
         // set the cell data
         let student = DataContext.instance().studentLocations[indexPath.row]
-        cell.textLabel?.text = student.fullName()
+        cell.textLabel?.text    = student.fullName()
+        cell.imageView?.image   = UIImage(named: AssetIcons.Pin)
         
         return cell
     }
