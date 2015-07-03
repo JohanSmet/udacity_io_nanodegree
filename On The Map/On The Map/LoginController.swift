@@ -9,7 +9,8 @@
 import UIKit
 import Foundation
 
-class LoginController: UIViewController {
+class LoginController: UIViewController,
+                       UITextFieldDelegate {
 
     ///////////////////////////////////////////////////////////////////////////////////
     //
@@ -25,16 +26,63 @@ class LoginController: UIViewController {
     
     ///////////////////////////////////////////////////////////////////////////////////
     //
+    // variables
+    //
+    
+    var keyboardFix : KeyboardFix?
+    
+    ///////////////////////////////////////////////////////////////////////////////////
+    //
     // UIViewController overrides
     //
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        keyboardFix = KeyboardFix(viewController: self)
+        
         // UI tweaks
+        initTextField(textEmail)
+        initTextField(textPassword)
         buttonLogin.layer.cornerRadius = 5
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // handle keyboard properly
+        if let keyboardFix = self.keyboardFix {
+            keyboardFix.activate()
+        }
+        
+        // cleanup UI
         clearLoginError()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        if let keyboardFix = self.keyboardFix {
+            keyboardFix.deactivate()
+        }
+    }
+    
+    ///////////////////////////////////////////////////////////////////////////////////
+    //
+    // UITextFieldDelegate overrides
+    //
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        
+        if textField == textEmail {
+            // e-mail : jump to password field
+            textPassword.becomeFirstResponder()
+            return false
+        }
+        
+        // dismiss the keyboard when the enter key is pressed
+        textField.resignFirstResponder()
+        return false
     }
     
     ///////////////////////////////////////////////////////////////////////////////////
@@ -57,13 +105,17 @@ class LoginController: UIViewController {
                 self.completeLogin()
             }
         }
-        
     }
     
     ///////////////////////////////////////////////////////////////////////////////////
     //
     // utility functions
     //
+    
+    private func initTextField(textField : UITextField) {
+        textField.delegate = self
+        textField.attributedPlaceholder = NSAttributedString(string: textField.placeholder!, attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
+    }
     
     private func validateForm() -> Bool {
         
