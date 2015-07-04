@@ -79,6 +79,25 @@ class UdacityApiClient : WebApiClient {
         }
     }
     
+    func deleteSession(sessionId : String, completionHandler : (error: String?) -> Void) {
+        
+        let extraHeaders : [ String : String] = [
+            "X-XSRF-Token" : sessionId
+        ]
+        
+        // make the request
+        startTaskDELETE(UdacityApiClient.BASE_URL, apiMethod: "api/session", parameters: [:], extraHeaders: extraHeaders) { result, error in
+            if let basicError = error as? NSError {
+                completionHandler(error: UdacityApiClient.formatBasicError(basicError))
+            } else if let httpError = error as? NSHTTPURLResponse {
+                completionHandler(error: UdacityApiClient.formatHttpError(httpError))
+            } else {
+                completionHandler(error: nil)
+            }
+        }
+        
+    }
+    
     func getUserData(userId : String, completionHandler: (user : User?, error: String?) -> Void) {
         
         // make the request

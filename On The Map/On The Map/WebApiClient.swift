@@ -145,6 +145,25 @@ class WebApiClient {
         
         return task
     }
+    
+    ///////////////////////////////////////////////////////////////////////////////////
+    //
+    // wrapper for DELETE-request
+    //
+    
+    func startTaskDELETE(serverURL : String, apiMethod : String, parameters : [String : AnyObject],
+                         completionHandler: (result: AnyObject!, error: AnyObject?) -> Void) -> NSURLSessionDataTask? {
+        return startTaskHTTP("DELETE", serverURL: serverURL, apiMethod: apiMethod,
+                             parameters: parameters, extraHeaders: [:], jsonBody: nil,
+                             completionHandler: completionHandler)
+    }
+    
+    func startTaskDELETE(serverURL : String, apiMethod : String, parameters : [String : AnyObject], extraHeaders: [String : String],
+                         completionHandler: (result: AnyObject!, error: AnyObject?) -> Void) -> NSURLSessionDataTask? {
+        return startTaskHTTP("DELETE", serverURL: serverURL, apiMethod: apiMethod,
+                             parameters: parameters, extraHeaders: extraHeaders, jsonBody: nil,
+                             completionHandler: completionHandler)
+    }
    
     ///////////////////////////////////////////////////////////////////////////////////
     //

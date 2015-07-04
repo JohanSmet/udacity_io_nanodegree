@@ -192,6 +192,7 @@
                         <segue destination="FHV-qR-6Lz" kind="relationship" relationship="viewControllers" id="Rpm-6S-hBu"/>
                         <segue destination="YpE-dJ-0m1" kind="presentation" identifier="sequeInformationPosting" id="Src-vs-uTs"/>
                         <segue destination="6tk-6i-Yyl" kind="relationship" relationship="viewControllers" id="dZ8-fs-F4h"/>
+                        <segue destination="vXZ-lx-hvc" kind="presentation" identifier="segueMainToLogin" id="anr-tp-K7W"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s8U-eV-CYE" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -48,8 +48,8 @@ class MainController: UITabBarController {
     func refreshData() {
         
         DataLoader.loadData() { error in
-            // XXX make this nicer
             if let errorMsg = error {
+                // XXX make this nicer
                 var alert = UIAlertController(title: "Alert", message: errorMsg, preferredStyle: UIAlertControllerStyle.Alert)
                 alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.Default, handler: nil))
                 self.presentViewController(alert, animated: true, completion: nil)
@@ -69,6 +69,18 @@ class MainController: UITabBarController {
     
     func logout() {
         
+        self.view.userInteractionEnabled = false
+        
+        LoginService.logout() { error in
+            if let errorMsg = error {
+                // XXX make this nicer
+                var alert = UIAlertController(title: "Alert", message: errorMsg, preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
+            } else {
+                self.performSegueWithIdentifier(ViewSeques.MainToLogin, sender: self)
+            }
+        }
     }
 
 }

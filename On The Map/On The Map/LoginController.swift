@@ -106,7 +106,7 @@ class LoginController: UIViewController,
         
         uiLoginBegin()
 
-        UdacityApiClient.instance().createSession(textEmail.text, password: textPassword.text) { apiError in
+        LoginService.loginViaUdacity(textEmail.text, password: textPassword.text) { apiError in
             self.uiLoginEnd()
             
             if let error = apiError {
