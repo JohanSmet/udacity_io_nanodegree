@@ -17,6 +17,8 @@ class LoginController: UIViewController,
     // outlets
     //
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     @IBOutlet weak var textEmail: UITextField!
     @IBOutlet weak var textPassword: UITextField!
     
@@ -41,7 +43,7 @@ class LoginController: UIViewController,
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        keyboardFix = KeyboardFix(viewController: self)
+        keyboardFix = KeyboardFix(viewController: self, scrollView: scrollView)
         
         // UI tweaks
         initTextField(textEmail)
@@ -73,6 +75,14 @@ class LoginController: UIViewController,
     //
     // UITextFieldDelegate overrides
     //
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        keyboardFix?.setActiveControl(textField)
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        keyboardFix?.setActiveControl(nil)
+    }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         

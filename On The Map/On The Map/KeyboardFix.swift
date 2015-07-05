@@ -17,20 +17,20 @@ class KeyboardFix : NSObject {
     //
     
     private let viewController : UIViewController
+    private let scrollView     : UIScrollView
     
-    private var keyboardAdjusted : Bool     = false
-    private var keyboardOffset   : CGFloat  = 0
-    
-    private var tapRecognizer    : UITapGestureRecognizer?
+    private var activeControl   : UIView?
+    private var tapRecognizer   : UITapGestureRecognizer?
     
     ///////////////////////////////////////////////////////////////////////////////////
     //
     // initialisers
     //
     
-    init (viewController : UIViewController) {
+    init (viewController : UIViewController, scrollView : UIScrollView) {
         
         self.viewController = viewController
+        self.scrollView     = scrollView
         super.init()
         
     }
@@ -58,6 +58,10 @@ class KeyboardFix : NSObject {
         viewController.view.removeGestureRecognizer(tapRecognizer!)
     }
     
+    func setActiveControl(control : UIView?) {
+        self.activeControl = control
+    }
+    
     ///////////////////////////////////////////////////////////////////////////////////
     //
     // scroll the view when the keyboard (dis)appears
@@ -74,18 +78,32 @@ class KeyboardFix : NSObject {
     }
     
     func keyboardWillShow(notification: NSNotification) {
-        if keyboardAdjusted == false {
-            keyboardOffset = getKeyboardHeight(notification) / 2
-            viewController.view.superview?.frame.origin.y -= keyboardOffset
-            keyboardAdjusted = true
+        
+        // keyboard height
+        let kbHeight = getKeyboardHeight(notification)
+        
+        // update the insets of the scroll view
+        let contentInsets:UIEdgeInsets  = UIEdgeInsetsMake(0.0, 0.0, kbHeight, 0.0)
+        scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets
+        
+        // check if the current control is outside the view or not
+        if let activeControl = self.activeControl {
+            
+            var aRect: CGRect = viewController.view.frame
+            aRect.size.height -= kbHeight
+            
+            if (!CGRectContainsPoint(aRect, activeControl.frame.origin) ) {
+                let scrollPoint:CGPoint = CGPointMake(0.0, activeControl.frame.origin.y - kbHeight)
+                scrollView.setContentOffset(scrollPoint, animated: true)
+            }
         }
     }
     
     func keyboardWillHide(notification: NSNotification) {
-        if keyboardAdjusted == true {
-            viewController.view.superview?.frame.origin.y += keyboardOffset
-            keyboardAdjusted = false
-        }
+        let contentInsets:UIEdgeInsets = UIEdgeInsetsZero
+        scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets
     }
     
     private func getKeyboardHeight(notification : NSNotification) -> CGFloat {
