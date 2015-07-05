@@ -10,23 +10,29 @@ import UIKit
 import Foundation
 import MapKit
 
-class InformationPostingController: UIViewController {
+class InformationPostingController: UIViewController,
+                                    UITextViewDelegate {
     
     ///////////////////////////////////////////////////////////////////////////////////
     //
     // outlets
     //
 
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var containerLocation: UIView!
     @IBOutlet weak var containerLink: UIView!
     
     @IBOutlet weak var mapView: MKMapView!
     
     @IBOutlet weak var locationText: UITextView!
+    @IBOutlet weak var locationPlaceholder: UILabel!
     @IBOutlet weak var linkText: UITextView!
+    @IBOutlet weak var linkPlaceholder: UILabel!
     
     @IBOutlet weak var buttonSubmit: UIButton!
     @IBOutlet weak var buttonFindOnMap: UIButton!
+    
+    @IBOutlet weak var indicatorGeocoding: UIActivityIndicatorView!
     
     ///////////////////////////////////////////////////////////////////////////////////
     //
@@ -34,6 +40,7 @@ class InformationPostingController: UIViewController {
     //
     
     private var locationCoordinate : CLLocationCoordinate2D?
+    private var keyboardFix : KeyboardFix!
     
     ///////////////////////////////////////////////////////////////////////////////////
     //
@@ -41,6 +48,8 @@ class InformationPostingController: UIViewController {
     //
     
     override func viewDidLoad() {
+        
+        super.viewDidLoad()
         
         // UI tweaks
         buttonSubmit.layer.cornerRadius = 5
@@ -51,13 +60,56 @@ class InformationPostingController: UIViewController {
             locationText.text = userLocation.mapString
             linkText.text = userLocation.mediaURL
         }
+        
+        // location-entry
+        locationPlaceholder.hidden = !locationText.text.isEmpty
+        locationText.delegate = self
+        
+        // link-entry
+        linkPlaceholder.hidden = !linkText.text.isEmpty
+        linkText.delegate = self
+        
+        // keyboard handling
+        keyboardFix = KeyboardFix(viewController: self, scrollView: scrollView)
     }
     
     override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
         // make sure to show the correct view
         containerLocation.hidden = false
         containerLink.hidden = true
+        self.view.backgroundColor = containerLocation.backgroundColor
         
+        // keyboard handling
+        keyboardFix.activate()
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        keyboardFix.deactivate()
+    }
+    
+    ///////////////////////////////////////////////////////////////////////////////////
+    //
+    // UITextViewDelegate overrides
+    //
+    
+    func textViewDidChange(textView: UITextView) {
+        if textView == locationText {
+            locationPlaceholder.hidden = !locationText.text.isEmpty
+        } else if textView == linkText {
+            linkPlaceholder.hidden = !linkText.text.isEmpty
+        }
+    }
+    
+    func textViewDidBeginEditing(textView: UITextView) {
+        keyboardFix.setActiveControl(textView)
+    }
+    
+    func textViewDidEndEditing(textView: UITextView) {
+        keyboardFix.setActiveControl(nil)
     }
     
     ///////////////////////////////////////////////////////////////////////////////////
@@ -81,6 +133,8 @@ class InformationPostingController: UIViewController {
             return
         }
         
+        indicatorGeocoding.hidden = false
+        
         // geocode
         geocodeLocation(locationText.text!) { error in
             
@@ -98,6 +152,7 @@ class InformationPostingController: UIViewController {
                 // switch to the next view
                 self.containerLocation.hidden = true
                 self.containerLink.hidden = false
+                self.view.backgroundColor = self.containerLink.backgroundColor
             }
         }
     }
