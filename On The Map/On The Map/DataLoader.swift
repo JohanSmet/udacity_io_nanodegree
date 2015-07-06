@@ -10,6 +10,19 @@ import Foundation
 
 class DataLoader {
     
+    ///////////////////////////////////////////////////////////////////////////////////
+    //
+    // constants
+    //
+    
+    private static let MAX_STUDENT_PASS_COUNT = 10
+    private static let STUDENT_COUNT = 100
+    
+    ///////////////////////////////////////////////////////////////////////////////////
+    //
+    // public interface
+    //
+    
     static func loadData(completionHandlerUI : (error : String?) -> Void) {
        
         // TASK-1: load more information about the current user
@@ -35,6 +48,11 @@ class DataLoader {
         }
     }
     
+    ///////////////////////////////////////////////////////////////////////////////////
+    //
+    // utility functions
+    //
+    
     static func loadStudentData(completionHandler : (error : String?) -> Void) {
         
         UdacityApiClient.instance().getUserData(UdacityApiClient.instance().userId) { user, error in
@@ -46,8 +64,17 @@ class DataLoader {
     
     static func loadStudentLocations(completionHandler : (error : String?) -> Void) {
         
+        // remove all current data
+        DataContext.instance().clearStudents()
+        
+        // start loading new data
+        r_loadStudentLocations(0, completionHandler: completionHandler)
+    }
+    
+    static func r_loadStudentLocations(passCount : Int, completionHandler : (error : String?) -> Void) {
+        
         // load the data from the udacity parse service
-        UdacityParseClient.instance().listStudentLocations() { studentLocations, parseError in
+        UdacityParseClient.instance().listStudentLocations(100, skipCount : passCount * 100) { studentLocations, parseError in
             
             var error = parseError
             
@@ -56,7 +83,12 @@ class DataLoader {
                 DataContext.instance().addStudents(studentList)
             }
             
-            // signal completion
+            // keep loading data until we have enough students or reach we the maximum pass count
+            if DataContext.instance().studentLocations.count < DataLoader.STUDENT_COUNT && passCount < DataLoader.MAX_STUDENT_PASS_COUNT {
+                DataLoader.r_loadStudentLocations(passCount + 1, completionHandler: completionHandler)
+            }
+            
+            // signal completion (even if we're loading more data)
             completionHandler(error: error)
         }
     }

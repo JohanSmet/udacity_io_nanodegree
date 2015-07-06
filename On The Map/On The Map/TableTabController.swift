@@ -52,7 +52,7 @@ class TableTabController :  UIViewController,
         let cell = tableView.dequeueReusableCellWithIdentifier("StudentCell") as! UITableViewCell // as! MemeTableCell
         
         // set the cell data
-        let student = DataContext.instance().studentLocations[indexPath.row]
+        let student = DataContext.instance().studentByIndex(indexPath.row)!
         cell.textLabel?.text    = student.fullName()
         cell.imageView?.image   = UIImage(named: AssetIcons.Pin)
         
@@ -65,7 +65,7 @@ class TableTabController :  UIViewController,
     //
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let student = DataContext.instance().studentLocations[indexPath.row]
+        let student = DataContext.instance().studentByIndex(indexPath.row)!
         UIApplication.sharedApplication().openURL(NSURL(string: student.mediaURL)!)
     }
     

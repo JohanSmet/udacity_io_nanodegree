@@ -34,15 +34,17 @@ class UdacityParseClient : WebApiClient {
     // request interface
     //
     
-    func listStudentLocations(completionHandler : (studentLocations : [AnyObject]?, error : String?) -> Void) {
+    func listStudentLocations(fetchCount : Int, skipCount : Int, completionHandler : (studentLocations : [AnyObject]?, error : String?) -> Void) {
     
         let extraHeaders : [String : String] = [
             "X-Parse-Application-Id" : UdacityParseClient.PARSE_APPLICATION_ID,
             "X-Parse-REST-API-Key"  : UdacityParseClient.REST_API_KEY
         ]
         
-        let parameters : [String : String] = [
-            "limit" : "100"
+        let parameters : [String : AnyObject] = [
+            "limit" : fetchCount,
+            "skip"  : skipCount,
+            "order" : "-updatedAt"
         ]
         
         // make request

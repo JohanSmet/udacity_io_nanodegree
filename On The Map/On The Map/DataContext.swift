@@ -15,7 +15,8 @@ class DataContext {
     // properties
     //
     
-    var studentLocations : [StudentInformation] = []
+    var studentLocationsMap : [String : StudentInformation] = [:]
+    var studentLocations    : [StudentInformation] = []
     
     var user : User?
     var userLocation : StudentInformation?
@@ -25,14 +26,47 @@ class DataContext {
     // student manipulation
     //
     
+    func clearStudents() {
+        studentLocationsMap.removeAll(keepCapacity: true)
+        studentLocations.removeAll(keepCapacity: true)
+    }
+    
     func addStudents(studentList : [AnyObject]) {
         for student in studentList {
             addStudent(student as! [String : AnyObject])
         }
+        
+        // refresh the array that is used by the rest of the app
+        studentLocations = studentLocationsMap.values.array
     }
     
-    func addStudent(student : [String : AnyObject]) {
-        studentLocations.append(StudentInformation(values: student))
+    func studentByIndex(index : Int) -> StudentInformation? {
+       
+        if index < 0 || index >= studentLocationsMap.count {
+            return nil
+        }
+        
+        return studentLocations[index]
+    }
+    
+    private func addStudent(student : [String : AnyObject]) {
+        let studentInfo = StudentInformation(values: student)
+       
+        if filterBadStudents(studentInfo) {
+            studentLocationsMap[studentInfo.uniqueKey] = studentInfo
+        }
+    }
+    
+    private func filterBadStudents(student : StudentInformation) -> Bool {
+        
+        // check for decent unique key
+        if student.uniqueKey == "nil" ||        // not filled in
+           student.uniqueKey == "1234" ||       // from the API documentation
+           count(student.uniqueKey) > 16 {      // could be mistaken but probably using session-id as key
+            return false
+        }
+        
+        return true
     }
     
     ///////////////////////////////////////////////////////////////////////////////////
