@@ -1,0 +1,2 @@
+pod 'FBSDKCoreKit', '~> 4.1'
+pod 'FBSDKLoginKit', '~> 4.1'
