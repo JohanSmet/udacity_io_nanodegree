@@ -133,14 +133,31 @@
                                                     <outletCollection property="gestureRecognizers" destination="6J0-wu-7Uz" appends="YES" id="PWj-6S-W3z"/>
                                                 </connections>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bba-Ka-uHJ">
+                                                <rect key="frame" x="16" y="526" width="568" height="42"/>
+                                                <color key="backgroundColor" red="0.31764705879999999" green="0.53725490200000003" blue="0.70588235290000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="42" id="3D5-bz-tXu"/>
+                                                </constraints>
+                                                <state key="normal" title="Sign in with Facebook">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="loginViaFacebook:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="eyq-hX-zwz"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="gqX-Ge-mkl" secondAttribute="trailing" constant="22" id="33C-Ed-At4"/>
+                                            <constraint firstItem="bba-Ka-uHJ" firstAttribute="leading" secondItem="zhW-KE-eUK" secondAttribute="leading" constant="16" id="3XE-Ml-r5a"/>
                                             <constraint firstItem="Abj-6o-Umc" firstAttribute="leading" secondItem="zhW-KE-eUK" secondAttribute="leading" constant="16" id="7zM-vu-dXi"/>
+                                            <constraint firstAttribute="bottom" secondItem="bba-Ka-uHJ" secondAttribute="bottom" constant="32" id="BCf-q4-1a6"/>
                                             <constraint firstItem="gqX-Ge-mkl" firstAttribute="top" secondItem="Abj-6o-Umc" secondAttribute="bottom" constant="8" id="MfU-E0-PR3"/>
                                             <constraint firstAttribute="centerX" secondItem="yJ6-cY-xk7" secondAttribute="centerX" id="RPu-TU-d4k"/>
                                             <constraint firstAttribute="centerY" secondItem="Abj-6o-Umc" secondAttribute="centerY" id="baw-h7-vyn"/>
                                             <constraint firstAttribute="trailing" secondItem="Abj-6o-Umc" secondAttribute="trailing" constant="12" id="caw-mr-6Ro"/>
+                                            <constraint firstAttribute="trailing" secondItem="bba-Ka-uHJ" secondAttribute="trailing" constant="16" id="f9s-AG-muQ"/>
                                             <constraint firstItem="gqX-Ge-mkl" firstAttribute="leading" secondItem="zhW-KE-eUK" secondAttribute="leading" constant="26" id="gO4-a6-3Cj"/>
                                             <constraint firstItem="yJ6-cY-xk7" firstAttribute="top" secondItem="zhW-KE-eUK" secondAttribute="top" constant="32" id="isx-7G-41g"/>
                                             <constraint firstItem="Abj-6o-Umc" firstAttribute="top" secondItem="yJ6-cY-xk7" secondAttribute="bottom" constant="16" id="mcn-uJ-lQ5"/>

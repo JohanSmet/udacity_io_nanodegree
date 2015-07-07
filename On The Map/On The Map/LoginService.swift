@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import FBSDKLoginKit
 
 class LoginService {
     
@@ -40,7 +41,7 @@ class LoginService {
             return
         }
         
-        UdacityApiClient.instance().createSession(email, password: password) { error in
+        UdacityApiClient.instance().createSessionUdacity(email, password: password) { error in
             if error == nil {
                 self.loginType = .LoginViaUdacity
             }
@@ -50,6 +51,35 @@ class LoginService {
     
     class func loginViaFacebook(completionHandler : (error : String?) -> Void) {
         
+        if loginType != .LoginNotDone {
+            return completionHandler(error: "Login impossible: already logged in")
+        }
+     
+        if FBSDKAccessToken.currentAccessToken() != nil {
+            return completeFacebookLogin(FBSDKAccessToken.currentAccessToken().tokenString, completionHandler: completionHandler)
+        }
+        
+        FBSDKLoginManager().logInWithReadPermissions(["public_profile"]) { result, error in
+            if error != nil {
+                FBSDKLoginManager().logOut()
+                completionHandler(error: error.localizedFailureReason)
+            } else if result.isCancelled {
+                completionHandler(error: "Facebook-login cancelled")
+            } else {
+                let fbToken = result.token.tokenString
+                self.completeFacebookLogin(fbToken, completionHandler: completionHandler)
+            }
+        }
+    }
+    
+    class func completeFacebookLogin(token : String, completionHandler : (error : String?) -> Void) {
+       
+        UdacityApiClient.instance().createSessionFacebook(token) { error in
+            if error == nil {
+                self.loginType = .LoginViaFacebook
+            }
+            completionHandler(error: error)
+        }
     }
     
     class func logout(completionHandler : (error : String?) -> Void) {
@@ -75,6 +105,9 @@ class LoginService {
     }
     
     class func logoutViaFacebook(completionHandler : (error : String?) -> Void) {
+        FBSDKLoginManager().logOut()
+        self.loginType = .LoginNotDone
+        completionHandler(error: nil)
     }
     
 }

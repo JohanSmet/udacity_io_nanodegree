@@ -127,6 +127,22 @@ class LoginController: UIViewController,
         }
     }
     
+    @IBAction func loginViaFacebook(sender: AnyObject) {
+        clearLoginError()
+        
+        uiLoginBegin()
+        
+        LoginService.loginViaFacebook() { apiError in
+            self.uiLoginEnd()
+            
+            if let error = apiError {
+                self.showLoginErrorSync(error)
+            } else {
+                self.completeLogin()
+            }
+        }
+    }
+    
     ///////////////////////////////////////////////////////////////////////////////////
     //
     // utility functions

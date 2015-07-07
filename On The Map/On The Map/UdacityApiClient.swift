@@ -38,7 +38,7 @@ class UdacityApiClient : WebApiClient {
     // request interface
     //
     
-    func createSession(username : String, password : String, completionHandler: (error: String?) -> Void) {
+    func createSessionUdacity(username : String, password : String, completionHandler: (error: String?) -> Void) {
         
         // create the body of the request
         let postBody : [ String : AnyObject] = [
@@ -48,8 +48,25 @@ class UdacityApiClient : WebApiClient {
             ]
         ]
         
+        createSession(postBody, completionHandler: completionHandler)
+    }
+    
+    func createSessionFacebook(token : String, completionHandler : (error: String?) -> Void) {
+        
+        // create the body of the request
+        let postBody : [ String : AnyObject] = [
+            "facebook_mobile" : [
+                "access_token" : token
+            ]
+        ]
+        
+        createSession(postBody, completionHandler: completionHandler)
+    }
+    
+    func createSession(jsonBody : [String : AnyObject], completionHandler : (error: String?) -> Void) {
+        
         // make the request
-        startTaskPOST(UdacityApiClient.BASE_URL, method: "api/session", parameters: [:], jsonBody: postBody) { result, error in
+        startTaskPOST(UdacityApiClient.BASE_URL, method: "api/session", parameters: [:], jsonBody: jsonBody) { result, error in
             
             if let basicError = error as? NSError {
                 completionHandler(error: UdacityApiClient.formatBasicError(basicError))
