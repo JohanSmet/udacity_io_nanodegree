@@ -73,7 +73,7 @@ class MapTabController : UIViewController,
     //
     
     func annotationTapGesture(sender : AnyObject) {
-        if let annotionView = sender.view as? MKAnnotationView {
+        if let annotionView = (sender as! UIGestureRecognizer).view as? MKAnnotationView {
             if let student = annotionView.annotation as? StudentAnnotation {
                 UIApplication.sharedApplication().openURL(NSURL(string: student.link)!)
             }
