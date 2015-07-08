@@ -49,10 +49,7 @@ class MainController: UITabBarController {
         
         DataLoader.loadData() { error in
             if let errorMsg = error {
-                // XXX make this nicer
-                var alert = UIAlertController(title: "Alert", message: errorMsg, preferredStyle: UIAlertControllerStyle.Alert)
-                alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.Default, handler: nil))
-                self.presentViewController(alert, animated: true, completion: nil)
+                alertOkAsync(self, errorMsg)
             } else {
                 // refresh the active tab
                 if let tab = self.selectedViewController as? AppDataTab {
@@ -68,15 +65,11 @@ class MainController: UITabBarController {
     }
     
     func logout() {
-        
-        self.view.userInteractionEnabled = false
+        createPatienceOverlay("Please wait", "Logout in progress")
         
         LoginService.logout() { error in
             if let errorMsg = error {
-                // XXX make this nicer
-                var alert = UIAlertController(title: "Alert", message: errorMsg, preferredStyle: UIAlertControllerStyle.Alert)
-                alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.Default, handler: nil))
-                self.presentViewController(alert, animated: true, completion: nil)
+                alertOkAsync(self, errorMsg)
             } else {
                 self.performSegueWithIdentifier(ViewSeques.MainToLogin, sender: self)
             }

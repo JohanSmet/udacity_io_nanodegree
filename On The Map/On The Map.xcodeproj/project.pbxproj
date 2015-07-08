@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		0404F47B1B32143000826619 /* InformationPostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0404F47A1B32143000826619 /* InformationPostingController.swift */; };
 		0405B2961B43387A00035DAB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405B2951B43387A00035DAB /* User.swift */; };
+		0405D8771B4D470A006F6773 /* PatienceOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405D8761B4D470A006F6773 /* PatienceOverlay.swift */; };
+		0405D8791B4D62D9006F6773 /* ControlStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405D8781B4D62D9006F6773 /* ControlStyle.swift */; };
+		0405D87B1B4D6504006F6773 /* AlertPopups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405D87A1B4D6504006F6773 /* AlertPopups.swift */; };
 		0406DEBF1B3B4A0A00A973F4 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0406DEBE1B3B4A0A00A973F4 /* DataLoader.swift */; };
 		0407FD331B30C05D00E1FE41 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0407FD321B30C05D00E1FE41 /* LoginController.swift */; };
 		0407FD361B30C1B000E1FE41 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0407FD351B30C1B000E1FE41 /* Constants.swift */; };
@@ -44,6 +47,9 @@
 /* Begin PBXFileReference section */
 		0404F47A1B32143000826619 /* InformationPostingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationPostingController.swift; sourceTree = "<group>"; };
 		0405B2951B43387A00035DAB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		0405D8761B4D470A006F6773 /* PatienceOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatienceOverlay.swift; sourceTree = "<group>"; };
+		0405D8781B4D62D9006F6773 /* ControlStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlStyle.swift; sourceTree = "<group>"; };
+		0405D87A1B4D6504006F6773 /* AlertPopups.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertPopups.swift; sourceTree = "<group>"; };
 		0406DEBE1B3B4A0A00A973F4 /* DataLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
 		0407FD321B30C05D00E1FE41 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		0407FD351B30C1B000E1FE41 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -125,8 +131,11 @@
 		0407FD341B30C16E00E1FE41 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0407FD351B30C1B000E1FE41 /* Constants.swift */,
+				0405D87A1B4D6504006F6773 /* AlertPopups.swift */,
 				040AD8EA1B4720EC00810205 /* Animations.swift */,
+				0407FD351B30C1B000E1FE41 /* Constants.swift */,
+				0405D8781B4D62D9006F6773 /* ControlStyle.swift */,
+				0405D8761B4D470A006F6773 /* PatienceOverlay.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -385,10 +394,13 @@
 				0404F47B1B32143000826619 /* InformationPostingController.swift in Sources */,
 				041CABAD1B39F25500667C4B /* MapTabController.swift in Sources */,
 				041D51391B2B778E00DA7C08 /* AppDelegate.swift in Sources */,
+				0405D8771B4D470A006F6773 /* PatienceOverlay.swift in Sources */,
+				0405D8791B4D62D9006F6773 /* ControlStyle.swift in Sources */,
 				0407FD331B30C05D00E1FE41 /* LoginController.swift in Sources */,
 				041CABB41B39FBCF00667C4B /* UdacityParseClient.swift in Sources */,
 				0405B2961B43387A00035DAB /* User.swift in Sources */,
 				041401641B3DE7030037042B /* TableTabController.swift in Sources */,
+				0405D87B1B4D6504006F6773 /* AlertPopups.swift in Sources */,
 				04FE9C961B371E48007A47F1 /* UdacityApiClient.swift in Sources */,
 				041CABB01B39F5E000667C4B /* StudentInformation.swift in Sources */,
 				0406DEBF1B3B4A0A00A973F4 /* DataLoader.swift in Sources */,

@@ -129,7 +129,7 @@ class InformationPostingController: UIViewController,
         
         // did the user enter a location ?
         if locationText.text!.isEmpty {
-            alert("You must enter a location before you can continue!", title: "Attention")
+            alertOkAsync(self, "You must enter a location before you can continue!")
             return
         }
         
@@ -139,7 +139,7 @@ class InformationPostingController: UIViewController,
         geocodeLocation(locationText.text!) { error in
             
             if let error = error {
-                self.alert(error.localizedDescription)
+                alertOkAsync(self, error.localizedFailureReason!)
             } else {
                 // show the entered location on the map
                 let annotation = MKPointAnnotation()
@@ -161,8 +161,7 @@ class InformationPostingController: UIViewController,
        
         // did the user enter a link
         if linkText.text!.isEmpty {
-            alert("You must enter a link before you can continue!", title: "Attention")
-            return
+            return alertOkAsync(self, "You must enter a link before you can continue!")
         }
         
         // build a studentinformation object
@@ -184,8 +183,7 @@ class InformationPostingController: UIViewController,
         // submit the information to udacity
         UdacityParseClient.instance().postStudentLocation(studentInformation) { objectId, error in
             if let error = error {
-                self.alert(error, title: "Attention")
-                return
+                return alertOkAsync(self, error)
             }
            
             if let objectId = objectId {
@@ -213,15 +211,5 @@ class InformationPostingController: UIViewController,
             }
         })
     }
-    
-    private func alert(message : String, title : String = "Alert") {
-        dispatch_async(dispatch_get_main_queue(), {
-            var alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
-        })
-    }
-    
-    
 }
 

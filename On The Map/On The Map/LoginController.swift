@@ -23,7 +23,7 @@ class LoginController: UIViewController,
     @IBOutlet weak var textPassword: UITextField!
     
     @IBOutlet weak var buttonLogin: UIButton!
-    @IBOutlet weak var loginIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var buttonFacebook: UIButton!
     
     @IBOutlet weak var labelError: UILabel!
     @IBOutlet weak var containerInput: UIView!
@@ -33,7 +33,8 @@ class LoginController: UIViewController,
     // variables
     //
     
-    var keyboardFix : KeyboardFix?
+    var keyboardFix     : KeyboardFix?
+    var patienceOverlay : UIView?
     
     ///////////////////////////////////////////////////////////////////////////////////
     //
@@ -46,9 +47,10 @@ class LoginController: UIViewController,
         keyboardFix = KeyboardFix(viewController: self, scrollView: scrollView)
         
         // UI tweaks
-        initTextField(textEmail)
-        initTextField(textPassword)
-        buttonLogin.layer.cornerRadius = 5
+        styleTextField(textEmail, self)
+        styleTextField(textPassword, self)
+        styleButton(buttonLogin)
+        styleButton(buttonFacebook)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -109,7 +111,7 @@ class LoginController: UIViewController,
     @IBAction func loginViaUdacity() {
         
         clearLoginError()
-        
+
         if (!validateForm()) {
             return
         }
@@ -120,7 +122,7 @@ class LoginController: UIViewController,
             self.uiLoginEnd()
             
             if let error = apiError {
-                self.showLoginErrorSync(error)
+                self.showLoginErrorAsync(error)
             } else {
                 self.completeLogin()
             }
@@ -136,7 +138,7 @@ class LoginController: UIViewController,
             self.uiLoginEnd()
             
             if let error = apiError {
-                self.showLoginErrorSync(error)
+                self.showLoginErrorAsync(error)
             } else {
                 self.completeLogin()
             }
@@ -148,22 +150,16 @@ class LoginController: UIViewController,
     // utility functions
     //
     
-    private func initTextField(textField : UITextField) {
-        textField.delegate = self
-        textField.attributedPlaceholder = NSAttributedString(string: textField.placeholder!, attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
-    }
-    
     private func uiLoginBegin() {
         dispatch_async(dispatch_get_main_queue(), {
-            self.loginIndicator.hidden = false
-            self.buttonLogin.enabled = false
+            self.patienceOverlay = createPatienceOverlay("Please wait", "Login in progress")
         })
     }
     
     private func uiLoginEnd() {
         dispatch_async(dispatch_get_main_queue(), {
-            self.loginIndicator.hidden = true
-            self.buttonLogin.enabled = true
+            self.patienceOverlay?.removeFromSuperview()
+            self.patienceOverlay = nil
         })
     }
     
@@ -197,12 +193,12 @@ class LoginController: UIViewController,
     private func showLoginError (errorMessage : String) {
         labelError.text = errorMessage
         labelError.hidden = false
+        animShakeHorizontal(labelError)
     }
     
-    private func showLoginErrorSync(errorMessage : String) {
+    private func showLoginErrorAsync(errorMessage : String) {
         dispatch_async(dispatch_get_main_queue(), {
             self.showLoginError(errorMessage)
-            animShakeHorizontal(self.containerInput)
         })
     }
 }
