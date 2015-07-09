@@ -10,34 +10,11 @@ import Foundation
 import UIKit
 import MapKit
 
-class StudentAnnotation : NSObject, MKAnnotation {
-   
-    let name        : String
-    let link        : String
-    let coordinate  : CLLocationCoordinate2D
-    
-    init(name : String, link : String, coordinate : CLLocationCoordinate2D) {
-        self.name = name
-        self.link = link
-        self.coordinate = coordinate
-    
-        super.init()
-    }
-    
-    var title : String {
-        return name
-    }
-    
-    var subtitle : String {
-        return link
-    }
-}
-
 class MapTabController : UIViewController,
                          AppDataTab,
                          MKMapViewDelegate {
     
-    var studentAnnotations : [StudentAnnotation]! = []
+    var studentAnnotations : [String : MKPointAnnotation]! = [:]
    
     ///////////////////////////////////////////////////////////////////////////////////
     //
@@ -74,8 +51,8 @@ class MapTabController : UIViewController,
     
     func annotationTapGesture(sender : AnyObject) {
         if let annotionView = (sender as! UIGestureRecognizer).view as? MKAnnotationView {
-            if let student = annotionView.annotation as? StudentAnnotation {
-                UIApplication.sharedApplication().openURL(NSURL(string: student.link)!)
+            if let student = annotionView.annotation as? MKPointAnnotation {
+                UIApplication.sharedApplication().openURL(NSURL(string: student.subtitle)!)
             }
         }
     }
@@ -87,7 +64,7 @@ class MapTabController : UIViewController,
     
     func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
         
-        if let student = annotation as? StudentAnnotation {
+        if let student = annotation as? MKPointAnnotation {
             let identifier = "studentPin"
             
             if let dequeuedView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier) {
@@ -127,19 +104,39 @@ class MapTabController : UIViewController,
     
     private func refreshPins() {
         
-        // cleanup
-        mapView.removeAnnotations(studentAnnotations)
+        // reset the list of annotations
+        var prevAnnotations = studentAnnotations
         studentAnnotations.removeAll(keepCapacity: true)
         
-        // build the list
+        // rebuild the list
         for student in DataContext.instance().studentLocations {
-            studentAnnotations.append(StudentAnnotation(name: student.fullName(),
-                                                        link: student.mediaURL,
-                                                        coordinate: CLLocationCoordinate2D(latitude: student.latitude, longitude: student.longitude)))
+        
+            // reuse the annotation if it is already on the map
+            var annotation = prevAnnotations[student.uniqueKey]
+            
+            if annotation == nil {
+                annotation = MKPointAnnotation()
+            } else {
+                prevAnnotations.removeValueForKey(student.uniqueKey)
+            }
+            
+            // update the information
+            annotation!.title = student.fullName()
+            annotation!.subtitle = student.mediaURL
+            annotation!.coordinate = CLLocationCoordinate2D(latitude: student.latitude, longitude: student.longitude)
+            
+            // save the annotation
+            studentAnnotations[student.uniqueKey] = annotation
+            
+            // add it to the map
+            mapView.addAnnotation(annotation)
         }
         
-        mapView.addAnnotations(studentAnnotations)
+        // remove annotations from the map that are no longer in the list
+        for (key, value) in prevAnnotations {
+            mapView.removeAnnotation(value)
+        }
+        
     }
-    
-    
+
 }
