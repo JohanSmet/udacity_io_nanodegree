@@ -16,7 +16,7 @@ class DataLoader {
     //
     
     private static let MAX_STUDENT_PASS_COUNT = 10
-    private static let STUDENT_COUNT = 100
+    private static let STUDENT_COUNT = 200
     
     ///////////////////////////////////////////////////////////////////////////////////
     //
@@ -31,15 +31,15 @@ class DataLoader {
                 return DataLoader.runCompletionHandler(error, completionHandlerUI: completionHandlerUI)
             }
             
-            // TASK-2: load student locations
-            DataLoader.loadStudentLocations() { error in
+            // TASK-2 : check if the current user has entered a location
+            DataLoader.checkLocationCurrentUser() { error in
                 
                 if let error = error {
                     return DataLoader.runCompletionHandler(error, completionHandlerUI: completionHandlerUI)
                 }
                 
-                // TASK-3 : check if the current user has entered a location
-                DataLoader.checkLocationCurrentUser() { error in
+                // TASK-3: load student locations
+                DataLoader.loadStudentLocations() { error in
                     
                     // END OF TASKS
                     DataLoader.runCompletionHandler(error, completionHandlerUI: completionHandlerUI)
@@ -94,7 +94,6 @@ class DataLoader {
     }
     
     static func checkLocationCurrentUser(completionHandler : (error : String?) -> Void) {
-        // XXX todo: check if the location of the user isn't already loaded in the normal list
         
         UdacityParseClient.instance().queryStudentLocation(DataContext.instance().user!.userId) { studentLocation, error in
             
