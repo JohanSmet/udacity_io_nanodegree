@@ -156,7 +156,7 @@ class UdacityApiClient : WebApiClient {
     //
     
     private class func formatBasicError(error : NSError) -> String {
-        return "Unable to contact server"
+        return error.localizedDescription
     }
     
     private class func formatHttpError(response : NSHTTPURLResponse) -> String {
