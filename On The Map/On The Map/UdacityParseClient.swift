@@ -144,7 +144,7 @@ class UdacityParseClient : WebApiClient {
     private class func formatHttpError(response : NSHTTPURLResponse) -> String {
         
         if (response.statusCode == 403) {
-            return "Invalid username or password"
+            return NSLocalizedString("cliInvalidCredentials", comment:"Invalid username or password")
         } else {
             return "HTTP-error \(response.statusCode)"
         }

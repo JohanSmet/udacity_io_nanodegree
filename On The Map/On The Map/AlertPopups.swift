@@ -9,10 +9,11 @@
 import Foundation
 import UIKit
 
-func alertOkAsync(viewController : UIViewController, message : String, title : String = "Attention") {
+func alertOkAsync(viewController : UIViewController, message : String, title : String? = nil) {
+    
     dispatch_async(dispatch_get_main_queue(), {
-        var alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+        var alert = UIAlertController(title: title ?? NSLocalizedString("viewAttention", comment: "Attention"), message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("viewOk", comment: "OK"), style: UIAlertActionStyle.Default, handler: nil))
         viewController.presentViewController(alert, animated: true, completion: nil)
     })
 }

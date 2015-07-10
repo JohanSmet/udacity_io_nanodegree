@@ -193,7 +193,7 @@ class WebApiClient {
                 request.HTTPBody = NSJSONSerialization.dataWithJSONObject(jsonBody, options: NSJSONWritingOptions.PrettyPrinted, error: &jsonError)
             
                 if let error = jsonError {
-                    completionHandler(result: nil, error: "Internal error : invalid jsonBody (error: \(error))")
+                    completionHandler(result: nil, error: String.localizedStringWithFormat(NSLocalizedString("cliInternalJsonError", comment:"Internal error : invalid jsonBody (error: %s)"), error))
                     return nil                              // exit !!!
                 }
             }

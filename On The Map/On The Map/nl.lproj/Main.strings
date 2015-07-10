@@ -1,0 +1,51 @@
+/* Class = "UILabel"; text = "Login to Udacity"; ObjectID = "4mv-aq-uax"; */
+"4mv-aq-uax.text" = "Aanmelden bij Udacity";
+
+/* Class = "UITextField"; placeholder = "Email"; ObjectID = "9J5-AR-lvY"; */
+"9J5-AR-lvY.placeholder" = "Email";
+
+/* Class = "UINavigationItem"; title = "On The Map"; ObjectID = "BtU-Ey-hpj"; */
+"BtU-Ey-hpj.title" = "Op De Kaart";
+
+/* Class = "UITabBarController"; title = "On The Map"; ObjectID = "IZo-0P-znZ"; */
+"IZo-0P-znZ.title" = "Op De Kaart";
+
+/* Class = "UILabel"; text = "Enter your location..."; ObjectID = "IcS-Nw-0fA"; */
+"IcS-Nw-0fA.text" = "Geef je locatie in...";
+
+/* Class = "UIButton"; normalTitle = "Find on the Map"; ObjectID = "JRu-jp-QHS"; */
+"JRu-jp-QHS.normalTitle" = "Opzoeken op de kaart";
+
+/* Class = "UILabel"; text = "Enter a link to a website..."; ObjectID = "Lnc-47-Qf3"; */
+"Lnc-47-Qf3.text" = "Geef een link naar een website in...";
+
+/* Class = "UIButton"; normalTitle = "Login"; ObjectID = "QZJ-aQ-eNu"; */
+"QZJ-aQ-eNu.normalTitle" = "Aanmelden";
+
+/* Class = "UILabel"; text = "Error Message"; ObjectID = "Tja-IZ-wp4"; */
+"Tja-IZ-wp4.text" = "Foutmelding";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "a7O-jK-b1u"; */
+"a7O-jK-b1u.placeholder" = "Wachtwoord";
+
+/* Class = "UIButton"; normalTitle = "Sign in with Facebook"; ObjectID = "bba-Ka-uHJ"; */
+"bba-Ka-uHJ.normalTitle" = "Inloggen met Facebook";
+
+/* Class = "UILabel"; text = "Don't have an account? Sign Up."; ObjectID = "gqX-Ge-mkl"; */
+"gqX-Ge-mkl.text" = "Nog geen account? Schrijf in.";
+
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "j0B-fJ-bVP"; */
+"j0B-fJ-bVP.normalTitle" = "Afbreken";
+
+/* Class = "UITabBarItem"; title = "Map"; ObjectID = "l9q-R8-SkE"; */
+"l9q-R8-SkE.title" = "Kaart";
+
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "nwf-OF-WNB"; */
+"nwf-OF-WNB.normalTitle" = "Afbreken";
+
+/* Class = "UIButton"; normalTitle = "Submit"; ObjectID = "oir-jB-mmQ"; */
+"oir-jB-mmQ.normalTitle" = "Indienen";
+
+/* Class = "UITabBarItem"; title = "List"; ObjectID = "qNP-Vn-uPJ"; */
+"qNP-Vn-uPJ.title" = "Lijst";
+

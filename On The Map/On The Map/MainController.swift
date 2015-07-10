@@ -28,7 +28,7 @@ class MainController: UITabBarController {
     override func viewDidLoad() {
         
         // left navigation bar items
-        let buttonLogout = UIBarButtonItem(title: "Logout", style: .Plain, target: self, action: "logout")
+        let buttonLogout = UIBarButtonItem(title: NSLocalizedString("conLogout", comment: "Logout"), style: .Plain, target: self, action: "logout")
         self.navigationItem.setLeftBarButtonItems([buttonLogout], animated: true)
         
         // right navigation bar items
@@ -65,7 +65,8 @@ class MainController: UITabBarController {
     }
     
     func logout() {
-        createPatienceOverlay("Please wait", "Logout in progress")
+        createPatienceOverlay(NSLocalizedString("conPleaseWait", comment: "Please wait"),
+                              NSLocalizedString("conLogoutInProgress", comment: "Logout in progress"))
         
         LoginService.logout() { error in
             if let errorMsg = error {

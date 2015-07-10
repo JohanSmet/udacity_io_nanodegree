@@ -24,6 +24,7 @@ class InformationPostingController: UIViewController,
     
     @IBOutlet weak var mapView: MKMapView!
     
+    @IBOutlet weak var headerText: UILabel!
     @IBOutlet weak var locationText: UITextView!
     @IBOutlet weak var locationPlaceholder: UILabel!
     @IBOutlet weak var linkText: UITextView!
@@ -60,6 +61,9 @@ class InformationPostingController: UIViewController,
             locationText.text = userLocation.mapString
             linkText.text = userLocation.mediaURL
         }
+        
+        // header-text
+        headerText.attributedText = attributedHeaderText()
         
         // location-entry
         locationPlaceholder.hidden = !locationText.text.isEmpty
@@ -129,7 +133,7 @@ class InformationPostingController: UIViewController,
         
         // did the user enter a location ?
         if locationText.text!.isEmpty {
-            alertOkAsync(self, "You must enter a location before you can continue!")
+            alertOkAsync(self, NSLocalizedString("conLocationRequired", comment:"You must enter a location before you can continue!"))
             return
         }
         
@@ -161,7 +165,7 @@ class InformationPostingController: UIViewController,
        
         // did the user enter a link
         if linkText.text!.isEmpty {
-            return alertOkAsync(self, "You must enter a link before you can continue!")
+            return alertOkAsync(self, NSLocalizedString("conLinkRequired", comment:"You must enter a link before you can continue!"))
         }
         
         // build a studentinformation object
@@ -210,6 +214,44 @@ class InformationPostingController: UIViewController,
                 completionHandler(error: nil)
             }
         })
+    }
+    
+    private func UIColorFromRGB(rgbValue: UInt) -> UIColor {
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
+    }
+    
+    private func attributedHeaderText() -> NSAttributedString {
+        // in code because it's easier to localize a UITextView than in Interface builder
+        let colorLight : UIColor = UIColorFromRGB(0x99A9B8)
+        let fontLight  : UIFont  = UIFont(name: "TrebuchetMS", size: 22.0)!
+        
+        let colorDark : UIColor = UIColorFromRGB(0x0F2F5D)
+        let fontDark  : UIFont  = UIFont(name: "TrebuchetMS-Bold", size: 22.0)!
+        
+        
+        let line1 = NSAttributedString(string: NSLocalizedString("conSubmitHeader1", comment: "Where are you") + "\n",
+                                       attributes: [NSForegroundColorAttributeName : colorLight,
+                                                    NSFontAttributeName: fontLight])
+        
+        let line2 = NSAttributedString(string: NSLocalizedString("conSubmitHeader2", comment: "studying") + "\n",
+                                       attributes: [NSForegroundColorAttributeName : colorDark,
+                                                    NSFontAttributeName: fontDark])
+        
+        let line3 = NSAttributedString(string: NSLocalizedString("conSubmitHeader3", comment: "today?"),
+                                       attributes: [NSForegroundColorAttributeName : colorLight,
+                                                    NSFontAttributeName: fontLight])
+        
+        let line = NSMutableAttributedString(attributedString: line1)
+        line.appendAttributedString(line2)
+        line.appendAttributedString(line3)
+        
+        return line
+        
     }
 }
 

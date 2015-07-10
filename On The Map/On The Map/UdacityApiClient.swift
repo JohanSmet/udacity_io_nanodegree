@@ -79,7 +79,7 @@ class UdacityApiClient : WebApiClient {
                 if let session = postResult.valueForKey("session") as? [String : AnyObject] {
                     self.sessionId = session["id"] as! String
                 } else {
-                    completionHandler(error: "session-id missing from response")
+                    completionHandler(error: NSLocalizedString("cliSessionIdMissing", comment: "session-id missing from response"))
                     return
                 }
                 
@@ -87,7 +87,7 @@ class UdacityApiClient : WebApiClient {
                 if let account = postResult.valueForKey("account") as? [String : AnyObject] {
                     self.userId = account["key"] as! String
                 } else {
-                    completionHandler(error: "user-key missing from response")
+                    completionHandler(error: NSLocalizedString("cliUserKeyMissing", comment: "user-key missing from response"))
                     return
                 }
                 
@@ -134,7 +134,7 @@ class UdacityApiClient : WebApiClient {
                        let lastName = userDict["last_name"] as? String {
                         user = User(userId: userId, firstName: firstName, lastName: lastName)
                     } else {
-                        completionHandler(user: nil, error: "Required field missing from response")
+                        completionHandler(user: nil, error: NSLocalizedString("cliRequiredFieldMissing", comment: "Required field missing from response"))
                         return
                     }
                     
@@ -144,7 +144,7 @@ class UdacityApiClient : WebApiClient {
                     
                     completionHandler(user: user, error: nil)
                 } else {
-                    completionHandler(user: nil, error: "Required field missing from response")
+                    completionHandler(user: nil, error: NSLocalizedString("cliRequiredFieldMissing", comment: "Required field missing from response"))
                 }
             }
         }
@@ -162,7 +162,7 @@ class UdacityApiClient : WebApiClient {
     private class func formatHttpError(response : NSHTTPURLResponse) -> String {
         
         if (response.statusCode == 403) {
-            return "Invalid username or password"
+            return NSLocalizedString("cliInvalidCredentials", comment:"Invalid username or password")
         } else {
             return "HTTP-error \(response.statusCode)"
         }

@@ -37,8 +37,7 @@ class LoginService {
     class func loginViaUdacity(email : String, password : String, completionHandler : (error : String?) -> Void) {
         
         if loginType != .LoginNotDone {
-            completionHandler(error: "Login impossible: already logged in")
-            return
+            return completionHandler(error: NSLocalizedString("serAlreadyLoggedIn", comment:"Login impossible: already logged in"))
         }
         
         UdacityApiClient.instance().createSessionUdacity(email, password: password) { error in
@@ -52,7 +51,7 @@ class LoginService {
     class func loginViaFacebook(completionHandler : (error : String?) -> Void) {
         
         if loginType != .LoginNotDone {
-            return completionHandler(error: "Login impossible: already logged in")
+            return completionHandler(error: NSLocalizedString("serAlreadyLoggedIn", comment:"Login impossible: already logged in"))
         }
      
         if FBSDKAccessToken.currentAccessToken() != nil {
@@ -64,7 +63,7 @@ class LoginService {
                 FBSDKLoginManager().logOut()
                 completionHandler(error: error.localizedFailureReason)
             } else if result.isCancelled {
-                completionHandler(error: "Facebook-login cancelled")
+                completionHandler(error: NSLocalizedString("serFacebookCancelled", comment: "Facebook-login cancelled"))
             } else {
                 let fbToken = result.token.tokenString
                 self.completeFacebookLogin(fbToken, completionHandler: completionHandler)
@@ -86,7 +85,7 @@ class LoginService {
        
         switch loginType {
             case .LoginNotDone :
-                completionHandler(error: "Logout impossible: not logged in")
+                completionHandler(error: NSLocalizedString("serNotLoggedIn", comment: "Logout impossible: not logged in"))
             case .LoginViaUdacity :
                 logoutViaUdacity(completionHandler)
             case .LoginViaFacebook :

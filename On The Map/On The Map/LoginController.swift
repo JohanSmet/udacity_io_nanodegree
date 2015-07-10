@@ -152,7 +152,8 @@ class LoginController: UIViewController,
     
     private func uiLoginBegin() {
         dispatch_async(dispatch_get_main_queue(), {
-            self.patienceOverlay = createPatienceOverlay("Please wait", "Login in progress")
+            self.patienceOverlay = createPatienceOverlay(NSLocalizedString("conPleaseWait", comment: "Please wait"),
+                                                         NSLocalizedString("conLoginInProgress", comment: "Login in progress"))
         })
     }
     
@@ -166,13 +167,13 @@ class LoginController: UIViewController,
     private func validateForm() -> Bool {
         
         if textEmail.text.isEmpty && textPassword.text.isEmpty {
-            showLoginError("Email and password cannot be empty !")
+            showLoginError(NSLocalizedString("conEmailPasswordMissing", comment: "Email and password cannot be empty !"))
             return false;
         } else if textEmail.text.isEmpty {
-            showLoginError("Email cannot be empty !")
+            showLoginError(NSLocalizedString("conEmailMissing", comment: "Email cannot be empty !"))
             return false;
         } else if textPassword.text.isEmpty {
-            showLoginError("Password cannot be empty !")
+            showLoginError(NSLocalizedString("conPasswordMissing", comment: "Password cannot be empty !"))
             return false;
         }
         

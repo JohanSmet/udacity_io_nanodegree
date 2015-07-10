@@ -1,0 +1,66 @@
+/* Internal error : invalid jsonBody (error: %s) */
+"cliInternalJsonError" = "Internal error : invalid jsonBody (error: %s)";
+
+/* Invalid username or password */
+"cliInvalidCredentials" = "Invalid username or password";
+
+/* Required field missing from response */
+"cliRequiredFieldMissing" = "Required field missing from response";
+
+/* session-id missing from response */
+"cliSessionIdMissing" = "session-id missing from response";
+
+/* user-key missing from response */
+"cliUserKeyMissing" = "user-key missing from response";
+
+/* Email cannot be empty ! */
+"conEmailMissing" = "Email cannot be empty !";
+
+/* Email and password cannot be empty ! */
+"conEmailPasswordMissing" = "Email and password cannot be empty !";
+
+/* You must enter a link before you can continue! */
+"conLinkRequired" = "You must enter a link before you can continue!";
+
+/* You must enter a location before you can continue! */
+"conLocationRequired" = "You must enter a location before you can continue!";
+
+/* Login in progress */
+"conLoginInProgress" = "Login in progress";
+
+/* Logout in progress */
+"conLogoutInProgress" = "Logout in progress";
+
+/* Password cannot be empty ! */
+"conPasswordMissing" = "Password cannot be empty !";
+
+/* Please wait */
+"conPleaseWait" = "Please wait";
+
+/* Logout */
+"conLogout" = "Logout";
+
+/* Where are you */
+"conSubmitHeader1" = "Where are you";
+
+/* studying */
+"conSubmitHeader2" = "studying";
+
+/* today? */
+"conSubmitHeader3" = "today?";
+
+/* Login impossible: already logged in */
+"serAlreadyLoggedIn" = "Login impossible: already logged in";
+
+/* Facebook-login cancelled */
+"serFacebookCancelled" = "Facebook-login cancelled";
+
+/* Logout impossible: not logged in */
+"serNotLoggedIn" = "Logout impossible: not logged in";
+
+/* Attention */
+"viewAttention" = "Attention";
+
+/* OK */
+"viewOk" = "OK";
+

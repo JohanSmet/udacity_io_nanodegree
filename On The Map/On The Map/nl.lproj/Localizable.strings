@@ -1,0 +1,66 @@
+/* Internal error : invalid jsonBody (error: %s) */
+"cliInternalJsonError" = "Interne fout: ongeldige JSON (fout: %s)";
+
+/* Invalid username or password */
+"cliInvalidCredentials" = "Ongeldige gebruikersnaam of wachtwoord";
+
+/* Required field missing from response */
+"cliRequiredFieldMissing" = "Verplicht veld ontbreekt uit het antwoord";
+
+/* session-id missing from response */
+"cliSessionIdMissing" = "Session-id ontbreekt uit het antwoord";
+
+/* user-key missing from response */
+"cliUserKeyMissing" = "User-key ontbreekt uit het antwoord";
+
+/* Email cannot be empty ! */
+"conEmailMissing" = "Email moet ingevuld zijn!";
+
+/* Email and password cannot be empty ! */
+"conEmailPasswordMissing" = "Email en wachtwoord moeten ingevuld zijn!";
+
+/* You must enter a link before you can continue! */
+"conLinkRequired" = "U moet een link invullen voor je verder kan gaan!";
+
+/* You must enter a location before you can continue! */
+"conLocationRequired" = "U moet uw locatie invullen voor je verder kan gaan!";
+
+/* Login in progress */
+"conLoginInProgress" = "Bezig met aanmelden";
+
+/* Logout in progress */
+"conLogoutInProgress" = "Bezig met afmelden";
+
+/* Password cannot be empty ! */
+"conPasswordMissing" = "Paswoord moet ingevuld zijn!";
+
+/* Please wait */
+"conPleaseWait" = "Even geduld";
+
+/* Logout */
+"conLogout" = "Afmelden";
+
+/* Where are you */
+"conSubmitHeader1" = "Waar";
+
+/* studying */
+"conSubmitHeader2" = "studeer";
+
+/* today? */
+"conSubmitHeader3" = "je vandaag?";
+
+/* Login impossible: already logged in */
+"serAlreadyLoggedIn" = "Aanmelden onmogelijk : reeds aangemeld";
+
+/* Facebook-login cancelled */
+"serFacebookCancelled" = "Aanmelden met Facebook afgebroken";
+
+/* Logout impossible: not logged in */
+"serNotLoggedIn" = "Afmelden onmogelijk : niet aangemeld";
+
+/* Attention */
+"viewAttention" = "Aandacht";
+
+/* OK */
+"viewOk" = "OK";
+

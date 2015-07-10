@@ -49,7 +49,7 @@ class TableTabController :  UIViewController,
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // get a cell
-        let cell = tableView.dequeueReusableCellWithIdentifier("StudentCell") as! UITableViewCell // as! MemeTableCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("StudentCell") as! UITableViewCell 
         
         // set the cell data
         let student = DataContext.instance().studentByIndex(indexPath.row)!

@@ -1,0 +1,51 @@
+/* Class = "UILabel"; text = "Login to Udacity"; ObjectID = "4mv-aq-uax"; */
+"4mv-aq-uax.text" = "Login to Udacity";
+
+/* Class = "UITextField"; placeholder = "Email"; ObjectID = "9J5-AR-lvY"; */
+"9J5-AR-lvY.placeholder" = "Email";
+
+/* Class = "UINavigationItem"; title = "On The Map"; ObjectID = "BtU-Ey-hpj"; */
+"BtU-Ey-hpj.title" = "On The Map";
+
+/* Class = "UITabBarController"; title = "On The Map"; ObjectID = "IZo-0P-znZ"; */
+"IZo-0P-znZ.title" = "On The Map";
+
+/* Class = "UILabel"; text = "Enter your location..."; ObjectID = "IcS-Nw-0fA"; */
+"IcS-Nw-0fA.text" = "Enter your location...";
+
+/* Class = "UIButton"; normalTitle = "Find on the Map"; ObjectID = "JRu-jp-QHS"; */
+"JRu-jp-QHS.normalTitle" = "Find on the Map";
+
+/* Class = "UILabel"; text = "Enter a link to a website..."; ObjectID = "Lnc-47-Qf3"; */
+"Lnc-47-Qf3.text" = "Enter a link to a website...";
+
+/* Class = "UIButton"; normalTitle = "Login"; ObjectID = "QZJ-aQ-eNu"; */
+"QZJ-aQ-eNu.normalTitle" = "Login";
+
+/* Class = "UILabel"; text = "Error Message"; ObjectID = "Tja-IZ-wp4"; */
+"Tja-IZ-wp4.text" = " Error Message";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "a7O-jK-b1u"; */
+"a7O-jK-b1u.placeholder" = " Password";
+
+/* Class = "UIButton"; normalTitle = "Sign in with Facebook"; ObjectID = "bba-Ka-uHJ"; */
+"bba-Ka-uHJ.normalTitle" = "Sign in with Facebook";
+
+/* Class = "UILabel"; text = "Don't have an account? Sign Up."; ObjectID = "gqX-Ge-mkl"; */
+"gqX-Ge-mkl.text" = "Don't have an account? Sign Up.";
+
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "j0B-fJ-bVP"; */
+"j0B-fJ-bVP.normalTitle" = "Cancel";
+
+/* Class = "UITabBarItem"; title = "Map"; ObjectID = "l9q-R8-SkE"; */
+"l9q-R8-SkE.title" = "Map";
+
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "nwf-OF-WNB"; */
+"nwf-OF-WNB.normalTitle" = "Cancel";
+
+/* Class = "UIButton"; normalTitle = "Submit"; ObjectID = "oir-jB-mmQ"; */
+"oir-jB-mmQ.normalTitle" = "Submit";
+
+/* Class = "UITabBarItem"; title = "List"; ObjectID = "qNP-Vn-uPJ"; */
+"qNP-Vn-uPJ.title" = "List";
+

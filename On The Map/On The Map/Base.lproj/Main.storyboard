@@ -460,6 +460,7 @@ Cg
                         <outlet property="buttonSubmit" destination="oir-jB-mmQ" id="U2c-Ds-Mei"/>
                         <outlet property="containerLink" destination="GrZ-n0-ZvP" id="j2f-Mi-Teg"/>
                         <outlet property="containerLocation" destination="0KS-iC-9mK" id="1gy-by-ehu"/>
+                        <outlet property="headerText" destination="bxg-BR-s9P" id="R3J-6W-3C1"/>
                         <outlet property="indicatorGeocoding" destination="mdb-mx-LU7" id="IJs-Xi-4kr"/>
                         <outlet property="linkPlaceholder" destination="Lnc-47-Qf3" id="xlt-kg-DqO"/>
                         <outlet property="linkText" destination="Ajp-y9-ghf" id="BkJ-tm-nEC"/>
