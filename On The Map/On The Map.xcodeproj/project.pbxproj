@@ -34,7 +34,7 @@
 		041D51431B2B778E00DA7C08 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 041D51411B2B778E00DA7C08 /* LaunchScreen.xib */; };
 		041D514F1B2B778E00DA7C08 /* On_The_MapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041D514E1B2B778E00DA7C08 /* On_The_MapTests.swift */; };
 		04FE9C961B371E48007A47F1 /* UdacityApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FE9C951B371E48007A47F1 /* UdacityApiClient.swift */; };
-		28101F8BB2B5507A6B17E7D3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EB79BDFE038F6D2D848602FE /* libPods.a */; };
+		6043993E5BF2ED79E035E965 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B32EBF7C68086EAF3AE9D53 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +63,10 @@
 		0405D8781B4D62D9006F6773 /* ControlStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlStyle.swift; sourceTree = "<group>"; };
 		0405D87A1B4D6504006F6773 /* AlertPopups.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertPopups.swift; sourceTree = "<group>"; };
 		0406DEBE1B3B4A0A00A973F4 /* DataLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
+		040778261B50262B00B81113 /* libPods-FBSDKCoreKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-FBSDKCoreKit.a"; path = "Pods/../build/Debug-iphoneos/libPods-FBSDKCoreKit.a"; sourceTree = "<group>"; };
+		040778271B50262B00B81113 /* libPods-FBSDKLoginKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-FBSDKLoginKit.a"; path = "Pods/../build/Debug-iphoneos/libPods-FBSDKLoginKit.a"; sourceTree = "<group>"; };
+		0407782A1B5026F200B81113 /* libPods-FBSDKCoreKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-FBSDKCoreKit.a"; path = "Pods/../build/Debug-iphoneos/libPods-FBSDKCoreKit.a"; sourceTree = "<group>"; };
+		0407782B1B5026F200B81113 /* libPods-FBSDKLoginKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-FBSDKLoginKit.a"; path = "Pods/../build/Debug-iphoneos/libPods-FBSDKLoginKit.a"; sourceTree = "<group>"; };
 		0407FD321B30C05D00E1FE41 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		0407FD351B30C1B000E1FE41 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0407FD371B30C2F700E1FE41 /* MainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
@@ -86,9 +90,9 @@
 		041D514D1B2B778E00DA7C08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		041D514E1B2B778E00DA7C08 /* On_The_MapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = On_The_MapTests.swift; sourceTree = "<group>"; };
 		04FE9C951B371E48007A47F1 /* UdacityApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdacityApiClient.swift; sourceTree = "<group>"; };
+		2B32EBF7C68086EAF3AE9D53 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E8DCFEA3085328656445989 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		9E21D9CDCA2DE03266C841CE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		EB79BDFE038F6D2D848602FE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28101F8BB2B5507A6B17E7D3 /* libPods.a in Frameworks */,
+				6043993E5BF2ED79E035E965 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,7 +260,11 @@
 		7C38788AA62F091C87A8343E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				EB79BDFE038F6D2D848602FE /* libPods.a */,
+				0407782A1B5026F200B81113 /* libPods-FBSDKCoreKit.a */,
+				0407782B1B5026F200B81113 /* libPods-FBSDKLoginKit.a */,
+				040778261B50262B00B81113 /* libPods-FBSDKCoreKit.a */,
+				040778271B50262B00B81113 /* libPods-FBSDKLoginKit.a */,
+				2B32EBF7C68086EAF3AE9D53 /* Pods.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -282,6 +290,7 @@
 				041D51301B2B778E00DA7C08 /* Frameworks */,
 				041D51311B2B778E00DA7C08 /* Resources */,
 				7CC0E7AC55ED778C00981C72 /* Copy Pods Resources */,
+				BB9C456DE28F8B58B39125D3 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -400,6 +409,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BB9C456DE28F8B58B39125D3 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -588,12 +612,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/johan/Documents/FacebookSDK,
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "On The Map/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -605,12 +627,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/johan/Documents/FacebookSDK,
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "On The Map/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
