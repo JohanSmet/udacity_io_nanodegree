@@ -230,6 +230,7 @@
                         <segue destination="YpE-dJ-0m1" kind="presentation" identifier="sequeInformationPosting" id="Src-vs-uTs"/>
                         <segue destination="6tk-6i-Yyl" kind="relationship" relationship="viewControllers" id="dZ8-fs-F4h"/>
                         <segue destination="vXZ-lx-hvc" kind="presentation" identifier="segueMainToLogin" id="anr-tp-K7W"/>
+                        <segue destination="WIR-5c-wP4" kind="relationship" relationship="viewControllers" id="VRm-Hr-4Ut"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s8U-eV-CYE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -505,7 +506,7 @@ Cg
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hES-iB-uC3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2641" y="234"/>
+            <point key="canvasLocation" x="2641" y="-249"/>
         </scene>
         <!--List-->
         <scene sceneID="2ZW-Et-npK">
@@ -551,10 +552,57 @@ Cg
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aGN-Vh-PcS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2641" y="910"/>
+            <point key="canvasLocation" x="2641" y="397"/>
+        </scene>
+        <!--Duplicates-->
+        <scene sceneID="wJ8-m1-Xke">
+            <objects>
+                <viewController id="WIR-5c-wP4" customClass="DublicateTabController" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OEH-Zr-HYG"/>
+                        <viewControllerLayoutGuide type="bottom" id="h6L-IC-vux"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lxK-7Q-VaW">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="h4e-kA-JTG">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="StudentCell" id="3JL-aG-RBh">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3JL-aG-RBh" id="Njr-Hu-rTV">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="WIR-5c-wP4" id="3ok-91-G9m"/>
+                                    <outlet property="delegate" destination="WIR-5c-wP4" id="u3x-gf-JSA"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="h6L-IC-vux" firstAttribute="top" secondItem="h4e-kA-JTG" secondAttribute="bottom" id="POJ-P0-8Ru"/>
+                            <constraint firstItem="h4e-kA-JTG" firstAttribute="top" secondItem="OEH-Zr-HYG" secondAttribute="bottom" id="Znb-va-4pc"/>
+                            <constraint firstAttribute="trailing" secondItem="h4e-kA-JTG" secondAttribute="trailing" id="gkq-37-tgm"/>
+                            <constraint firstItem="h4e-kA-JTG" firstAttribute="leading" secondItem="lxK-7Q-VaW" secondAttribute="leading" id="pGp-hI-AyW"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Duplicates" image="IconDuplicates" id="cZy-Bs-6b7"/>
+                    <connections>
+                        <outlet property="studentTable" destination="h4e-kA-JTG" id="RpA-eL-AdH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3h1-dd-GOI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2641" y="1037"/>
         </scene>
     </scenes>
     <resources>
+        <image name="IconDuplicates" width="24" height="24"/>
         <image name="IconList" width="32" height="32"/>
         <image name="IconMap" width="32" height="32"/>
         <image name="IconUdacity" width="256" height="256"/>

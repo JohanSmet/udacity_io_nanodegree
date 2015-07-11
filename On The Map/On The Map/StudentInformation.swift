@@ -23,6 +23,7 @@ struct StudentInformation {
     var mediaURL    : String
     var latitude    : Double
     var longitude   : Double
+    var occurances  : Int
     
     ///////////////////////////////////////////////////////////////////////////////////
     //
@@ -38,6 +39,7 @@ struct StudentInformation {
         self.mediaURL   = ""
         self.latitude   = 0
         self.longitude  = 0
+        self.occurances = 1
     }
     
     init(objectId : String, uniqueKey : String, firstName : String, lastName : String,
@@ -50,6 +52,7 @@ struct StudentInformation {
         self.mediaURL   = mediaURL
         self.latitude   = latitude
         self.longitude  = longitude
+        self.occurances = 1
     }
     
     init(values : [ String : AnyObject]) {
@@ -61,6 +64,7 @@ struct StudentInformation {
         self.mediaURL   = values["mediaURL"]! as! String
         self.latitude   = values["latitude"]! as! Double
         self.longitude  = values["longitude"]! as! Double
+        self.occurances = 1
     }
  
     ///////////////////////////////////////////////////////////////////////////////////

@@ -50,9 +50,16 @@ class DataContext {
     }
     
     private func addStudent(student : [String : AnyObject]) {
-        let studentInfo = StudentInformation(values: student)
+        var studentInfo = StudentInformation(values: student)
        
         if filterBadStudents(studentInfo) {
+            var entryCount = 0
+            
+            if let entry = studentLocationsMap[studentInfo.uniqueKey] {
+                entryCount = entry.occurances
+            }
+           
+            studentInfo.occurances += entryCount
             studentLocationsMap[studentInfo.uniqueKey] = studentInfo
         }
     }

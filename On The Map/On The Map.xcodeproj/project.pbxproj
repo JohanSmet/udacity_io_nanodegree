@@ -19,6 +19,7 @@
 		0407FD331B30C05D00E1FE41 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0407FD321B30C05D00E1FE41 /* LoginController.swift */; };
 		0407FD361B30C1B000E1FE41 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0407FD351B30C1B000E1FE41 /* Constants.swift */; };
 		0407FD381B30C2F700E1FE41 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0407FD371B30C2F700E1FE41 /* MainController.swift */; };
+		0408343B1B5069250097E432 /* DuplicateTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0408343A1B5069250097E432 /* DuplicateTabController.swift */; };
 		0409B4E71B34B71A00EA54FF /* WebApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0409B4E61B34B71A00EA54FF /* WebApiClient.swift */; };
 		040AD8EB1B4720EC00810205 /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040AD8EA1B4720EC00810205 /* Animations.swift */; };
 		040AD8ED1B47294B00810205 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040AD8EC1B47294B00810205 /* LoginService.swift */; };
@@ -70,6 +71,7 @@
 		0407FD321B30C05D00E1FE41 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		0407FD351B30C1B000E1FE41 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0407FD371B30C2F700E1FE41 /* MainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
+		0408343A1B5069250097E432 /* DuplicateTabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DuplicateTabController.swift; sourceTree = "<group>"; };
 		0409B4E61B34B71A00EA54FF /* WebApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebApiClient.swift; sourceTree = "<group>"; };
 		040ACFE41B4F128100BF1FB4 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Main.strings; sourceTree = "<group>"; };
 		040AD8EA1B4720EC00810205 /* Animations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animations.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				0407FD371B30C2F700E1FE41 /* MainController.swift */,
 				041CABAC1B39F25500667C4B /* MapTabController.swift */,
 				041401631B3DE7030037042B /* TableTabController.swift */,
+				0408343A1B5069250097E432 /* DuplicateTabController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -434,6 +437,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				040AD8ED1B47294B00810205 /* LoginService.swift in Sources */,
+				0408343B1B5069250097E432 /* DuplicateTabController.swift in Sources */,
 				0407FD381B30C2F700E1FE41 /* MainController.swift in Sources */,
 				0404F47B1B32143000826619 /* InformationPostingController.swift in Sources */,
 				041CABAD1B39F25500667C4B /* MapTabController.swift in Sources */,
