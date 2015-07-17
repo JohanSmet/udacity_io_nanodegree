@@ -61,7 +61,7 @@ class MainController: UITabBarController {
     }
     
     func postPin() {
-        performSegueWithIdentifier(ViewSeques.InformationPosting, sender: self)
+        performSegueWithIdentifier(ViewSegues.InformationPosting, sender: self)
     }
     
     func logout() {
@@ -72,7 +72,7 @@ class MainController: UITabBarController {
             if let errorMsg = error {
                 alertOkAsync(self, errorMsg)
             } else {
-                self.performSegueWithIdentifier(ViewSeques.MainToLogin, sender: self)
+                self.performSegueWithIdentifier(ViewSegues.MainToLogin, sender: self)
             }
         }
     }

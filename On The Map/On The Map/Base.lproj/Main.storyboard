@@ -24,9 +24,6 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zhW-KE-eUK" userLabel="ContentView">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconUdacity" translatesAutoresizingMaskIntoConstraints="NO" id="yJ6-cY-xk7">
-                                                <rect key="frame" x="172" y="32" width="256" height="142"/>
-                                            </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error Message" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="Tja-IZ-wp4">
                                                 <rect key="frame" x="22" y="426" width="556" height="22"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -142,6 +139,9 @@
                                                     <constraint firstAttribute="centerX" secondItem="mhN-4e-Y9d" secondAttribute="centerX" id="uAk-qx-ouR"/>
                                                 </constraints>
                                             </view>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconUdacity" translatesAutoresizingMaskIntoConstraints="NO" id="yJ6-cY-xk7">
+                                                <rect key="frame" x="172" y="32" width="256" height="142"/>
+                                            </imageView>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="bba-Ka-uHJ" firstAttribute="leading" secondItem="zhW-KE-eUK" secondAttribute="leading" constant="16" id="3XE-Ml-r5a"/>
@@ -380,16 +380,16 @@ Cg
                                             </mapView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Ajp-y9-ghf">
                                                 <rect key="frame" x="8" y="30" width="584" height="116"/>
+                                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oir-jB-mmQ">
-                                                <rect key="frame" x="239" y="514" width="123" height="30"/>
+                                                <rect key="frame" x="232" y="514" width="138" height="30"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="123" id="AmD-j1-UBf"/>
-                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="123" id="BjX-1D-eIF"/>
+                                                    <constraint firstAttribute="width" constant="138" id="AmD-j1-UBf"/>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="Qmj-uw-izJ"/>
                                                     <constraint firstAttribute="height" constant="30" id="UIV-OI-MrQ"/>
                                                 </constraints>
@@ -406,16 +406,32 @@ Cg
                                                 <color key="textColor" red="0.81546085440000005" green="0.81546085440000005" blue="0.81546085440000005" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1zZ-kR-0Ec">
+                                                <rect key="frame" x="231" y="107" width="138" height="30"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="138" id="7fE-pM-mg6"/>
+                                                </constraints>
+                                                <state key="normal" title="Browse for a link">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="69I-u9-iYQ" kind="presentation" identifier="segueBrowseLink" id="MZC-dF-n7E"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.31764705879999999" green="0.53725490200000003" blue="0.70588235290000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="Ajp-y9-ghf" secondAttribute="trailing" constant="8" id="0fu-KS-inF"/>
                                             <constraint firstItem="m69-mU-WKT" firstAttribute="top" secondItem="Ajp-y9-ghf" secondAttribute="bottom" constant="14" id="8ds-qx-VrB"/>
                                             <constraint firstItem="nwf-OF-WNB" firstAttribute="top" secondItem="GrZ-n0-ZvP" secondAttribute="top" id="B0Z-I4-ySU"/>
+                                            <constraint firstItem="1zZ-kR-0Ec" firstAttribute="top" secondItem="Ajp-y9-ghf" secondAttribute="bottom" constant="-39" id="BBR-Uw-rMQ"/>
+                                            <constraint firstAttribute="centerX" secondItem="1zZ-kR-0Ec" secondAttribute="centerX" id="EiD-VN-Jhb"/>
                                             <constraint firstAttribute="trailing" secondItem="Lnc-47-Qf3" secondAttribute="trailing" constant="8" id="FTi-Md-QBG"/>
                                             <constraint firstAttribute="centerX" secondItem="oir-jB-mmQ" secondAttribute="centerX" constant="-0.5" id="GTg-Og-0pN"/>
                                             <constraint firstAttribute="trailing" secondItem="m69-mU-WKT" secondAttribute="trailing" id="JnR-X7-JNH"/>
                                             <constraint firstItem="Lnc-47-Qf3" firstAttribute="leading" secondItem="GrZ-n0-ZvP" secondAttribute="leading" constant="8" id="PWk-RF-Yp0"/>
+                                            <constraint firstItem="1zZ-kR-0Ec" firstAttribute="centerX" secondItem="Ajp-y9-ghf" secondAttribute="centerX" id="YC5-Fe-47b"/>
                                             <constraint firstAttribute="bottom" secondItem="oir-jB-mmQ" secondAttribute="bottom" constant="36" id="YXN-pt-PwO"/>
                                             <constraint firstAttribute="height" secondItem="Ajp-y9-ghf" secondAttribute="height" multiplier="5" id="mN6-tH-Ivm"/>
                                             <constraint firstItem="Ajp-y9-ghf" firstAttribute="top" secondItem="Lnc-47-Qf3" secondAttribute="top" constant="-6" id="ojM-5B-BTP"/>
@@ -457,6 +473,7 @@ Cg
                     </view>
                     <navigationItem key="navigationItem" id="mTW-qr-xlL"/>
                     <connections>
+                        <outlet property="buttonBrowseLink" destination="1zZ-kR-0Ec" id="lM6-pN-Reh"/>
                         <outlet property="buttonFindOnMap" destination="JRu-jp-QHS" id="OGA-wg-hg6"/>
                         <outlet property="buttonSubmit" destination="oir-jB-mmQ" id="U2c-Ds-Mei"/>
                         <outlet property="containerLink" destination="GrZ-n0-ZvP" id="j2f-Mi-Teg"/>
@@ -474,6 +491,80 @@ Cg
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gou-3c-mjr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1922" y="1197"/>
+        </scene>
+        <!--Browse Link Controller-->
+        <scene sceneID="68u-go-chD">
+            <objects>
+                <viewController id="69I-u9-iYQ" customClass="BrowseLinkController" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gI1-47-liJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="2b6-Y0-bv1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jTR-yS-kYa">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="09k-lq-gMf">
+                                <rect key="frame" x="16" y="28" width="568" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="URL" returnKeyType="go"/>
+                            </textField>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ObL-6y-DpZ">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem image="IconBack" id="rHz-UK-lNc">
+                                        <connections>
+                                            <action selector="browserBack:" destination="69I-u9-iYQ" id="IdG-O9-EhY"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem image="IconForward" id="fDD-Ca-YZ4">
+                                        <connections>
+                                            <action selector="browserNext:" destination="69I-u9-iYQ" id="3cT-1W-bdE"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="MGB-Bs-hbK"/>
+                                    <barButtonItem title="Use this link" id="k9G-yz-Ar0">
+                                        <connections>
+                                            <action selector="useLink:" destination="69I-u9-iYQ" id="rEJ-XH-GGd"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="zHd-lt-Urg"/>
+                                    <barButtonItem title="Cancel" id="RTD-Oa-dx6">
+                                        <connections>
+                                            <action selector="cancelBrowse:" destination="69I-u9-iYQ" id="73g-xt-f3n"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f1t-PF-nwW">
+                                <rect key="frame" x="16" y="66" width="568" height="482"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.31764705879999999" green="0.53725490200000003" blue="0.70588235290000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="f1t-PF-nwW" secondAttribute="trailing" id="CFm-eX-NXK"/>
+                            <constraint firstItem="2b6-Y0-bv1" firstAttribute="top" secondItem="ObL-6y-DpZ" secondAttribute="bottom" id="F4F-Mh-CkM"/>
+                            <constraint firstItem="f1t-PF-nwW" firstAttribute="top" secondItem="09k-lq-gMf" secondAttribute="bottom" constant="8" id="Fsx-4E-5tp"/>
+                            <constraint firstItem="f1t-PF-nwW" firstAttribute="leading" secondItem="jTR-yS-kYa" secondAttribute="leadingMargin" id="IfO-Aj-rzJ"/>
+                            <constraint firstItem="09k-lq-gMf" firstAttribute="trailing" secondItem="jTR-yS-kYa" secondAttribute="trailingMargin" id="OZb-md-TuS"/>
+                            <constraint firstItem="ObL-6y-DpZ" firstAttribute="leading" secondItem="jTR-yS-kYa" secondAttribute="leading" id="cgO-ih-oNh"/>
+                            <constraint firstItem="09k-lq-gMf" firstAttribute="leading" secondItem="jTR-yS-kYa" secondAttribute="leadingMargin" id="fV5-Ds-71a"/>
+                            <constraint firstAttribute="trailing" secondItem="ObL-6y-DpZ" secondAttribute="trailing" id="r3X-YD-rKf"/>
+                            <constraint firstItem="09k-lq-gMf" firstAttribute="top" secondItem="gI1-47-liJ" secondAttribute="bottom" constant="8" id="tVR-X3-53a"/>
+                            <constraint firstItem="ObL-6y-DpZ" firstAttribute="top" secondItem="f1t-PF-nwW" secondAttribute="bottom" constant="8" id="zyc-yk-LGS"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backButton" destination="rHz-UK-lNc" id="PrH-s1-cnm"/>
+                        <outlet property="forwardButton" destination="fDD-Ca-YZ4" id="RQG-Uj-YyB"/>
+                        <outlet property="linkUrlText" destination="09k-lq-gMf" id="bbD-0b-Chv"/>
+                        <outlet property="webView" destination="f1t-PF-nwW" id="zjW-2b-egQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QRu-kA-Saa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1922" y="1926"/>
         </scene>
         <!--Map-->
         <scene sceneID="j1k-an-rce">
@@ -602,7 +693,9 @@ Cg
         </scene>
     </scenes>
     <resources>
-        <image name="IconDuplicates" width="24" height="24"/>
+        <image name="IconBack" width="25" height="25"/>
+        <image name="IconDuplicates" width="25" height="25"/>
+        <image name="IconForward" width="25" height="25"/>
         <image name="IconList" width="32" height="32"/>
         <image name="IconMap" width="32" height="32"/>
         <image name="IconUdacity" width="256" height="256"/>

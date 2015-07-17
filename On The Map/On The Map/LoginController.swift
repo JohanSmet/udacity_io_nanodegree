@@ -182,7 +182,7 @@ class LoginController: UIViewController,
     
     private func completeLogin() {
         dispatch_async(dispatch_get_main_queue(), {
-            self.performSegueWithIdentifier(ViewSeques.LoginToMain, sender: self)
+            self.performSegueWithIdentifier(ViewSegues.LoginToMain, sender: self)
         })
     }
     

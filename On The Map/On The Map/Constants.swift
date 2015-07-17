@@ -8,11 +8,12 @@
 
 import Foundation
 
-struct ViewSeques {
+struct ViewSegues {
     
     static let LoginToMain : String = "segueLoginToMain"
     static let MainToLogin : String = "segueMainToLogin"
     static let InformationPosting : String = "sequeInformationPosting"
+    static let BrowseForLink : String = "segueBrowseLink"
     
 }
 

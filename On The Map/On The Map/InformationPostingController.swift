@@ -11,7 +11,8 @@ import Foundation
 import MapKit
 
 class InformationPostingController: UIViewController,
-                                    UITextViewDelegate {
+                                    UITextViewDelegate,
+                                    BrowseLinkResultDelegate {
     
     ///////////////////////////////////////////////////////////////////////////////////
     //
@@ -32,6 +33,7 @@ class InformationPostingController: UIViewController,
     
     @IBOutlet weak var buttonSubmit: UIButton!
     @IBOutlet weak var buttonFindOnMap: UIButton!
+    @IBOutlet weak var buttonBrowseLink: UIButton!
     
     @IBOutlet weak var indicatorGeocoding: UIActivityIndicatorView!
     
@@ -53,8 +55,9 @@ class InformationPostingController: UIViewController,
         super.viewDidLoad()
         
         // UI tweaks
-        buttonSubmit.layer.cornerRadius = 5
-        buttonFindOnMap.layer.cornerRadius = 5
+        styleButton(buttonSubmit)
+        styleButton(buttonFindOnMap)
+        styleButton(buttonBrowseLink)
         
         // show the information previously entered by the user
         if let userLocation = DataContext.instance().userLocation {
@@ -73,17 +76,17 @@ class InformationPostingController: UIViewController,
         linkPlaceholder.hidden = !linkText.text.isEmpty
         linkText.delegate = self
         
+        // make sure to show the correct view
+        containerLocation.hidden = false
+        containerLink.hidden = true
+        self.view.backgroundColor = containerLocation.backgroundColor
+        
         // keyboard handling
         keyboardFix = KeyboardFix(viewController: self, scrollView: scrollView)
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        
-        // make sure to show the correct view
-        containerLocation.hidden = false
-        containerLink.hidden = true
-        self.view.backgroundColor = containerLocation.backgroundColor
         
         // keyboard handling
         keyboardFix.activate()
@@ -93,6 +96,16 @@ class InformationPostingController: UIViewController,
         super.viewDidDisappear(animated)
         
         keyboardFix.deactivate()
+    }
+   
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == ViewSegues.BrowseForLink {
+            let browseLinkVC = segue.destinationViewController as! BrowseLinkController
+            browseLinkVC.link = linkText.text
+            browseLinkVC.delegate = self
+        }
+        
     }
     
     ///////////////////////////////////////////////////////////////////////////////////
@@ -114,6 +127,15 @@ class InformationPostingController: UIViewController,
     
     func textViewDidEndEditing(textView: UITextView) {
         keyboardFix.setActiveControl(nil)
+    }
+    
+    ///////////////////////////////////////////////////////////////////////////////////
+    //
+    // BrowseLinkResultDelegate overrides
+    //
+    
+    func selectedURL(urlString: String) {
+        linkText.text = urlString
     }
     
     ///////////////////////////////////////////////////////////////////////////////////

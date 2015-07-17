@@ -10,6 +10,7 @@
 		04016B421B4FE44400CC33E0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 04016B441B4FE44400CC33E0 /* Localizable.strings */; };
 		04016B491B4FE44500CC33E0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 04016B4B1B4FE44500CC33E0 /* InfoPlist.strings */; };
 		04016B4E1B4FE44500CC33E0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 04016B501B4FE44500CC33E0 /* InfoPlist.strings */; };
+		0403F71E1B55ADBF003BAC6E /* BrowseLinkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0403F71D1B55ADBF003BAC6E /* BrowseLinkController.swift */; };
 		0404F47B1B32143000826619 /* InformationPostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0404F47A1B32143000826619 /* InformationPostingController.swift */; };
 		0405B2961B43387A00035DAB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405B2951B43387A00035DAB /* User.swift */; };
 		0405D8771B4D470A006F6773 /* PatienceOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405D8761B4D470A006F6773 /* PatienceOverlay.swift */; };
@@ -58,6 +59,7 @@
 		04016B521B4FF9EE00CC33E0 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		04016B531B4FF9EE00CC33E0 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		04016B551B4FFC4600CC33E0 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		0403F71D1B55ADBF003BAC6E /* BrowseLinkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowseLinkController.swift; sourceTree = "<group>"; };
 		0404F47A1B32143000826619 /* InformationPostingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationPostingController.swift; sourceTree = "<group>"; };
 		0405B2951B43387A00035DAB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0405D8761B4D470A006F6773 /* PatienceOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatienceOverlay.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				041AE1BB1B46D7A9008C6CF4 /* Utility */,
+				0403F71D1B55ADBF003BAC6E /* BrowseLinkController.swift */,
 				0404F47A1B32143000826619 /* InformationPostingController.swift */,
 				0407FD321B30C05D00E1FE41 /* LoginController.swift */,
 				0407FD371B30C2F700E1FE41 /* MainController.swift */,
@@ -451,6 +454,7 @@
 				0405D87B1B4D6504006F6773 /* AlertPopups.swift in Sources */,
 				04FE9C961B371E48007A47F1 /* UdacityApiClient.swift in Sources */,
 				041CABB01B39F5E000667C4B /* StudentInformation.swift in Sources */,
+				0403F71E1B55ADBF003BAC6E /* BrowseLinkController.swift in Sources */,
 				0406DEBF1B3B4A0A00A973F4 /* DataLoader.swift in Sources */,
 				040AD8EB1B4720EC00810205 /* Animations.swift in Sources */,
 				041CABB21B39F9B600667C4B /* DataContext.swift in Sources */,
