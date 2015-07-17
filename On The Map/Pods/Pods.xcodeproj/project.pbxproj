@@ -98,7 +98,6 @@
 		7205DE512CEC0880F9F6F219 /* FBSDKAppEventsState.h in Headers */ = {isa = PBXBuildFile; fileRef = 860A7B606776515FA16ABF0D /* FBSDKAppEventsState.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		72CF803FE007F65DDE7CDF1E /* FBSDKURLOpening.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B4FB34D5851B91CA11630F0 /* FBSDKURLOpening.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		73CE27A4C9098D0FA62E79AF /* FBSDKAppEventsStateManager.h in Headers */ = {isa = PBXBuildFile; fileRef = F8B68EB7FADCA3161209FEC6 /* FBSDKAppEventsStateManager.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		74A2904F8300749E2E036FAE /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFB87E50BF45F3D3B4FCB5B9 /* Bolts.framework */; };
 		75B8903429053E75D2575F6C /* FBSDKAppEventsState.m in Sources */ = {isa = PBXBuildFile; fileRef = AE15145214B9E28554FBCD88 /* FBSDKAppEventsState.m */; };
 		767C3E23FE0AE55324603AEC /* FBSDKBridgeAPIRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = BDA78612A1C6B5ED1A0F6899 /* FBSDKBridgeAPIRequest.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		7701EB491F7F74C51E837BC6 /* FBSDKAppLinkResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = 933F9012A4A54D6DBEC5F7F2 /* FBSDKAppLinkResolver.m */; };
@@ -227,7 +226,6 @@
 		F52F6ACE1E8E2711991D9439 /* FBSDKAppLinkResolver.h in Headers */ = {isa = PBXBuildFile; fileRef = 92BDC0B27866F4270AB223AF /* FBSDKAppLinkResolver.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F5E9F720DEFAD0A66AB66FFE /* FBSDKLoginTooltipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E6E777968956273F63284C /* FBSDKLoginTooltipView.m */; };
 		F63970618034A08EAB4B8423 /* BFAppLinkNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9911AF7B0C0D31A8D2B69097 /* BFAppLinkNavigation.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		F8312EC98FF50A42C3E5FD71 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFB87E50BF45F3D3B4FCB5B9 /* Bolts.framework */; };
 		F8CEDAAEA9D49F4D4A1DAC58 /* BFTaskCompletionSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 961180CB880065974AC87627 /* BFTaskCompletionSource.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		F9DE34F08EBD583EB4441E86 /* FBSDKViewImpressionTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F8C61E4D611D18C2A13F4A1 /* FBSDKViewImpressionTracker.m */; };
 		FACB4D7F347B969777B4FB7D /* FBSDKTypeUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = A90028BC955D68C5A56980F0 /* FBSDKTypeUtility.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -546,8 +544,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				88442F1CCB71F5E34D52C6A3 /* Bolts.framework in Frameworks */,
-				74A2904F8300749E2E036FAE /* Bolts.framework in Frameworks */,
-				F8312EC98FF50A42C3E5FD71 /* Bolts.framework in Frameworks */,
 				2CBD67F29C876D32BB482C10 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1202,6 +1198,11 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0640;
+				TargetAttributes = {
+					69FFD67E3A1249E84033FA69 = {
+						DevelopmentTeam = E445RL9VDT;
+					};
+				};
 			};
 			buildConfigurationList = 85F29BBBAE876116F65548B1 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1444,6 +1445,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 234827BEA8F2CE7FEACA3AEF /* Pods-Bolts-Private.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -1459,6 +1461,7 @@
 				MODULEMAP_FILE = "Target Support Files/Pods-Bolts/Pods-Bolts.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = Bolts;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1537,6 +1540,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 234827BEA8F2CE7FEACA3AEF /* Pods-Bolts-Private.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -1552,6 +1556,7 @@
 				MODULEMAP_FILE = "Target Support Files/Pods-Bolts/Pods-Bolts.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = Bolts;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
