@@ -29,10 +29,7 @@ class MapTabController : UIViewController,
     //
     
     override func viewDidLoad() {
-        
         mapView.delegate = self
-        
-       
     }
     
     ///////////////////////////////////////////////////////////////////////////////////
@@ -52,7 +49,11 @@ class MapTabController : UIViewController,
     func annotationTapGesture(sender : AnyObject) {
         if let annotionView = (sender as! UIGestureRecognizer).view as? MKAnnotationView {
             if let student = annotionView.annotation as? MKPointAnnotation {
-                UIApplication.sharedApplication().openURL(NSURL(string: student.subtitle)!)
+                if let url = NSURL(string: student.subtitle) {
+                    UIApplication.sharedApplication().openURL(url)
+                } else {
+                    alertOkAsync(self, NSLocalizedString("conInvalidURL", comment: "Invalid URL!"))
+                }
             }
         }
     }
@@ -77,7 +78,6 @@ class MapTabController : UIViewController,
                 view.rightCalloutAccessoryView = UIButton.buttonWithType(.DetailDisclosure) as! UIView
                 return view
             }
-            
         }
         
         return nil;

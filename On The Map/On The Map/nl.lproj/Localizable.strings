@@ -49,6 +49,9 @@
 /* today? */
 "conSubmitHeader3" = "je vandaag?";
 
+/* Invalid URL */
+"conInvalidURL" = "Ongeldige URL!";
+
 /* Login impossible: already logged in */
 "serAlreadyLoggedIn" = "Aanmelden onmogelijk : reeds aangemeld";
 

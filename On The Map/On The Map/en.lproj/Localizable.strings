@@ -49,6 +49,9 @@
 /* today? */
 "conSubmitHeader3" = "today?";
 
+/* Invalid URL */
+"conInvalidURL" = "Invalid URL!";
+
 /* Login impossible: already logged in */
 "serAlreadyLoggedIn" = "Login impossible: already logged in";
 

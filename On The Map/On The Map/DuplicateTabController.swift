@@ -101,6 +101,11 @@ class DublicateTabController :  UIViewController,
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let section = sectionMap[sections[indexPath.section]]!
         let student = section[indexPath.row]
-        UIApplication.sharedApplication().openURL(NSURL(string: student.mediaURL)!)
+        
+        if let url = NSURL(string: student.mediaURL) {
+            UIApplication.sharedApplication().openURL(url)
+        } else {
+            alertOkAsync(self, NSLocalizedString("conInvalidURL", comment: "Invalid URL!"))
+        }
     }
 }

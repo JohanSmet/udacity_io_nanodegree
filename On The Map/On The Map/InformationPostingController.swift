@@ -201,6 +201,10 @@ class InformationPostingController: UIViewController,
         if linkText.text!.isEmpty {
             return alertOkAsync(self, NSLocalizedString("conLinkRequired", comment:"You must enter a link before you can continue!"))
         }
+       
+        if NSURL(string: linkText.text) == nil {
+            return alertOkAsync(self, NSLocalizedString("conInvalidURL", comment:"Invalid URL!"))
+        }
         
         // build a studentinformation object
         var studentInformation : StudentInformation
