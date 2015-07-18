@@ -215,6 +215,8 @@ class InformationPostingController: UIViewController,
             if let objectId = objectId {
                 DataContext.instance().userLocation!.objectId = objectId
             }
+            
+            self.dismissViewControllerAnimated(true, completion: nil)
         }
     }
     
