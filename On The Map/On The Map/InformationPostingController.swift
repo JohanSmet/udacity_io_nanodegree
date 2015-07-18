@@ -129,6 +129,18 @@ class InformationPostingController: UIViewController,
         keyboardFix.setActiveControl(nil)
     }
     
+    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        
+        let resultRange = text.rangeOfCharacterFromSet(NSCharacterSet.newlineCharacterSet(), options: .BackwardsSearch)
+        
+        if (count(text) == 1 && resultRange != nil) {
+            textView.resignFirstResponder()
+            return false;
+        }
+        
+        return true;
+    }
+    
     ///////////////////////////////////////////////////////////////////////////////////
     //
     // BrowseLinkResultDelegate overrides
