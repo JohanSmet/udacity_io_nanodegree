@@ -202,7 +202,7 @@ class InformationPostingController: UIViewController,
             return alertOkAsync(self, NSLocalizedString("conLinkRequired", comment:"You must enter a link before you can continue!"))
         }
        
-        if NSURL(string: linkText.text) == nil {
+        if !isValidUrl(linkText.text!) {
             return alertOkAsync(self, NSLocalizedString("conInvalidURL", comment:"Invalid URL!"))
         }
         

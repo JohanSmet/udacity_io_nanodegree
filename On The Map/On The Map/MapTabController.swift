@@ -49,8 +49,8 @@ class MapTabController : UIViewController,
     func annotationTapGesture(sender : AnyObject) {
         if let annotionView = (sender as! UIGestureRecognizer).view as? MKAnnotationView {
             if let student = annotionView.annotation as? MKPointAnnotation {
-                if let url = NSURL(string: student.subtitle) {
-                    UIApplication.sharedApplication().openURL(url)
+                if isValidUrl(student.subtitle) {
+                    UIApplication.sharedApplication().openURL(NSURL(string: student.subtitle)!)
                 } else {
                     alertOkAsync(self, NSLocalizedString("conInvalidURL", comment: "Invalid URL!"))
                 }

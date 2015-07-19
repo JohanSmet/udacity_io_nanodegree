@@ -506,8 +506,8 @@ Cg
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="09k-lq-gMf">
                                 <rect key="frame" x="16" y="28" width="568" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="URL" returnKeyType="go"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="URL" returnKeyType="go"/>
                             </textField>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ObL-6y-DpZ">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
@@ -537,28 +537,29 @@ Cg
                                 </items>
                             </toolbar>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f1t-PF-nwW">
-                                <rect key="frame" x="16" y="66" width="568" height="482"/>
+                                <rect key="frame" x="0.0" y="66" width="600" height="490"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" red="0.31764705879999999" green="0.53725490200000003" blue="0.70588235290000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="f1t-PF-nwW" secondAttribute="trailing" id="CFm-eX-NXK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="f1t-PF-nwW" secondAttribute="trailing" constant="-16" id="CFm-eX-NXK"/>
                             <constraint firstItem="2b6-Y0-bv1" firstAttribute="top" secondItem="ObL-6y-DpZ" secondAttribute="bottom" id="F4F-Mh-CkM"/>
                             <constraint firstItem="f1t-PF-nwW" firstAttribute="top" secondItem="09k-lq-gMf" secondAttribute="bottom" constant="8" id="Fsx-4E-5tp"/>
-                            <constraint firstItem="f1t-PF-nwW" firstAttribute="leading" secondItem="jTR-yS-kYa" secondAttribute="leadingMargin" id="IfO-Aj-rzJ"/>
+                            <constraint firstItem="f1t-PF-nwW" firstAttribute="leading" secondItem="jTR-yS-kYa" secondAttribute="leadingMargin" constant="-16" id="IfO-Aj-rzJ"/>
                             <constraint firstItem="09k-lq-gMf" firstAttribute="trailing" secondItem="jTR-yS-kYa" secondAttribute="trailingMargin" id="OZb-md-TuS"/>
                             <constraint firstItem="ObL-6y-DpZ" firstAttribute="leading" secondItem="jTR-yS-kYa" secondAttribute="leading" id="cgO-ih-oNh"/>
                             <constraint firstItem="09k-lq-gMf" firstAttribute="leading" secondItem="jTR-yS-kYa" secondAttribute="leadingMargin" id="fV5-Ds-71a"/>
                             <constraint firstAttribute="trailing" secondItem="ObL-6y-DpZ" secondAttribute="trailing" id="r3X-YD-rKf"/>
                             <constraint firstItem="09k-lq-gMf" firstAttribute="top" secondItem="gI1-47-liJ" secondAttribute="bottom" constant="8" id="tVR-X3-53a"/>
-                            <constraint firstItem="ObL-6y-DpZ" firstAttribute="top" secondItem="f1t-PF-nwW" secondAttribute="bottom" constant="8" id="zyc-yk-LGS"/>
+                            <constraint firstItem="ObL-6y-DpZ" firstAttribute="top" secondItem="f1t-PF-nwW" secondAttribute="bottom" id="zyc-yk-LGS"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="backButton" destination="rHz-UK-lNc" id="PrH-s1-cnm"/>
                         <outlet property="forwardButton" destination="fDD-Ca-YZ4" id="RQG-Uj-YyB"/>
                         <outlet property="linkUrlText" destination="09k-lq-gMf" id="bbD-0b-Chv"/>
+                        <outlet property="useLinkButton" destination="k9G-yz-Ar0" id="oOH-0i-3bS"/>
                         <outlet property="webView" destination="f1t-PF-nwW" id="zjW-2b-egQ"/>
                     </connections>
                 </viewController>

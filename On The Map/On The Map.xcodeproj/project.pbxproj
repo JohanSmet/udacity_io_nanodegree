@@ -10,6 +10,7 @@
 		04016B421B4FE44400CC33E0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 04016B441B4FE44400CC33E0 /* Localizable.strings */; };
 		04016B491B4FE44500CC33E0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 04016B4B1B4FE44500CC33E0 /* InfoPlist.strings */; };
 		04016B4E1B4FE44500CC33E0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 04016B501B4FE44500CC33E0 /* InfoPlist.strings */; };
+		0403D88B1B5C2A7000DFAF50 /* UrlUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0403D88A1B5C2A7000DFAF50 /* UrlUtils.swift */; };
 		0403F71E1B55ADBF003BAC6E /* BrowseLinkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0403F71D1B55ADBF003BAC6E /* BrowseLinkController.swift */; };
 		0404F47B1B32143000826619 /* InformationPostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0404F47A1B32143000826619 /* InformationPostingController.swift */; };
 		0405B2961B43387A00035DAB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405B2951B43387A00035DAB /* User.swift */; };
@@ -59,6 +60,7 @@
 		04016B521B4FF9EE00CC33E0 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		04016B531B4FF9EE00CC33E0 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		04016B551B4FFC4600CC33E0 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		0403D88A1B5C2A7000DFAF50 /* UrlUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UrlUtils.swift; sourceTree = "<group>"; };
 		0403F71D1B55ADBF003BAC6E /* BrowseLinkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowseLinkController.swift; sourceTree = "<group>"; };
 		0404F47A1B32143000826619 /* InformationPostingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationPostingController.swift; sourceTree = "<group>"; };
 		0405B2951B43387A00035DAB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				041AE1BC1B46D7CE008C6CF4 /* KeyboardFix.swift */,
+				0403D88A1B5C2A7000DFAF50 /* UrlUtils.swift */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -442,6 +445,7 @@
 			files = (
 				040AD8ED1B47294B00810205 /* LoginService.swift in Sources */,
 				0408343B1B5069250097E432 /* DuplicateTabController.swift in Sources */,
+				0403D88B1B5C2A7000DFAF50 /* UrlUtils.swift in Sources */,
 				0407FD381B30C2F700E1FE41 /* MainController.swift in Sources */,
 				0404F47B1B32143000826619 /* InformationPostingController.swift in Sources */,
 				041CABAD1B39F25500667C4B /* MapTabController.swift in Sources */,

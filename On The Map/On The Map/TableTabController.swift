@@ -65,8 +65,8 @@ class TableTabController :  UIViewController,
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let student = DataContext.instance().studentByIndex(indexPath.row)!
-        if let url = NSURL(string: student.mediaURL) {
-            UIApplication.sharedApplication().openURL(url)
+        if isValidUrl(student.mediaURL) {
+            UIApplication.sharedApplication().openURL(NSURL(string: student.mediaURL)!)
         } else {
             alertOkAsync(self, NSLocalizedString("conInvalidURL", comment: "Invalid URL!"))
         }

@@ -27,6 +27,7 @@ class BrowseLinkController: UIViewController,
     
     @IBOutlet weak var backButton: UIBarButtonItem!
     @IBOutlet weak var forwardButton: UIBarButtonItem!
+    @IBOutlet weak var useLinkButton: UIBarButtonItem!
     
     ///////////////////////////////////////////////////////////////////////////////////
     //
@@ -64,8 +65,23 @@ class BrowseLinkController: UIViewController,
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        browseToUrl()
+        
+        if useLinkButton.enabled {
+            browseToUrl()
+        }
         return false
+    }
+    
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        
+        // create the new text
+        var newText: NSString = textField.text
+        newText = newText.stringByReplacingCharactersInRange(range, withString: string)
+        
+        // enable the "use this link" button if it represents a valid url
+        useLinkButton.enabled = isValidUrl(newText as String)
+        
+        return true
     }
     
     ///////////////////////////////////////////////////////////////////////////////////
@@ -115,6 +131,5 @@ class BrowseLinkController: UIViewController,
             let request = NSURLRequest(URL: url)
             webView.loadRequest(request)
         }
-    
     }
 }
