@@ -40,6 +40,9 @@
 /* Loading data */
 "conLoadingData" = "Loading data";
 
+/* Sending data to server */
+"conSubmitData" = "Sending data to server";
+
 /* Logout */
 "conLogout" = "Logout";
 

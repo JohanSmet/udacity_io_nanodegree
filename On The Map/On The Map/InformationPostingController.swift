@@ -217,13 +217,21 @@ class InformationPostingController: UIViewController,
             DataContext.instance().userLocation = studentInformation
         }
         
-       studentInformation.mapString = locationText.text
-       studentInformation.mediaURL  = linkText.text
-       studentInformation.latitude  = locationCoordinate!.latitude
-       studentInformation.longitude = locationCoordinate!.longitude
+        studentInformation.mapString = locationText.text
+        studentInformation.mediaURL  = linkText.text
+        studentInformation.latitude  = locationCoordinate!.latitude
+        studentInformation.longitude = locationCoordinate!.longitude
+        
+        // show a progress indicator
+        let overlay = createPatienceOverlay(NSLocalizedString("conPleaseWait", comment: "Please wait"),
+                                            NSLocalizedString("conSubmitData", comment: "Sending data to server"))
+        
        
         // submit the information to udacity
         UdacityParseClient.instance().postStudentLocation(studentInformation) { objectId, error in
+            
+            overlay.removeFromSuperview()
+            
             if let error = error {
                 return alertOkAsync(self, error)
             }

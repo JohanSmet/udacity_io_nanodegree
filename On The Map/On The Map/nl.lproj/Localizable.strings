@@ -40,6 +40,9 @@
 /* Loading data */
 "conLoadingData" = "Gegevens worden opgehaald";
 
+/* Sending data to server" */
+"conSubmitData" = "Gegevens worden verstuurd";
+
 /* Logout */
 "conLogout" = "Afmelden";
 
