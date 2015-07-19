@@ -37,6 +37,9 @@
 /* Please wait */
 "conPleaseWait" = "Please wait";
 
+/* Loading data */
+"conLoadingData" = "Loading data";
+
 /* Logout */
 "conLogout" = "Logout";
 

@@ -14,12 +14,7 @@ protocol AppDataTab {
 }
 
 class MainController: UITabBarController {
-    
-    ///////////////////////////////////////////////////////////////////////////////////
-    //
-    // outlets
-    //
-    
+   
     ///////////////////////////////////////////////////////////////////////////////////
     //
     // UIViewController overrides
@@ -47,7 +42,16 @@ class MainController: UITabBarController {
     
     func refreshData() {
         
+        var patienceOverlay : UIView? = createPatienceOverlay(NSLocalizedString("conPleaseWait", comment:"Please wait"),
+                                                              NSLocalizedString("conLoadingData", comment:"Loading data"))
+        
         DataLoader.loadData() { error in
+            
+            if let overlay = patienceOverlay {
+                overlay.removeFromSuperview()
+                patienceOverlay = nil
+            }
+            
             if let errorMsg = error {
                 alertOkAsync(self, errorMsg)
             } else {

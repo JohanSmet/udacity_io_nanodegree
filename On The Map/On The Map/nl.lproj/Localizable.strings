@@ -37,6 +37,9 @@
 /* Please wait */
 "conPleaseWait" = "Even geduld";
 
+/* Loading data */
+"conLoadingData" = "Gegevens worden opgehaald";
+
 /* Logout */
 "conLogout" = "Afmelden";
 
