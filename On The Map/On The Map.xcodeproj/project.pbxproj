@@ -14,6 +14,7 @@
 		0403F71E1B55ADBF003BAC6E /* BrowseLinkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0403F71D1B55ADBF003BAC6E /* BrowseLinkController.swift */; };
 		0404F47B1B32143000826619 /* InformationPostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0404F47A1B32143000826619 /* InformationPostingController.swift */; };
 		0405B2961B43387A00035DAB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405B2951B43387A00035DAB /* User.swift */; };
+		0405B6501B5D8EA900030131 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 0405B64F1B5D8EA900030131 /* README.md */; };
 		0405D8771B4D470A006F6773 /* PatienceOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405D8761B4D470A006F6773 /* PatienceOverlay.swift */; };
 		0405D8791B4D62D9006F6773 /* ControlStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405D8781B4D62D9006F6773 /* ControlStyle.swift */; };
 		0405D87B1B4D6504006F6773 /* AlertPopups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405D87A1B4D6504006F6773 /* AlertPopups.swift */; };
@@ -64,6 +65,7 @@
 		0403F71D1B55ADBF003BAC6E /* BrowseLinkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowseLinkController.swift; sourceTree = "<group>"; };
 		0404F47A1B32143000826619 /* InformationPostingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationPostingController.swift; sourceTree = "<group>"; };
 		0405B2951B43387A00035DAB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		0405B64F1B5D8EA900030131 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		0405D8761B4D470A006F6773 /* PatienceOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatienceOverlay.swift; sourceTree = "<group>"; };
 		0405D8781B4D62D9006F6773 /* ControlStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlStyle.swift; sourceTree = "<group>"; };
 		0405D87A1B4D6504006F6773 /* AlertPopups.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertPopups.swift; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 				0407FD311B30C01C00E1FE41 /* Storyboards */,
 				041D513F1B2B778E00DA7C08 /* Images.xcassets */,
 				041D51361B2B778E00DA7C08 /* Supporting Files */,
+				0405B64F1B5D8EA900030131 /* README.md */,
 			);
 			path = "On The Map";
 			sourceTree = "<group>";
@@ -449,6 +452,7 @@
 				0407FD381B30C2F700E1FE41 /* MainController.swift in Sources */,
 				0404F47B1B32143000826619 /* InformationPostingController.swift in Sources */,
 				041CABAD1B39F25500667C4B /* MapTabController.swift in Sources */,
+				0405B6501B5D8EA900030131 /* README.md in Sources */,
 				041D51391B2B778E00DA7C08 /* AppDelegate.swift in Sources */,
 				0405D8771B4D470A006F6773 /* PatienceOverlay.swift in Sources */,
 				0405D8791B4D62D9006F6773 /* ControlStyle.swift in Sources */,

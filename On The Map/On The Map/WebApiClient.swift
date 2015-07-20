@@ -5,6 +5,8 @@
 //  Created by Johan Smet on 19/06/15.
 //  Copyright (c) 2015 Justcode.be. All rights reserved.
 //
+//  Please note : the code in this file is based on code presented in the Udacity course "iOS Networking with Swift"
+//                (see https://www.udacity.com/course/viewer#!/c-ud421-nd/l-3528678921/m-3750628798)
 
 import Foundation
 
