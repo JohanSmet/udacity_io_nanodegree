@@ -20,12 +20,12 @@ class TableTabController :  UIViewController,
     
     @IBOutlet weak var studentTable: UITableView!
     
-    ///////////////////////////////////////////////////////////////////////////////////
-    //
-    // UIViewController overrides
-    //
-    
-    override func viewDidLoad() {
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // for some reason the top content-inset is set when returning from the InformationPosting-view
+        // (when time permits we should find the real cause of this problem)
+        studentTable.contentInset.top = 0
     }
     
     ///////////////////////////////////////////////////////////////////////////////////
