@@ -14,7 +14,6 @@
 		0403F71E1B55ADBF003BAC6E /* BrowseLinkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0403F71D1B55ADBF003BAC6E /* BrowseLinkController.swift */; };
 		0404F47B1B32143000826619 /* InformationPostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0404F47A1B32143000826619 /* InformationPostingController.swift */; };
 		0405B2961B43387A00035DAB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405B2951B43387A00035DAB /* User.swift */; };
-		0405B6501B5D8EA900030131 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 0405B64F1B5D8EA900030131 /* README.md */; };
 		0405D8771B4D470A006F6773 /* PatienceOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405D8761B4D470A006F6773 /* PatienceOverlay.swift */; };
 		0405D8791B4D62D9006F6773 /* ControlStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405D8781B4D62D9006F6773 /* ControlStyle.swift */; };
 		0405D87B1B4D6504006F6773 /* AlertPopups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405D87A1B4D6504006F6773 /* AlertPopups.swift */; };
@@ -37,8 +36,9 @@
 		041D51401B2B778E00DA7C08 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 041D513F1B2B778E00DA7C08 /* Images.xcassets */; };
 		041D51431B2B778E00DA7C08 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 041D51411B2B778E00DA7C08 /* LaunchScreen.xib */; };
 		041D514F1B2B778E00DA7C08 /* On_The_MapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041D514E1B2B778E00DA7C08 /* On_The_MapTests.swift */; };
+		043D708A1B5E66DC0091BFAB /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 043D70881B5E66DC0091BFAB /* FBSDKCoreKit.framework */; };
+		043D708B1B5E66DC0091BFAB /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 043D70891B5E66DC0091BFAB /* FBSDKLoginKit.framework */; };
 		04FE9C961B371E48007A47F1 /* UdacityApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FE9C951B371E48007A47F1 /* UdacityApiClient.swift */; };
-		6043993E5BF2ED79E035E965 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B32EBF7C68086EAF3AE9D53 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,10 +70,6 @@
 		0405D8781B4D62D9006F6773 /* ControlStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlStyle.swift; sourceTree = "<group>"; };
 		0405D87A1B4D6504006F6773 /* AlertPopups.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertPopups.swift; sourceTree = "<group>"; };
 		0406DEBE1B3B4A0A00A973F4 /* DataLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
-		040778261B50262B00B81113 /* libPods-FBSDKCoreKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-FBSDKCoreKit.a"; path = "Pods/../build/Debug-iphoneos/libPods-FBSDKCoreKit.a"; sourceTree = "<group>"; };
-		040778271B50262B00B81113 /* libPods-FBSDKLoginKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-FBSDKLoginKit.a"; path = "Pods/../build/Debug-iphoneos/libPods-FBSDKLoginKit.a"; sourceTree = "<group>"; };
-		0407782A1B5026F200B81113 /* libPods-FBSDKCoreKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-FBSDKCoreKit.a"; path = "Pods/../build/Debug-iphoneos/libPods-FBSDKCoreKit.a"; sourceTree = "<group>"; };
-		0407782B1B5026F200B81113 /* libPods-FBSDKLoginKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-FBSDKLoginKit.a"; path = "Pods/../build/Debug-iphoneos/libPods-FBSDKLoginKit.a"; sourceTree = "<group>"; };
 		0407FD321B30C05D00E1FE41 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		0407FD351B30C1B000E1FE41 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0407FD371B30C2F700E1FE41 /* MainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
@@ -97,10 +93,9 @@
 		041D51481B2B778E00DA7C08 /* On The MapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "On The MapTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		041D514D1B2B778E00DA7C08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		041D514E1B2B778E00DA7C08 /* On_The_MapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = On_The_MapTests.swift; sourceTree = "<group>"; };
+		043D70881B5E66DC0091BFAB /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		043D70891B5E66DC0091BFAB /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		04FE9C951B371E48007A47F1 /* UdacityApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdacityApiClient.swift; sourceTree = "<group>"; };
-		2B32EBF7C68086EAF3AE9D53 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6E8DCFEA3085328656445989 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		9E21D9CDCA2DE03266C841CE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,7 +103,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6043993E5BF2ED79E035E965 /* Pods.framework in Frameworks */,
+				043D708B1B5E66DC0091BFAB /* FBSDKLoginKit.framework in Frameworks */,
+				043D708A1B5E66DC0091BFAB /* FBSDKCoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,7 +206,6 @@
 				041D51351B2B778E00DA7C08 /* On The Map */,
 				041D514B1B2B778E00DA7C08 /* On The MapTests */,
 				041D51341B2B778E00DA7C08 /* Products */,
-				8B6A012DBB27EEAEBA492817 /* Pods */,
 				7C38788AA62F091C87A8343E /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -272,22 +267,10 @@
 		7C38788AA62F091C87A8343E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0407782A1B5026F200B81113 /* libPods-FBSDKCoreKit.a */,
-				0407782B1B5026F200B81113 /* libPods-FBSDKLoginKit.a */,
-				040778261B50262B00B81113 /* libPods-FBSDKCoreKit.a */,
-				040778271B50262B00B81113 /* libPods-FBSDKLoginKit.a */,
-				2B32EBF7C68086EAF3AE9D53 /* Pods.framework */,
+				043D70881B5E66DC0091BFAB /* FBSDKCoreKit.framework */,
+				043D70891B5E66DC0091BFAB /* FBSDKLoginKit.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		8B6A012DBB27EEAEBA492817 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				6E8DCFEA3085328656445989 /* Pods.debug.xcconfig */,
-				9E21D9CDCA2DE03266C841CE /* Pods.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,12 +280,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 041D51521B2B778E00DA7C08 /* Build configuration list for PBXNativeTarget "On The Map" */;
 			buildPhases = (
-				1D764E1C1DE33008DE52389C /* Check Pods Manifest.lock */,
 				041D512F1B2B778E00DA7C08 /* Sources */,
 				041D51301B2B778E00DA7C08 /* Frameworks */,
 				041D51311B2B778E00DA7C08 /* Resources */,
-				7CC0E7AC55ED778C00981C72 /* Copy Pods Resources */,
-				BB9C456DE28F8B58B39125D3 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -393,54 +373,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		1D764E1C1DE33008DE52389C /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		7CC0E7AC55ED778C00981C72 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BB9C456DE28F8B58B39125D3 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		041D512F1B2B778E00DA7C08 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -452,7 +384,6 @@
 				0407FD381B30C2F700E1FE41 /* MainController.swift in Sources */,
 				0404F47B1B32143000826619 /* InformationPostingController.swift in Sources */,
 				041CABAD1B39F25500667C4B /* MapTabController.swift in Sources */,
-				0405B6501B5D8EA900030131 /* README.md in Sources */,
 				041D51391B2B778E00DA7C08 /* AppDelegate.swift in Sources */,
 				0405D8771B4D470A006F6773 /* PatienceOverlay.swift in Sources */,
 				0405D8791B4D62D9006F6773 /* ControlStyle.swift in Sources */,
@@ -625,15 +556,24 @@
 		};
 		041D51531B2B778E00DA7C08 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6E8DCFEA3085328656445989 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "On The Map/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"FBSDKCoreKit\"",
+					"-framework",
+					"\"FBSDKLoginKit\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -642,15 +582,24 @@
 		};
 		041D51541B2B778E00DA7C08 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9E21D9CDCA2DE03266C841CE /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "On The Map/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"FBSDKCoreKit\"",
+					"-framework",
+					"\"FBSDKLoginKit\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
