@@ -56,15 +56,15 @@ struct StudentInformation {
     }
     
     init(values : [ String : AnyObject]) {
-        self.objectId   = values["objectId"]! as! String
-        self.uniqueKey  = values["uniqueKey"]! as! String
-        self.firstName  = values["firstName"]! as! String
-        self.lastName   = values["lastName"]! as! String
-        self.mapString  = values["mapString"]! as! String
-        self.mediaURL   = values["mediaURL"]! as! String
-        self.latitude   = values["latitude"]! as! Double
-        self.longitude  = values["longitude"]! as! Double
-        self.occurances = 1
+        objectId   = values["objectId"]! as! String
+        uniqueKey  = values["uniqueKey"]! as! String
+        firstName  = values["firstName"]! as! String
+        lastName   = values["lastName"]! as! String
+        mapString  = values["mapString"]! as! String
+        mediaURL   = values["mediaURL"]! as! String
+        latitude   = values["latitude"]! as! Double
+        longitude  = values["longitude"]! as! Double
+        occurances = 1
     }
  
     ///////////////////////////////////////////////////////////////////////////////////
