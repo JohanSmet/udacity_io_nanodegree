@@ -176,8 +176,12 @@ class InformationPostingController: UIViewController,
         // geocode
         geocodeLocation(locationText.text!) { error in
             
+            dispatch_async(dispatch_get_main_queue(), {
+                self.indicatorGeocoding.hidden = true
+            })
+            
             if let error = error {
-                alertOkAsync(self, error.localizedFailureReason!)
+                alertOkAsync(self, error.localizedDescription, title: NSLocalizedString("conGeocodingFailed", comment:"Geocoding failed"))
             } else {
                 // show the entered location on the map
                 let annotation = MKPointAnnotation()

@@ -58,6 +58,9 @@
 /* Invalid URL */
 "conInvalidURL" = "Invalid URL!";
 
+/* Geocoding failed */
+"conGeocodingFailed" = "Geocoding failed";
+
 /* Login impossible: already logged in */
 "serAlreadyLoggedIn" = "Login impossible: already logged in";
 

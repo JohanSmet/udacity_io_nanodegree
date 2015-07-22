@@ -58,6 +58,9 @@
 /* Invalid URL */
 "conInvalidURL" = "Ongeldige URL!";
 
+/* Geocoding failed */
+"conGeocodingFailed" = "Geocoding mislukt";
+
 /* Login impossible: already logged in */
 "serAlreadyLoggedIn" = "Aanmelden onmogelijk : reeds aangemeld";
 
