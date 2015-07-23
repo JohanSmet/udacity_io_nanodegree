@@ -40,6 +40,11 @@ class DataContext {
         studentLocations = studentLocationsMap.values.array
     }
     
+    func upsertPostedStudent(student : StudentInformation) {
+        studentLocationsMap[student.uniqueKey] = student
+        studentLocations = studentLocationsMap.values.array
+    }
+    
     func studentByIndex(index : Int) -> StudentInformation? {
        
         if index < 0 || index >= studentLocationsMap.count {

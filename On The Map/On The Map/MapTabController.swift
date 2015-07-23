@@ -29,7 +29,13 @@ class MapTabController : UIViewController,
     //
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         mapView.delegate = self
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        refreshData()
     }
     
     ///////////////////////////////////////////////////////////////////////////////////

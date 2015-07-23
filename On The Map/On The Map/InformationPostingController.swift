@@ -244,6 +244,8 @@ class InformationPostingController: UIViewController,
                 DataContext.instance().userLocation!.objectId = objectId
             }
             
+            DataContext.instance().upsertPostedStudent(studentInformation)
+            
             self.dismissViewControllerAnimated(true, completion: nil)
         }
     }
