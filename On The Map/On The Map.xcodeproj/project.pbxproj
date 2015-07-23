@@ -23,7 +23,6 @@
 		0407FD381B30C2F700E1FE41 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0407FD371B30C2F700E1FE41 /* MainController.swift */; };
 		0408343B1B5069250097E432 /* DuplicateTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0408343A1B5069250097E432 /* DuplicateTabController.swift */; };
 		0409B4E71B34B71A00EA54FF /* WebApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0409B4E61B34B71A00EA54FF /* WebApiClient.swift */; };
-		040AD8EB1B4720EC00810205 /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040AD8EA1B4720EC00810205 /* Animations.swift */; };
 		040AD8ED1B47294B00810205 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040AD8EC1B47294B00810205 /* LoginService.swift */; };
 		041401641B3DE7030037042B /* TableTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041401631B3DE7030037042B /* TableTabController.swift */; };
 		041AE1BD1B46D7CE008C6CF4 /* KeyboardFix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041AE1BC1B46D7CE008C6CF4 /* KeyboardFix.swift */; };
@@ -76,7 +75,6 @@
 		0408343A1B5069250097E432 /* DuplicateTabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DuplicateTabController.swift; sourceTree = "<group>"; };
 		0409B4E61B34B71A00EA54FF /* WebApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebApiClient.swift; sourceTree = "<group>"; };
 		040ACFE41B4F128100BF1FB4 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Main.strings; sourceTree = "<group>"; };
-		040AD8EA1B4720EC00810205 /* Animations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animations.swift; sourceTree = "<group>"; };
 		040AD8EC1B47294B00810205 /* LoginService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		041401631B3DE7030037042B /* TableTabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableTabController.swift; sourceTree = "<group>"; };
 		041AE1BC1B46D7CE008C6CF4 /* KeyboardFix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardFix.swift; sourceTree = "<group>"; };
@@ -155,7 +153,6 @@
 			isa = PBXGroup;
 			children = (
 				0405D87A1B4D6504006F6773 /* AlertPopups.swift */,
-				040AD8EA1B4720EC00810205 /* Animations.swift */,
 				0407FD351B30C1B000E1FE41 /* Constants.swift */,
 				0405D8781B4D62D9006F6773 /* ControlStyle.swift */,
 				0405D8761B4D470A006F6773 /* PatienceOverlay.swift */,
@@ -396,7 +393,6 @@
 				041CABB01B39F5E000667C4B /* StudentInformation.swift in Sources */,
 				0403F71E1B55ADBF003BAC6E /* BrowseLinkController.swift in Sources */,
 				0406DEBF1B3B4A0A00A973F4 /* DataLoader.swift in Sources */,
-				040AD8EB1B4720EC00810205 /* Animations.swift in Sources */,
 				041CABB21B39F9B600667C4B /* DataContext.swift in Sources */,
 				041AE1BD1B46D7CE008C6CF4 /* KeyboardFix.swift in Sources */,
 				0409B4E71B34B71A00EA54FF /* WebApiClient.swift in Sources */,

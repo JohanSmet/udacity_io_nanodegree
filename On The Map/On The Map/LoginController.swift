@@ -25,7 +25,6 @@ class LoginController: UIViewController,
     @IBOutlet weak var buttonLogin: UIButton!
     @IBOutlet weak var buttonFacebook: UIButton!
     
-    @IBOutlet weak var labelError: UILabel!
     @IBOutlet weak var containerInput: UIView!
     
     ///////////////////////////////////////////////////////////////////////////////////
@@ -61,8 +60,6 @@ class LoginController: UIViewController,
             keyboardFix.activate()
         }
         
-        // cleanup UI
-        clearLoginError()
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -110,8 +107,6 @@ class LoginController: UIViewController,
     
     @IBAction func loginViaUdacity() {
         
-        clearLoginError()
-
         if (!validateForm()) {
             return
         }
@@ -130,7 +125,6 @@ class LoginController: UIViewController,
     }
     
     @IBAction func loginViaFacebook(sender: AnyObject) {
-        clearLoginError()
         
         uiLoginBegin()
         
@@ -186,15 +180,9 @@ class LoginController: UIViewController,
         })
     }
     
-    private func clearLoginError() {
-        labelError.text = ""
-        labelError.hidden = true
-    }
-    
     private func showLoginError (errorMessage : String) {
-        labelError.text = errorMessage
-        labelError.hidden = false
-        animShakeHorizontal(labelError)
+        let alertView = alertOk(self, errorMessage);
+        alertView.tintColor = UIColor.orangeColor()
     }
     
     private func showLoginErrorAsync(errorMessage : String) {

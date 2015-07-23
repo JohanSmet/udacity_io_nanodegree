@@ -24,12 +24,6 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zhW-KE-eUK" userLabel="ContentView">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error Message" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="Tja-IZ-wp4">
-                                                <rect key="frame" x="22" y="426" width="556" height="22"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bba-Ka-uHJ">
                                                 <rect key="frame" x="16" y="526" width="568" height="42"/>
                                                 <color key="backgroundColor" red="0.31764705879999999" green="0.53725490200000003" blue="0.70588235290000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -145,15 +139,12 @@
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="bba-Ka-uHJ" firstAttribute="leading" secondItem="zhW-KE-eUK" secondAttribute="leading" constant="16" id="3XE-Ml-r5a"/>
-                                            <constraint firstItem="Tja-IZ-wp4" firstAttribute="top" secondItem="Abj-6o-Umc" secondAttribute="bottom" constant="16" id="4eP-tw-4sP"/>
                                             <constraint firstItem="Abj-6o-Umc" firstAttribute="leading" secondItem="zhW-KE-eUK" secondAttribute="leading" constant="16" id="7zM-vu-dXi"/>
                                             <constraint firstAttribute="bottom" secondItem="bba-Ka-uHJ" secondAttribute="bottom" constant="32" id="BCf-q4-1a6"/>
                                             <constraint firstAttribute="centerX" secondItem="yJ6-cY-xk7" secondAttribute="centerX" id="RPu-TU-d4k"/>
                                             <constraint firstAttribute="centerY" secondItem="Abj-6o-Umc" secondAttribute="centerY" id="baw-h7-vyn"/>
                                             <constraint firstAttribute="trailing" secondItem="Abj-6o-Umc" secondAttribute="trailing" constant="16" id="caw-mr-6Ro"/>
                                             <constraint firstAttribute="trailing" secondItem="bba-Ka-uHJ" secondAttribute="trailing" constant="16" id="f9s-AG-muQ"/>
-                                            <constraint firstItem="Tja-IZ-wp4" firstAttribute="leading" secondItem="zhW-KE-eUK" secondAttribute="leading" constant="22" id="hpM-5Y-JsL"/>
-                                            <constraint firstAttribute="trailing" secondItem="Tja-IZ-wp4" secondAttribute="trailing" constant="22" id="iHt-wn-quj"/>
                                             <constraint firstItem="yJ6-cY-xk7" firstAttribute="top" secondItem="zhW-KE-eUK" secondAttribute="top" constant="32" id="isx-7G-41g"/>
                                             <constraint firstItem="Abj-6o-Umc" firstAttribute="top" secondItem="yJ6-cY-xk7" secondAttribute="bottom" constant="16" id="mcn-uJ-lQ5"/>
                                         </constraints>
@@ -182,7 +173,6 @@
                         <outlet property="buttonFacebook" destination="bba-Ka-uHJ" id="O7X-1G-iZf"/>
                         <outlet property="buttonLogin" destination="QZJ-aQ-eNu" id="IjI-rM-WC6"/>
                         <outlet property="containerInput" destination="Abj-6o-Umc" id="Wic-m4-PO5"/>
-                        <outlet property="labelError" destination="Tja-IZ-wp4" id="c1o-YF-gyx"/>
                         <outlet property="scrollView" destination="Eo9-OC-HQ4" id="Qr2-YR-xKL"/>
                         <outlet property="textEmail" destination="9J5-AR-lvY" id="tNA-Ia-dfm"/>
                         <outlet property="textPassword" destination="a7O-jK-b1u" id="AZa-Jz-VZH"/>
