@@ -15,8 +15,8 @@ class DataContext {
     // properties
     //
     
-    var studentLocationsMap : [String : StudentInformation] = [:]
     var studentLocations    : [StudentInformation] = []
+    var studentIndices      : [String : Int] = [:]
     
     var user : User?
     var userLocation : StudentInformation?
@@ -27,27 +27,44 @@ class DataContext {
     //
     
     func clearStudents() {
-        studentLocationsMap.removeAll(keepCapacity: true)
         studentLocations.removeAll(keepCapacity: true)
+        studentIndices.removeAll(keepCapacity: true)
     }
     
     func addStudents(studentList : [AnyObject]) {
         for student in studentList {
             addStudent(student as! [String : AnyObject])
         }
-        
-        // refresh the array that is used by the rest of the app
-        studentLocations = studentLocationsMap.values.array
     }
     
     func upsertPostedStudent(student : StudentInformation) {
-        studentLocationsMap[student.uniqueKey] = student
-        studentLocations = studentLocationsMap.values.array
+
+        if let existingIndex = studentIndices[student.uniqueKey] {
+            // update information of an existing student and move it to the start of the array
+            var updStudent = studentLocations[existingIndex]
+            studentLocations.removeAtIndex(existingIndex)
+            
+            updStudent.mediaURL = student.mediaURL
+            updStudent.mapString = student.mapString
+            updStudent.latitude = student.latitude
+            updStudent.longitude = student.longitude
+            studentLocations.insert(updStudent, atIndex: 0)
+        } else {
+            // new pin - add it to the beginning of the array
+            studentLocations.insert(student, atIndex: 0)
+        }
+        
+        // rebuild the student-indices dictionary
+        studentIndices.removeAll(keepCapacity: true)
+        
+        for (key, value) in enumerate(studentLocations) {
+            studentIndices[value.uniqueKey] = key
+        }
     }
     
     func studentByIndex(index : Int) -> StudentInformation? {
        
-        if index < 0 || index >= studentLocationsMap.count {
+        if index < 0 || index >= studentLocations.count {
             return nil
         }
         
@@ -57,15 +74,17 @@ class DataContext {
     private func addStudent(student : [String : AnyObject]) {
         var studentInfo = StudentInformation(values: student)
        
-        if filterBadStudents(studentInfo) {
-            var entryCount = 0
-            
-            if let entry = studentLocationsMap[studentInfo.uniqueKey] {
-                entryCount = entry.occurances
-            }
-           
-            studentInfo.occurances += entryCount
-            studentLocationsMap[studentInfo.uniqueKey] = studentInfo
+        if !filterBadStudents(studentInfo) {
+            return
+        }
+        
+        if let existingIndex = studentIndices[studentInfo.uniqueKey] {
+            // duplicate entry for a student - don't overwrite data with older information
+            studentLocations[existingIndex].occurances++
+        } else {
+            let index = studentLocations.count;
+            studentLocations.append(studentInfo)
+            studentIndices[studentInfo.uniqueKey] = index;
         }
     }
     

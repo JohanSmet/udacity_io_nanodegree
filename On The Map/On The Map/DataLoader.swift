@@ -16,7 +16,7 @@ class DataLoader {
     //
     
     private static let MAX_STUDENT_PASS_COUNT = 10
-    private static let STUDENT_COUNT = 200
+    private static let STUDENT_COUNT = 100
     
     ///////////////////////////////////////////////////////////////////////////////////
     //
