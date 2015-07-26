@@ -35,8 +35,6 @@ class InformationPostingController: UIViewController,
     @IBOutlet weak var buttonFindOnMap: UIButton!
     @IBOutlet weak var buttonBrowseLink: UIButton!
     
-    @IBOutlet weak var indicatorGeocoding: UIActivityIndicatorView!
-    
     ///////////////////////////////////////////////////////////////////////////////////
     //
     // variables
@@ -171,13 +169,15 @@ class InformationPostingController: UIViewController,
             return
         }
         
-        indicatorGeocoding.hidden = false
+        // show progress indicator
+        let overlay = createPatienceOverlay(NSLocalizedString("conPleaseWait", comment: "Please wait"),
+                                            NSLocalizedString("conGeocodingInProgress", comment: "Geocoding in progress"))
         
         // geocode
         geocodeLocation(locationText.text!) { error in
             
             dispatch_async(dispatch_get_main_queue(), {
-                self.indicatorGeocoding.hidden = true
+                overlay.removeFromSuperview()
             })
             
             if let error = error {

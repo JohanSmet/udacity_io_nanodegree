@@ -326,13 +326,9 @@ Cg
                                                 <color key="textColor" red="0.81546085440000005" green="0.81546085440000005" blue="0.81546085440000005" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="mdb-mx-LU7">
-                                                <rect key="frame" x="290" y="440" width="20" height="20"/>
-                                            </activityIndicatorView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.85098039219999999" green="0.85098039219999999" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="centerX" secondItem="mdb-mx-LU7" secondAttribute="centerX" id="3gs-QH-7ap"/>
                                             <constraint firstAttribute="bottom" secondItem="JRu-jp-QHS" secondAttribute="bottom" constant="30" id="8dC-4z-z5e"/>
                                             <constraint firstItem="4qV-Gv-752" firstAttribute="leading" secondItem="0KS-iC-9mK" secondAttribute="leading" id="CCF-JN-kwA"/>
                                             <constraint firstAttribute="centerX" secondItem="bxg-BR-s9P" secondAttribute="centerX" id="DkV-RW-jmu"/>
@@ -345,7 +341,6 @@ Cg
                                             <constraint firstItem="JRu-jp-QHS" firstAttribute="top" secondItem="4qV-Gv-752" secondAttribute="bottom" constant="36" id="bhh-X0-xFF"/>
                                             <constraint firstItem="j0B-fJ-bVP" firstAttribute="top" secondItem="0KS-iC-9mK" secondAttribute="top" id="ekR-W9-Ub8"/>
                                             <constraint firstAttribute="centerX" secondItem="JRu-jp-QHS" secondAttribute="centerX" constant="-1.5" id="fup-Gx-lFY"/>
-                                            <constraint firstItem="mdb-mx-LU7" firstAttribute="top" secondItem="4qV-Gv-752" secondAttribute="bottom" constant="-32" id="jnj-Ii-SrC"/>
                                             <constraint firstAttribute="trailing" secondItem="j0B-fJ-bVP" secondAttribute="trailing" constant="16" id="kVc-kp-cl1"/>
                                             <constraint firstAttribute="width" secondItem="bxg-BR-s9P" secondAttribute="width" id="r1I-Ds-rgG"/>
                                             <constraint firstAttribute="trailing" secondItem="4qV-Gv-752" secondAttribute="trailing" id="u4l-Ni-pC7"/>
@@ -469,7 +464,6 @@ Cg
                         <outlet property="containerLink" destination="GrZ-n0-ZvP" id="j2f-Mi-Teg"/>
                         <outlet property="containerLocation" destination="0KS-iC-9mK" id="1gy-by-ehu"/>
                         <outlet property="headerText" destination="bxg-BR-s9P" id="R3J-6W-3C1"/>
-                        <outlet property="indicatorGeocoding" destination="mdb-mx-LU7" id="IJs-Xi-4kr"/>
                         <outlet property="linkPlaceholder" destination="Lnc-47-Qf3" id="xlt-kg-DqO"/>
                         <outlet property="linkText" destination="Ajp-y9-ghf" id="BkJ-tm-nEC"/>
                         <outlet property="locationPlaceholder" destination="IcS-Nw-0fA" id="Na8-Xc-o6g"/>
