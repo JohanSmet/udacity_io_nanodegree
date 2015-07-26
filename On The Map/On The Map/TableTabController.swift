@@ -74,4 +74,15 @@ class TableTabController :  UIViewController,
         }
     }
     
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if indexPath.row >= (DataContext.instance().studentLocations.count - 20) {
+            // load more data when we're near the end of the table view
+            DataLoader.loadExtraData() { error in
+                if error == nil {
+                    self.refreshData()
+                }
+            }
+        }
+    }
 }
