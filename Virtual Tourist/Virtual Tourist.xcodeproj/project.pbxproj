@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0402DFEB1B764C67007910C8 /* Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0402DFEA1B764C67007910C8 /* Pin.swift */; };
+		0402DFED1B768391007910C8 /* DataContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0402DFEC1B768391007910C8 /* DataContext.swift */; };
 		040C8CC41B73EEB3005A94EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C8CC31B73EEB3005A94EA /* AppDelegate.swift */; };
 		040C8CC71B73EEB3005A94EA /* VirtualTourist.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 040C8CC51B73EEB3005A94EA /* VirtualTourist.xcdatamodeld */; };
 		040C8CC91B73EEB3005A94EA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C8CC81B73EEB3005A94EA /* MainViewController.swift */; };
@@ -28,6 +30,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0402DFEA1B764C67007910C8 /* Pin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pin.swift; sourceTree = "<group>"; };
+		0402DFEC1B768391007910C8 /* DataContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataContext.swift; sourceTree = "<group>"; };
 		040C8CBE1B73EEB3005A94EA /* Virtual Tourist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Virtual Tourist.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		040C8CC21B73EEB3005A94EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		040C8CC31B73EEB3005A94EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "Virtual Tourist/AppDelegate.swift"; sourceTree = "<group>"; };
@@ -121,6 +125,8 @@
 			children = (
 				040C8CC51B73EEB3005A94EA /* VirtualTourist.xcdatamodeld */,
 				040C8CE61B73F018005A94EA /* CoreDataStackManager.swift */,
+				0402DFEC1B768391007910C8 /* DataContext.swift */,
+				0402DFEA1B764C67007910C8 /* Pin.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -242,6 +248,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0402DFEB1B764C67007910C8 /* Pin.swift in Sources */,
+				0402DFED1B768391007910C8 /* DataContext.swift in Sources */,
 				040C8CC91B73EEB3005A94EA /* MainViewController.swift in Sources */,
 				040C8CE71B73F018005A94EA /* CoreDataStackManager.swift in Sources */,
 				040C8CC71B73EEB3005A94EA /* VirtualTourist.xcdatamodeld in Sources */,
@@ -441,6 +449,7 @@
 				040C8CE21B73EEB3005A94EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		040C8CE31B73EEB3005A94EA /* Build configuration list for PBXNativeTarget "Virtual TouristTests" */ = {
 			isa = XCConfigurationList;
@@ -449,6 +458,7 @@
 				040C8CE51B73EEB3005A94EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
