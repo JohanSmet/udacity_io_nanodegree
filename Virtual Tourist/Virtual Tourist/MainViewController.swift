@@ -89,6 +89,13 @@ class MainViewController: UIViewController,
         // add the pin to the map
         let pin = dataContext().createPin(coord.latitude, longitude: coord.longitude)
         mapView.addAnnotation(pin)
+        
+        // start downloading photos for this location
+        PhotoDownloadService.downloadPhotosForLocation(pin) { downloadError in
+            if let error = downloadError {
+                println(error)
+            }
+        }
     }
     
     ////////////////////////////////////////////////////////////////////////////////
