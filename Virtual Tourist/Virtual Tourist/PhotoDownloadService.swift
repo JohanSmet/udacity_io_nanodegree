@@ -70,12 +70,13 @@ class PhotoDownloadService {
         
         // save photo to file system
         let documentsDirectory: AnyObject = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0]
-        let path = documentsDirectory.stringByAppendingPathComponent(NSUUID().UUIDString + ".jpg")
+        let filename = NSUUID().UUIDString + ".jpg"
+        let path = documentsDirectory.stringByAppendingPathComponent(filename)
         photoData?.writeToFile(path, atomically: false)
         
         // update the photo record in coredata
         dispatch_async(dispatch_get_main_queue()) {
-            photo.localUrl = path
+            photo.localUrl = filename
             coreDataStackManager().saveContext()
         }
         

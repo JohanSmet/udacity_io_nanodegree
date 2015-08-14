@@ -11,6 +11,7 @@
 		0402DFED1B768391007910C8 /* DataContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0402DFEC1B768391007910C8 /* DataContext.swift */; };
 		0405C4491B77F0F1005A1705 /* PhotoDownloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405C4481B77F0F1005A1705 /* PhotoDownloadService.swift */; };
 		0405C44B1B77F3C6005A1705 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405C44A1B77F3C6005A1705 /* Photo.swift */; };
+		040ABEA11B7BE83F00A89E02 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040ABEA01B7BE83F00A89E02 /* PhotoCell.swift */; };
 		040C8CC41B73EEB3005A94EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C8CC31B73EEB3005A94EA /* AppDelegate.swift */; };
 		040C8CC71B73EEB3005A94EA /* VirtualTourist.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 040C8CC51B73EEB3005A94EA /* VirtualTourist.xcdatamodeld */; };
 		040C8CC91B73EEB3005A94EA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C8CC81B73EEB3005A94EA /* MainViewController.swift */; };
@@ -19,6 +20,7 @@
 		040C8CD11B73EEB3005A94EA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 040C8CCF1B73EEB3005A94EA /* LaunchScreen.xib */; };
 		040C8CDD1B73EEB3005A94EA /* Virtual_TouristTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C8CDC1B73EEB3005A94EA /* Virtual_TouristTests.swift */; };
 		040C8CE71B73F018005A94EA /* CoreDataStackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C8CE61B73F018005A94EA /* CoreDataStackManager.swift */; };
+		049DD3FB1B7A908300324DD2 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049DD3FA1B7A908300324DD2 /* PhotoViewController.swift */; };
 		04EDD8DD1B77B1BC00B9A09C /* WebApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EDD8DC1B77B1BC00B9A09C /* WebApiClient.swift */; };
 		04EDD8E01B77B23D00B9A09C /* FlickrClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EDD8DF1B77B23D00B9A09C /* FlickrClient.swift */; };
 /* End PBXBuildFile section */
@@ -38,6 +40,7 @@
 		0402DFEC1B768391007910C8 /* DataContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataContext.swift; sourceTree = "<group>"; };
 		0405C4481B77F0F1005A1705 /* PhotoDownloadService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoDownloadService.swift; sourceTree = "<group>"; };
 		0405C44A1B77F3C6005A1705 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		040ABEA01B7BE83F00A89E02 /* PhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		040C8CBE1B73EEB3005A94EA /* Virtual Tourist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Virtual Tourist.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		040C8CC21B73EEB3005A94EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		040C8CC31B73EEB3005A94EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "Virtual Tourist/AppDelegate.swift"; sourceTree = "<group>"; };
@@ -50,6 +53,7 @@
 		040C8CDB1B73EEB3005A94EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		040C8CDC1B73EEB3005A94EA /* Virtual_TouristTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Virtual_TouristTests.swift; sourceTree = "<group>"; };
 		040C8CE61B73F018005A94EA /* CoreDataStackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStackManager.swift; sourceTree = "<group>"; };
+		049DD3FA1B7A908300324DD2 /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		04EDD8DC1B77B1BC00B9A09C /* WebApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebApiClient.swift; sourceTree = "<group>"; };
 		04EDD8DF1B77B23D00B9A09C /* FlickrClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -72,6 +76,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		040ABE9F1B7BE81400A89E02 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				040ABEA01B7BE83F00A89E02 /* PhotoCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		040C8CB51B73EEB3005A94EA = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +112,7 @@
 				040C8CE81B73F392005A94EA /* Model */,
 				04EDD8E11B77BC4300B9A09C /* Services */,
 				040C8CE91B73F3FC005A94EA /* Storyboards */,
+				040ABE9F1B7BE81400A89E02 /* View */,
 				040C8CC11B73EEB3005A94EA /* Supporting Files */,
 			);
 			path = "Virtual Tourist";
@@ -155,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				040C8CC81B73EEB3005A94EA /* MainViewController.swift */,
+				049DD3FA1B7A908300324DD2 /* PhotoViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -288,12 +302,14 @@
 				0402DFED1B768391007910C8 /* DataContext.swift in Sources */,
 				0405C4491B77F0F1005A1705 /* PhotoDownloadService.swift in Sources */,
 				04EDD8DD1B77B1BC00B9A09C /* WebApiClient.swift in Sources */,
+				040ABEA11B7BE83F00A89E02 /* PhotoCell.swift in Sources */,
 				0405C44B1B77F3C6005A1705 /* Photo.swift in Sources */,
 				040C8CC91B73EEB3005A94EA /* MainViewController.swift in Sources */,
 				04EDD8E01B77B23D00B9A09C /* FlickrClient.swift in Sources */,
 				040C8CE71B73F018005A94EA /* CoreDataStackManager.swift in Sources */,
 				040C8CC71B73EEB3005A94EA /* VirtualTourist.xcdatamodeld in Sources */,
 				040C8CC41B73EEB3005A94EA /* AppDelegate.swift in Sources */,
+				049DD3FB1B7A908300324DD2 /* PhotoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

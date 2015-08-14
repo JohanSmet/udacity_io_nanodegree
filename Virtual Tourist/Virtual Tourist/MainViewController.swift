@@ -45,8 +45,21 @@ class MainViewController: UIViewController,
         // load pins from Core Data
         dataContext().fetchAllPins()
         mapView.addAnnotations(dataContext().pins)
+        
+        // navigation controller
+        let buttonBack = UIBarButtonItem(title: NSLocalizedString("conButtonOk", comment: "OK"), style: .Plain, target: self, action: "Back")
+        self.navigationItem.backBarButtonItem = buttonBack
     }
 
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
     ///////////////////////////////////////////////////////////////////////////////////
     //
     // MKMapViewDelegate
@@ -69,6 +82,12 @@ class MainViewController: UIViewController,
         }
         
         return nil;
+    }
+    
+    func mapView(mapView: MKMapView!, didSelectAnnotationView view: MKAnnotationView!) {
+        let photoVC = self.storyboard?.instantiateViewControllerWithIdentifier("PhotoViewController") as! PhotoViewController
+        photoVC.pin = view.annotation as! Pin
+        self.navigationController?.pushViewController(photoVC, animated: true)
     }
     
     ////////////////////////////////////////////////////////////////////////////////

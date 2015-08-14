@@ -58,5 +58,4 @@ class Pin : NSManagedObject,
     var coordinate: CLLocationCoordinate2D {
         return CLLocationCoordinate2D(latitude: latitude as Double, longitude: longitude as Double)
     }
-    
 }
