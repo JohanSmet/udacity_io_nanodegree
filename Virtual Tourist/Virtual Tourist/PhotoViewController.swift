@@ -54,7 +54,8 @@ class PhotoViewController : UIViewController,
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // XXX center the map on the selected pin
+        // center the map on the selected pin
+        setupMap(pin)
         
         // load the photo's from core data
         var error: NSError?
@@ -64,6 +65,21 @@ class PhotoViewController : UIViewController,
             println("Error performing initial fetch: \(error)")
         }
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        // Lay out the collection view so that cells take up 1/3 of the width, with no space in between.
+        let layout : UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        layout.minimumLineSpacing = 0
+        layout.minimumInteritemSpacing = 0
+        
+        let size = floor(self.collectionView.frame.size.width/3)
+        layout.itemSize = CGSize(width: size, height: size)
+        collectionView.collectionViewLayout = layout
+    }
+    
     
     ///////////////////////////////////////////////////////////////////////////////////
     //
@@ -153,5 +169,24 @@ class PhotoViewController : UIViewController,
     //
     
     
-
+    ////////////////////////////////////////////////////////////////////////////////
+    //
+    // Helper functions
+    //
+    
+    private func setupMap(location : Pin) {
+ 
+        // center on the location
+        mapView.setRegion(MKCoordinateRegion(center: location.coordinate, span: MKCoordinateSpanMake(0.05, 0.05)), animated: true)
+        
+        // add the pin to the map
+        mapView.addAnnotation(location)
+        
+        // disable interaction
+        mapView.zoomEnabled     = false
+        mapView.scrollEnabled   = false
+        mapView.pitchEnabled    = false
+        mapView.rotateEnabled   = false
+        
+    }
 }
