@@ -1,0 +1,15 @@
+/* Internal error : invalid jsonBody (error: %s) */
+"cliInternalJsonError" = "Interne fout: ongeldige JSON (fout: %s)";
+
+/* Invalid username or password */
+"cliInvalidCredentials" = "Ongeldige gebruikersnaam of wachtwoord";
+
+/* OK */
+"conButtonOk" = "OK";
+
+/* New Collection */
+"conNewCollection" = "Nieuwe Verzameling";
+
+/* Remove Selected Pictures */
+"conRemoveSelected" = "Verwijder Geselecteerde Foto's";
+

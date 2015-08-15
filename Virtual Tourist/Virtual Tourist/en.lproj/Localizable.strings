@@ -1,0 +1,15 @@
+/* Internal error : invalid jsonBody (error: %s) */
+"cliInternalJsonError" = "Internal error : invalid jsonBody (error: %s)";
+
+/* Invalid username or password */
+"cliInvalidCredentials" = "Invalid username or password";
+
+/* OK */
+"conButtonOk" = "OK";
+
+/* New Collection */
+"conNewCollection" = "New Collection";
+
+/* Remove Selected Pictures */
+"conRemoveSelected" = " Remove Selected Pictures";
+
