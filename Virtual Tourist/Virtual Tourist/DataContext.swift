@@ -52,6 +52,26 @@ class DataContext {
         
         return pin
     }
+    
+    ////////////////////////////////////////////////////////////////////////////////
+    //
+    // photo management
+    //
+    
+    func deletePhotos(photos : [Photo]) {
+        for photo in photos {
+            coreDataStackManager().managedObjectContext!.deleteObject(photo)
+        }
+        
+        coreDataStackManager().saveContext()
+    }
+    
+    func deletePhotosOfPin(location : Pin) {
+        let fetchRequest = NSFetchRequest(entityName: "Photo")
+        fetchRequest.predicate       = NSPredicate(format: "location == %@", location)
+        
+        deletePhotos(coreDataStackManager().managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as! [Photo])
+    }
 
     ////////////////////////////////////////////////////////////////////////////////
     //

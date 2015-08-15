@@ -25,8 +25,7 @@ class PhotoViewController : UIViewController,
     
     lazy var fetchedResultsController: NSFetchedResultsController = {
         let fetchRequest = NSFetchRequest(entityName: "Photo")
-        // fetchRequest.sortDescriptors = [NSSortDescriptor(key: "flickrUrl", ascending: true)]
-        fetchRequest.sortDescriptors = []
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "flickrUrl", ascending: true)]
         fetchRequest.predicate       = NSPredicate(format: "location == %@", self.pin);
         
         let fetchedResultsController = NSFetchedResultsController (
@@ -37,6 +36,12 @@ class PhotoViewController : UIViewController,
         fetchedResultsController.delegate = self
         return fetchedResultsController
     }()
+    
+    var insertedItems : [NSIndexPath]!
+    var updatedItems  : [NSIndexPath]!
+    var deletedItems  : [NSIndexPath]!
+    
+    var selectedPhotos : [Photo] = [Photo]()
    
     ////////////////////////////////////////////////////////////////////////////////
     //
@@ -45,6 +50,7 @@ class PhotoViewController : UIViewController,
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var actionButton: UIBarButtonItem!
     
     ////////////////////////////////////////////////////////////////////////////////
     //
@@ -53,6 +59,8 @@ class PhotoViewController : UIViewController,
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        collectionView.allowsMultipleSelection = true
         
         // center the map on the selected pin
         setupMap(pin)
@@ -100,11 +108,19 @@ class PhotoViewController : UIViewController,
         // get a cell
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("PhotoCell", forIndexPath: indexPath) as! PhotoCell
         let photo = fetchedResultsController.objectAtIndexPath(indexPath) as! Photo
+       
+        if let localUrl = photo.localUrl {
+            let documentsDirectory: AnyObject = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0]
+            let path = documentsDirectory.stringByAppendingPathComponent(localUrl)
+            
+            cell.stateImage(path)
+        } else {
+            cell.stateWaiting()
+        }
         
-        let documentsDirectory: AnyObject = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0]
-        let path = documentsDirectory.stringByAppendingPathComponent(photo.localUrl!)
-        
-        cell.image.image = UIImage(contentsOfFile: path)!
+        if let foundIndex = find(selectedPhotos, photo) {
+            cell.stateSelected()
+        }
         
         return cell
     }
@@ -114,53 +130,71 @@ class PhotoViewController : UIViewController,
     // UICollectionViewDelegate overrides
     //
     
-/*    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let detailView = self.storyboard?.instantiateViewControllerWithIdentifier("MemeDetailViewController") as! MemeDetailViewController
-        detailView.memeIndex = indexPath.row
-        self.navigationController?.pushViewController(detailView, animated: true)
-    }*/
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        if let cell = collectionView.cellForItemAtIndexPath(indexPath) as? PhotoCell,
+           let photo = fetchedResultsController.objectAtIndexPath(indexPath) as? Photo  {
+            cell.stateSelected()
+            selectPhoto(photo)
+        }
+    }
+    
+    func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
+        if let cell = collectionView.cellForItemAtIndexPath(indexPath) as? PhotoCell,
+           let photo = fetchedResultsController.objectAtIndexPath(indexPath) as? Photo  {
+            cell.stateDeselected()
+            deselectPhoto(photo)
+        }
+    }
     
     ////////////////////////////////////////////////////////////////////////////////
     //
-    // NSFetchedResultsControllerDeleage
+    // NSFetchedResultsControllerDelegate
     //
     
-    // Step 4: This would be a great place to add the delegate methods
     func controllerWillChangeContent(controller: NSFetchedResultsController) {
-        // self.collectionView.beginUpdates()
+        // init array to buffer the changes
+        insertedItems = [NSIndexPath]()
+        updatedItems  = [NSIndexPath]()
+        deletedItems  = [NSIndexPath]()
     }
     
-    func controller(controller: NSFetchedResultsController,
-                    didChangeObject anObject: AnyObject,
-                    atIndexPath indexPath: NSIndexPath?,
-                    forChangeType type: NSFetchedResultsChangeType,
+    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject,
+                    atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType,
                     newIndexPath: NSIndexPath?) {
             
         switch type {
                 
             case .Insert:
-                // collectionView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
-                collectionView.insertItemsAtIndexPaths([newIndexPath!])
-                
-            // case .Delete:
-            //    tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
-                
-            case .Update:
-                let cell = collectionView.cellForItemAtIndexPath(indexPath!) as! PhotoCell
-                let photo = controller.objectAtIndexPath(indexPath!) as! Photo
-                cell.image.image = UIImage(contentsOfFile: photo.localUrl!)!
+                insertedItems.append(newIndexPath!)
             
-            case .Move:
-                collectionView.deleteItemsAtIndexPaths([indexPath!])
-                collectionView.insertItemsAtIndexPaths([newIndexPath!])
-                
+            case .Update:
+                updatedItems.append(indexPath!)
+            
+            case .Delete :
+                deletedItems.append(indexPath!)
+            
             default:
                 return
         }
     }
     
     func controllerDidChangeContent(controller: NSFetchedResultsController) {
-        // self.tableView.endUpdates()
+        
+        collectionView.performBatchUpdates({() -> Void in
+            
+            for indexPath in self.insertedItems {
+                self.collectionView.insertItemsAtIndexPaths([indexPath])
+            }
+            
+            for indexPath in self.deletedItems {
+                self.collectionView.deleteItemsAtIndexPaths([indexPath])
+            }
+            
+            for indexPath in self.updatedItems {
+                self.collectionView.reloadItemsAtIndexPaths([indexPath])
+            }
+            
+        }, completion: nil)
     }
     
     ////////////////////////////////////////////////////////////////////////////////
@@ -168,6 +202,13 @@ class PhotoViewController : UIViewController,
     // Actions
     //
     
+    @IBAction func doActionButton(sender: UIBarButtonItem) {
+        if selectedPhotos.count > 0 {
+            removeSelectedPhotos()
+        } else {
+            downloadNewCollection()
+        }
+    }
     
     ////////////////////////////////////////////////////////////////////////////////
     //
@@ -187,6 +228,40 @@ class PhotoViewController : UIViewController,
         mapView.scrollEnabled   = false
         mapView.pitchEnabled    = false
         mapView.rotateEnabled   = false
+    }
+    
+    private func selectPhoto(photo : Photo) {
+        selectedPhotos.append(photo)
+        updateActionButtonTitle()
+    }
+    
+    private func deselectPhoto(photo : Photo) {
+        if let foundIndex = find(selectedPhotos, photo) {
+            selectedPhotos.removeAtIndex(foundIndex)
+        }
         
+        updateActionButtonTitle()
+    }
+   
+    private func updateActionButtonTitle() {
+        
+        if selectedPhotos.count > 0 {
+            actionButton.title = NSLocalizedString("conRemoveSelected", comment:"Remove Selected Pictures")
+        } else {
+            actionButton.title = NSLocalizedString("conNewCollection", comment:"New Collection")
+        }
+    }
+    
+    private func removeSelectedPhotos() {
+        dataContext().deletePhotos(selectedPhotos)
+        selectedPhotos.removeAll(keepCapacity: true)
+        updateActionButtonTitle()
+    }
+    
+    private func downloadNewCollection() {
+        dataContext().deletePhotosOfPin(pin)
+        
+        PhotoDownloadService.downloadPhotosForLocation(pin) { error in
+        }
     }
 }
