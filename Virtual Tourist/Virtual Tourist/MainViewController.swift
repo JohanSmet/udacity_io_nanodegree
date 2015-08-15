@@ -40,6 +40,7 @@ class MainViewController: UIViewController,
         mapView.addGestureRecognizer(mapTapRecognizer!)
         
         // mapview customization
+        restoreMapSettings()
         mapView.delegate = self
         
         // load pins from Core Data
@@ -93,6 +94,10 @@ class MainViewController: UIViewController,
         mapView.deselectAnnotation(view.annotation, animated: false)
     }
     
+    func mapView(mapView: MKMapView!, regionDidChangeAnimated animated: Bool) {
+        saveMapSettings()
+    }
+    
     ////////////////////////////////////////////////////////////////////////////////
     //
     // actions
@@ -124,5 +129,28 @@ class MainViewController: UIViewController,
     //
     // helper functions
     //
+    
+    func saveMapSettings() {
+        let defaults = NSUserDefaults.standardUserDefaults();
+        
+        defaults.setBool(true, forKey: "mapview_saved")
+        defaults.setDouble(mapView.region.center.latitude,     forKey: "mapview_latitude")
+        defaults.setDouble(mapView.region.center.longitude,    forKey: "mapview_longitude")
+        defaults.setDouble(mapView.region.span.latitudeDelta,  forKey : "mapview_latitude_delta")
+        defaults.setDouble(mapView.region.span.longitudeDelta, forKey : "mapview_longitude_delta")
+    }
+    
+    func restoreMapSettings() {
+        let defaults = NSUserDefaults.standardUserDefaults();
+        
+        if !defaults.boolForKey("mapview_saved") {
+            return
+        }
+        
+        mapView.region = MKCoordinateRegionMake(CLLocationCoordinate2DMake( defaults.doubleForKey("mapview_latitude"),
+                                                                            defaults.doubleForKey("mapview_longitude")),
+                                                MKCoordinateSpanMake(defaults.doubleForKey("mapview_latitude_delta"),
+                                                                     defaults.doubleForKey("mapview_longitude_delta")))
+    }
 }
 
