@@ -88,6 +88,9 @@ class MainViewController: UIViewController,
         let photoVC = self.storyboard?.instantiateViewControllerWithIdentifier("PhotoViewController") as! PhotoViewController
         photoVC.pin = view.annotation as! Pin
         self.navigationController?.pushViewController(photoVC, animated: true)
+        
+        // automatically deselect the annotion so it can be selected again after returning to this view
+        mapView.deselectAnnotation(view.annotation, animated: false)
     }
     
     ////////////////////////////////////////////////////////////////////////////////
