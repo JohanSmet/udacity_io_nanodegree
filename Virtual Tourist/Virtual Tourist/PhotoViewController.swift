@@ -51,6 +51,7 @@ class PhotoViewController : UIViewController,
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var actionButton: UIBarButtonItem!
+    @IBOutlet weak var labelNoImages: UILabel!
     
     ////////////////////////////////////////////////////////////////////////////////
     //
@@ -73,7 +74,9 @@ class PhotoViewController : UIViewController,
             println("Error performing initial fetch: \(error)")
         }
         
+        // do some UI tweaks based on the available photos
         checkActionButton()
+        labelNoImages.hidden = pin.photos.count > 0
     }
     
     override func viewDidLayoutSubviews() {
@@ -199,6 +202,7 @@ class PhotoViewController : UIViewController,
         }, completion: nil)
         
         checkActionButton()
+        labelNoImages.hidden = pin.photos.count > 0
     }
     
     ////////////////////////////////////////////////////////////////////////////////
@@ -263,7 +267,9 @@ class PhotoViewController : UIViewController,
     private func removeSelectedPhotos() {
         dataContext().deletePhotos(selectedPhotos)
         selectedPhotos.removeAll(keepCapacity: true)
+        
         updateActionButtonTitle()
+        labelNoImages.hidden = pin.photos.count > 0
     }
     
     private func downloadNewCollection() {

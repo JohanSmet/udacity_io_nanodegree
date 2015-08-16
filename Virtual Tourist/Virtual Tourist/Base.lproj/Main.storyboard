@@ -145,6 +145,12 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="N0N-ry-dFM"/>
                                 </items>
                             </toolbar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Images" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DOP-rr-Jjf">
+                                <rect key="frame" x="16" y="357" width="568" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.38937069954128439" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -155,15 +161,19 @@
                             <constraint firstItem="pnY-P2-cQU" firstAttribute="top" secondItem="AEe-Z4-eE9" secondAttribute="bottom" id="F2x-ly-NQx"/>
                             <constraint firstItem="a7m-ta-BUY" firstAttribute="top" secondItem="Cd7-dU-sMn" secondAttribute="bottom" id="IqS-nB-Uvl"/>
                             <constraint firstItem="OjE-jG-1lG" firstAttribute="top" secondItem="a7m-ta-BUY" secondAttribute="bottom" id="Izu-6p-0Om"/>
+                            <constraint firstItem="Cd7-dU-sMn" firstAttribute="centerY" secondItem="DOP-rr-Jjf" secondAttribute="centerY" id="QKn-JV-pvu"/>
                             <constraint firstItem="a7m-ta-BUY" firstAttribute="leading" secondItem="ugT-LR-wyp" secondAttribute="leading" id="VPW-m5-ZrB"/>
                             <constraint firstItem="Cd7-dU-sMn" firstAttribute="top" secondItem="pnY-P2-cQU" secondAttribute="bottom" id="mCI-A1-cb3"/>
                             <constraint firstItem="Cd7-dU-sMn" firstAttribute="leading" secondItem="ugT-LR-wyp" secondAttribute="leading" id="vc1-AL-a4D"/>
+                            <constraint firstItem="DOP-rr-Jjf" firstAttribute="trailing" secondItem="ugT-LR-wyp" secondAttribute="trailingMargin" id="w48-nk-dwa"/>
+                            <constraint firstItem="DOP-rr-Jjf" firstAttribute="leading" secondItem="ugT-LR-wyp" secondAttribute="leadingMargin" id="xtk-9F-1pE"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="SD2-QS-FZt"/>
                     <connections>
                         <outlet property="actionButton" destination="fVt-Y5-bdk" id="1qG-eb-ZLd"/>
                         <outlet property="collectionView" destination="Cd7-dU-sMn" id="IxW-Db-QBD"/>
+                        <outlet property="labelNoImages" destination="DOP-rr-Jjf" id="eWo-6N-Tc0"/>
                         <outlet property="mapView" destination="pnY-P2-cQU" id="anf-SM-zIh"/>
                     </connections>
                 </viewController>

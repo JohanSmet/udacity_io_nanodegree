@@ -1,3 +1,5 @@
 /* Class = "UIBarButtonItem"; title = "New Collection"; ObjectID = "fVt-Y5-bdk"; */
 "fVt-Y5-bdk.title" = "New Collection";
 
+/* Class = "UILabel"; text = "No Images"; ObjectID = "DOP-rr-Jjf"; */
+"DOP-rr-Jjf.text" = "No Images";
