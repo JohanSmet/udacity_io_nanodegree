@@ -72,6 +72,8 @@ class PhotoViewController : UIViewController,
         if let error = error {
             println("Error performing initial fetch: \(error)")
         }
+        
+        checkActionButton()
     }
     
     override func viewDidLayoutSubviews() {
@@ -195,6 +197,8 @@ class PhotoViewController : UIViewController,
             }
             
         }, completion: nil)
+        
+        checkActionButton()
     }
     
     ////////////////////////////////////////////////////////////////////////////////
@@ -241,6 +245,10 @@ class PhotoViewController : UIViewController,
         }
         
         updateActionButtonTitle()
+    }
+    
+    private func checkActionButton() {
+        actionButton.enabled = dataContext().allPhotosOfPinComplete(pin)
     }
    
     private func updateActionButtonTitle() {
