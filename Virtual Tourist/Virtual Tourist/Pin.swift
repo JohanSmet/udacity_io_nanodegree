@@ -58,4 +58,12 @@ class Pin : NSManagedObject,
     var coordinate: CLLocationCoordinate2D {
         return CLLocationCoordinate2D(latitude: latitude as Double, longitude: longitude as Double)
     }
+    
+    func setCoordinate(newCoord : CLLocationCoordinate2D) {
+        self.willChangeValueForKey("coordinate")
+        self.latitude  = NSNumber(double: newCoord.latitude)
+        self.longitude = NSNumber(double: newCoord.longitude)
+        self.didChangeValueForKey("coordinate")
+    }
+
 }

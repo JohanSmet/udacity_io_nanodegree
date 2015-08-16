@@ -19,6 +19,7 @@ class MainViewController: UIViewController,
     //
     
     private var mapTapRecognizer   : UILongPressGestureRecognizer?
+    private var currentPin         : Pin!
     
     ////////////////////////////////////////////////////////////////////////////////
     //
@@ -77,7 +78,7 @@ class MainViewController: UIViewController,
             } else {
                 let view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
                 view.canShowCallout = false
-                view.animatesDrop = pin.animate
+                view.animatesDrop   = pin.animate
                 return view
             }
         }
@@ -105,23 +106,35 @@ class MainViewController: UIViewController,
     
     func handleMapTap(gestureReconizer: UILongPressGestureRecognizer) {
         
-        if (gestureReconizer.state != UIGestureRecognizerState.Began) {
-            return
-        }
-        
         // get the tapped coordinate
         let point = mapTapRecognizer!.locationInView(mapView)
         let coord = mapView.convertPoint(point, toCoordinateFromView: mapView)
         
-        // add the pin to the map
-        let pin = dataContext().createPin(coord.latitude, longitude: coord.longitude)
-        mapView.addAnnotation(pin)
-        
-        // start downloading photos for this location
-        PhotoDownloadService.downloadPhotosForLocation(pin) { downloadError in
-            if let error = downloadError {
-                println(error)
-            }
+        switch(gestureReconizer.state) {
+            
+            case .Began :
+                // add the pin to the map
+                currentPin = dataContext().createPin(coord.latitude, longitude: coord.longitude)
+                mapView.addAnnotation(currentPin)
+                break
+            
+            case .Changed :
+                currentPin.setCoordinate(coord)
+                break
+            
+            case .Ended :
+                coreDataStackManager().saveContext()
+                
+                // start downloading photos for this location
+                PhotoDownloadService.downloadPhotosForLocation(currentPin) { downloadError in
+                    if let error = downloadError {
+                        println(error)
+                    }
+                }
+                break
+            
+            default :
+                return
         }
     }
     
