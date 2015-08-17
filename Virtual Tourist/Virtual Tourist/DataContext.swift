@@ -32,13 +32,9 @@ class DataContext {
         // execute the fetch request
         let results = coreDataStackManager().managedObjectContext!.executeFetchRequest(fetchRequest, error: error)
         
-        // check for errors
-        if error != nil {
-            println("Error in fectchAllPins(): \(error)")         // XXX
-        }
-        
         // save results
         self.pins = results as! [Pin]
+        
         return self.pins
     }
     

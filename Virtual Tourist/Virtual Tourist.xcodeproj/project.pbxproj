@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0402DFEB1B764C67007910C8 /* Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0402DFEA1B764C67007910C8 /* Pin.swift */; };
 		0402DFED1B768391007910C8 /* DataContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0402DFEC1B768391007910C8 /* DataContext.swift */; };
+		04053BB21B811C330039CE70 /* AlertPopups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04053BB11B811C330039CE70 /* AlertPopups.swift */; };
 		0405C4491B77F0F1005A1705 /* PhotoDownloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405C4481B77F0F1005A1705 /* PhotoDownloadService.swift */; };
 		0405C44B1B77F3C6005A1705 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405C44A1B77F3C6005A1705 /* Photo.swift */; };
 		040631501B7F9D990016E933 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 040631521B7F9D990016E933 /* Localizable.strings */; };
@@ -41,6 +42,7 @@
 /* Begin PBXFileReference section */
 		0402DFEA1B764C67007910C8 /* Pin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pin.swift; sourceTree = "<group>"; };
 		0402DFEC1B768391007910C8 /* DataContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataContext.swift; sourceTree = "<group>"; };
+		04053BB11B811C330039CE70 /* AlertPopups.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertPopups.swift; sourceTree = "<group>"; };
 		0405C4481B77F0F1005A1705 /* PhotoDownloadService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoDownloadService.swift; sourceTree = "<group>"; };
 		0405C44A1B77F3C6005A1705 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		0406314D1B7F9C220016E933 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 		040ABE9F1B7BE81400A89E02 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				04053BB11B811C330039CE70 /* AlertPopups.swift */,
 				040ABEA01B7BE83F00A89E02 /* PhotoCell.swift */,
 			);
 			name = View;
@@ -330,6 +333,7 @@
 				040C8CC71B73EEB3005A94EA /* VirtualTourist.xcdatamodeld in Sources */,
 				040C8CC41B73EEB3005A94EA /* AppDelegate.swift in Sources */,
 				049DD3FB1B7A908300324DD2 /* PhotoViewController.swift in Sources */,
+				04053BB21B811C330039CE70 /* AlertPopups.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

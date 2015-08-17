@@ -71,7 +71,7 @@ class PhotoViewController : UIViewController,
         fetchedResultsController.performFetch(&error)
         
         if let error = error {
-            println("Error performing initial fetch: \(error)")
+            alertOk(self, error.localizedDescription);
         }
         
         // do some UI tweaks based on the available photos
@@ -276,6 +276,9 @@ class PhotoViewController : UIViewController,
         dataContext().deletePhotosOfPin(pin)
         
         PhotoDownloadService.downloadPhotosForLocation(pin) { error in
+            if let error = error {
+                alertOkAsync(self, error);
+            }
         }
     }
 }

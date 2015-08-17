@@ -44,6 +44,12 @@ class MainViewController: UIViewController,
         restoreMapSettings()
         mapView.delegate = self
         
+        // make sure core data can be initialised properly
+        if coreDataStackManager().managedObjectContext == nil {
+            alertOk(self, NSLocalizedString("conCoreDataError", comment: "Unable to initalize CoreData-backend"))
+            return
+        }
+        
         // load pins from Core Data
         dataContext().fetchAllPins()
         mapView.addAnnotations(dataContext().pins)
@@ -62,6 +68,7 @@ class MainViewController: UIViewController,
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
+    
     ///////////////////////////////////////////////////////////////////////////////////
     //
     // MKMapViewDelegate
@@ -119,6 +126,7 @@ class MainViewController: UIViewController,
                 break
             
             case .Changed :
+                // move pin
                 currentPin.setCoordinate(coord)
                 break
             
@@ -128,7 +136,7 @@ class MainViewController: UIViewController,
                 // start downloading photos for this location
                 PhotoDownloadService.downloadPhotosForLocation(currentPin) { downloadError in
                     if let error = downloadError {
-                        println(error)
+                        alertOkAsync(self, error)
                     }
                 }
                 break
@@ -149,8 +157,8 @@ class MainViewController: UIViewController,
         defaults.setBool(true, forKey: "mapview_saved")
         defaults.setDouble(mapView.region.center.latitude,     forKey: "mapview_latitude")
         defaults.setDouble(mapView.region.center.longitude,    forKey: "mapview_longitude")
-        defaults.setDouble(mapView.region.span.latitudeDelta,  forKey : "mapview_latitude_delta")
-        defaults.setDouble(mapView.region.span.longitudeDelta, forKey : "mapview_longitude_delta")
+        defaults.setDouble(mapView.region.span.latitudeDelta,  forKey: "mapview_latitude_delta")
+        defaults.setDouble(mapView.region.span.longitudeDelta, forKey: "mapview_longitude_delta")
     }
     
     func restoreMapSettings() {

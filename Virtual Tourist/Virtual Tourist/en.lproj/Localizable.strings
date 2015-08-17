@@ -13,3 +13,12 @@
 /* Remove Selected Pictures */
 "conRemoveSelected" = " Remove Selected Pictures";
 
+/* Unable to initalize CoreData-backend */
+"conCoreDataError" = "Unable to initalize CoreData-backend";
+
+/* Attention */
+"viewAttention" = "Attention";
+
+/* OK */
+"viewOk" = "OK";
+
