@@ -69,6 +69,12 @@ class DataContext {
         deletePhotos(coreDataStackManager().managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as! [Photo])
     }
     
+    func fetchIncompletePhotosOfPin(location : Pin) -> [Photo] {
+        let fetchRequest = NSFetchRequest(entityName: "Photo")
+        fetchRequest.predicate       = NSPredicate(format: "location == %@ && localUrl = nil", location)
+        return coreDataStackManager().managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as! [Photo]
+    }
+    
     func allPhotosOfPinComplete(location : Pin) ->  Bool {
         let fetchRequest = NSFetchRequest(entityName: "Photo")
         fetchRequest.predicate       = NSPredicate(format: "location == %@ && localUrl = nil", location)

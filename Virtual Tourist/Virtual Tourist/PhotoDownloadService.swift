@@ -35,9 +35,14 @@ class PhotoDownloadService {
       
         flickrClient().searchPhotoByGeo(location.latitude as Double, longitude: location.longitude as Double, maxResults: NUM_PHOTOS_PER_LOCATION) { flickrPhotos, error in
             
-            if let photos = flickrPhotos {
-                for flickrPhoto in photos {
-                    PhotoDownloadService.processFlickrPhoto(location, flickrPhoto: flickrPhoto as! [String : AnyObject])
+            if let photos = flickrPhotos as? [[String : AnyObject]] {
+                
+                // create photos in coredata
+                PhotoDownloadService.createPhotosCoreData(location, flickrPhotos: photos)
+                
+                // download the images
+                dispatch_async(PhotoDownloadService.flickrQueue) {
+                    PhotoDownloadService.downloadPhotos(location)
                 }
             }
             
@@ -45,25 +50,34 @@ class PhotoDownloadService {
         }
     }
     
-    static private func processFlickrPhoto(location : Pin, flickrPhoto : [String : AnyObject]) {
-       
-        // create the photo-object (XXX for now only call coredata on the main thread :-( )
-        dispatch_async(dispatch_get_main_queue()) {
-            let url = flickrClient().urlForPhoto(flickrPhoto, size: "q")
-            let photo = Photo(flickrUrl: url, location: location, context: coreDataStackManager().managedObjectContext!)
+    static private func createPhotosCoreData(location : Pin, flickrPhotos : [[String : AnyObject]]) {
+        
+        dispatch_sync(dispatch_get_main_queue()) {
+            for flickrPhoto in flickrPhotos {
+                let url = flickrClient().urlForPhoto(flickrPhoto, size: "q")
+                let photo = Photo(flickrUrl: url, location: location, context: coreDataStackManager().managedObjectContext!)
+            }
+            
             coreDataStackManager().saveContext()
+        }
+    }
+    
+    static private func downloadPhotos(location : Pin) {
+        
+        for photo in dataContext().fetchIncompletePhotosOfPin(location) {
+            // do not make to many concurrent connections to flickr
+            dispatch_semaphore_wait(PhotoDownloadService.flickrLimit, DISPATCH_TIME_FOREVER)
             
             // download the image itself from flickr
             dispatch_async(PhotoDownloadService.flickrQueue) {
                 PhotoDownloadService.downloadFlickrPhoto(photo)
+                dispatch_semaphore_signal(PhotoDownloadService.flickrLimit)
             }
         }
+        
     }
     
     static private func downloadFlickrPhoto(photo : Photo) {
-        
-        // do not make to many concurrent connections to flickr
-        dispatch_semaphore_wait(PhotoDownloadService.flickrLimit, DISPATCH_TIME_FOREVER)
         
         // download the data
         let photoData = NSData(contentsOfURL: NSURL(string: photo.flickrUrl)!)
@@ -75,12 +89,11 @@ class PhotoDownloadService {
         photoData?.writeToFile(path, atomically: false)
         
         // update the photo record in coredata
-        dispatch_async(dispatch_get_main_queue()) {
+        dispatch_sync(dispatch_get_main_queue()) {
             photo.localUrl = filename
             coreDataStackManager().saveContext()
         }
         
-        dispatch_semaphore_signal(PhotoDownloadService.flickrLimit)
     }
     
     ///////////////////////////////////////////////////////////////////////////////////
