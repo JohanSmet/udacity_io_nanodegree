@@ -76,6 +76,28 @@ class DataContext {
         let incomplete = coreDataStackManager().managedObjectContext!.countForFetchRequest(fetchRequest, error: nil)
         return incomplete == 0
     }
+    
+    ////////////////////////////////////////////////////////////////////////////////
+    //
+    // student management
+    //
+    
+    func fetchStudentForKeys(keys : [String]) -> [Student] {
+        
+        let fetchRequest = NSFetchRequest(entityName: "Student")
+        fetchRequest.predicate = NSPredicate(format: "uniqueKey IN %@", keys)
+        
+        return coreDataStackManager().managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as! [Student]
+    }
+    
+    func countStudentsNearLocation(location : Pin) -> Int {
+        
+        // just a quick formula to find students near a location (wont work when latitude/longitude wraps around)
+        let fetchRequest = NSFetchRequest(entityName: "Student")
+        fetchRequest.predicate = NSPredicate(format: "abs(latitude - \(location.latitude as Double)) < 1.0 && abs(longitude - \(location.longitude as Double)) < 1.0")
+        
+        return coreDataStackManager().managedObjectContext!.countForFetchRequest(fetchRequest, error: nil)
+    }
 
     ////////////////////////////////////////////////////////////////////////////////
     //

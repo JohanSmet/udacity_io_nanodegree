@@ -15,6 +15,7 @@
 		040631501B7F9D990016E933 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 040631521B7F9D990016E933 /* Localizable.strings */; };
 		0406315F1B7F9F4B0016E933 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 040631611B7F9F4B0016E933 /* InfoPlist.strings */; };
 		040631641B7F9F4B0016E933 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 040631661B7F9F4B0016E933 /* InfoPlist.strings */; };
+		04077CF91B83C6CD00AF4D90 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04077CF81B83C6CD00AF4D90 /* Student.swift */; };
 		040ABEA11B7BE83F00A89E02 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040ABEA01B7BE83F00A89E02 /* PhotoCell.swift */; };
 		040C8CC41B73EEB3005A94EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C8CC31B73EEB3005A94EA /* AppDelegate.swift */; };
 		040C8CC71B73EEB3005A94EA /* VirtualTourist.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 040C8CC51B73EEB3005A94EA /* VirtualTourist.xcdatamodeld */; };
@@ -24,6 +25,8 @@
 		040C8CD11B73EEB3005A94EA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 040C8CCF1B73EEB3005A94EA /* LaunchScreen.xib */; };
 		040C8CDD1B73EEB3005A94EA /* Virtual_TouristTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C8CDC1B73EEB3005A94EA /* Virtual_TouristTests.swift */; };
 		040C8CE71B73F018005A94EA /* CoreDataStackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C8CE61B73F018005A94EA /* CoreDataStackManager.swift */; };
+		042258151B8393600000D344 /* UdacityParseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042258141B8393600000D344 /* UdacityParseClient.swift */; };
+		042258181B83942F0000D344 /* StudentDownloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042258171B83942F0000D344 /* StudentDownloadService.swift */; };
 		049DD3FB1B7A908300324DD2 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049DD3FA1B7A908300324DD2 /* PhotoViewController.swift */; };
 		04EDD8DD1B77B1BC00B9A09C /* WebApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EDD8DC1B77B1BC00B9A09C /* WebApiClient.swift */; };
 		04EDD8E01B77B23D00B9A09C /* FlickrClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EDD8DF1B77B23D00B9A09C /* FlickrClient.swift */; };
@@ -56,6 +59,7 @@
 		040631671B7FA0110016E933 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		040631681B7FA0110016E933 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		040631691B7FA0110016E933 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		04077CF81B83C6CD00AF4D90 /* Student.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 		040ABEA01B7BE83F00A89E02 /* PhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		040C8CBE1B73EEB3005A94EA /* Virtual Tourist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Virtual Tourist.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		040C8CC21B73EEB3005A94EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -68,6 +72,8 @@
 		040C8CDB1B73EEB3005A94EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		040C8CDC1B73EEB3005A94EA /* Virtual_TouristTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Virtual_TouristTests.swift; sourceTree = "<group>"; };
 		040C8CE61B73F018005A94EA /* CoreDataStackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStackManager.swift; sourceTree = "<group>"; };
+		042258141B8393600000D344 /* UdacityParseClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdacityParseClient.swift; sourceTree = "<group>"; };
+		042258171B83942F0000D344 /* StudentDownloadService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentDownloadService.swift; sourceTree = "<group>"; };
 		049DD3FA1B7A908300324DD2 /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		04EDD8DC1B77B1BC00B9A09C /* WebApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebApiClient.swift; sourceTree = "<group>"; };
 		04EDD8DF1B77B23D00B9A09C /* FlickrClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrClient.swift; sourceTree = "<group>"; };
@@ -170,6 +176,7 @@
 				0402DFEC1B768391007910C8 /* DataContext.swift */,
 				0402DFEA1B764C67007910C8 /* Pin.swift */,
 				0405C44A1B77F3C6005A1705 /* Photo.swift */,
+				04077CF81B83C6CD00AF4D90 /* Student.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -192,9 +199,18 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
+		042258161B8393690000D344 /* Udacity */ = {
+			isa = PBXGroup;
+			children = (
+				042258141B8393600000D344 /* UdacityParseClient.swift */,
+			);
+			name = Udacity;
+			sourceTree = "<group>";
+		};
 		04EDD8DB1B77B1A200B9A09C /* Clients */ = {
 			isa = PBXGroup;
 			children = (
+				042258161B8393690000D344 /* Udacity */,
 				04EDD8DE1B77B22700B9A09C /* Flickr */,
 				04EDD8DC1B77B1BC00B9A09C /* WebApiClient.swift */,
 			);
@@ -213,6 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				0405C4481B77F0F1005A1705 /* PhotoDownloadService.swift */,
+				042258171B83942F0000D344 /* StudentDownloadService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -323,17 +340,20 @@
 			files = (
 				0402DFEB1B764C67007910C8 /* Pin.swift in Sources */,
 				0402DFED1B768391007910C8 /* DataContext.swift in Sources */,
+				042258151B8393600000D344 /* UdacityParseClient.swift in Sources */,
 				0405C4491B77F0F1005A1705 /* PhotoDownloadService.swift in Sources */,
 				04EDD8DD1B77B1BC00B9A09C /* WebApiClient.swift in Sources */,
 				040ABEA11B7BE83F00A89E02 /* PhotoCell.swift in Sources */,
 				0405C44B1B77F3C6005A1705 /* Photo.swift in Sources */,
 				040C8CC91B73EEB3005A94EA /* MainViewController.swift in Sources */,
 				04EDD8E01B77B23D00B9A09C /* FlickrClient.swift in Sources */,
+				042258181B83942F0000D344 /* StudentDownloadService.swift in Sources */,
 				040C8CE71B73F018005A94EA /* CoreDataStackManager.swift in Sources */,
 				040C8CC71B73EEB3005A94EA /* VirtualTourist.xcdatamodeld in Sources */,
 				040C8CC41B73EEB3005A94EA /* AppDelegate.swift in Sources */,
 				049DD3FB1B7A908300324DD2 /* PhotoViewController.swift in Sources */,
 				04053BB21B811C330039CE70 /* AlertPopups.swift in Sources */,
+				04077CF91B83C6CD00AF4D90 /* Student.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

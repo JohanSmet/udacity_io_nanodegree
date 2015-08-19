@@ -52,6 +52,7 @@ class PhotoViewController : UIViewController,
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var actionButton: UIBarButtonItem!
     @IBOutlet weak var labelNoImages: UILabel!
+    @IBOutlet weak var studentsNear: UILabel!
     
     ////////////////////////////////////////////////////////////////////////////////
     //
@@ -77,6 +78,11 @@ class PhotoViewController : UIViewController,
         // do some UI tweaks based on the available photos
         checkActionButton()
         labelNoImages.hidden = pin.photos.count > 0
+        
+        let near = dataContext().countStudentsNearLocation(pin)
+        studentsNear.layer.cornerRadius = 5
+        studentsNear.clipsToBounds = true
+        studentsNear.text = String.localizedStringWithFormat(NSLocalizedString("conStudentsNear", comment:"%d students near this location"), near)
     }
     
     override func viewDidLayoutSubviews() {

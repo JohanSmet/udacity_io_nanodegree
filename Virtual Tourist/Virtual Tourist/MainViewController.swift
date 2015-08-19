@@ -54,6 +54,11 @@ class MainViewController: UIViewController,
         dataContext().fetchAllPins()
         mapView.addAnnotations(dataContext().pins)
         
+        // load extra student information
+        StudentDownloadService.downloadStudentLocations() { error in
+            // don't pester user with error about an optional feature
+        }
+        
         // navigation controller
         let buttonBack = UIBarButtonItem(title: NSLocalizedString("conButtonOk", comment: "OK"), style: .Plain, target: self, action: "Back")
         self.navigationItem.backBarButtonItem = buttonBack
