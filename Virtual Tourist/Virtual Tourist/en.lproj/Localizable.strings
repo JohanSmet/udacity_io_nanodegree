@@ -17,7 +17,7 @@
 "conCoreDataError" = "Unable to initalize CoreData-backend";
 
 /*  "%d students near this location" */
-"conStudentsNear" = "%d students near this location";
+"conStudentsNear" = "%d students nearby";
 
 /* Attention */
 "viewAttention" = "Attention";

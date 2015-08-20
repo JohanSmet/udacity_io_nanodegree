@@ -152,7 +152,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.75" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7OO-rZ-PJg">
-                                <rect key="frame" x="16" y="163" width="568" height="21"/>
+                                <rect key="frame" x="48" y="163" width="504" height="21"/>
                                 <color key="backgroundColor" red="0.71372550729999995" green="0.78823536630000002" blue="0.93333339689999995" alpha="1" colorSpace="deviceRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -166,14 +166,14 @@
                             <constraint firstAttribute="trailing" secondItem="a7m-ta-BUY" secondAttribute="trailing" id="BYP-3s-1QZ"/>
                             <constraint firstAttribute="trailing" secondItem="Cd7-dU-sMn" secondAttribute="trailing" id="Csz-YZ-drk"/>
                             <constraint firstItem="pnY-P2-cQU" firstAttribute="top" secondItem="AEe-Z4-eE9" secondAttribute="bottom" id="F2x-ly-NQx"/>
-                            <constraint firstItem="7OO-rZ-PJg" firstAttribute="trailing" secondItem="ugT-LR-wyp" secondAttribute="trailingMargin" id="H5M-JN-gyb"/>
+                            <constraint firstItem="7OO-rZ-PJg" firstAttribute="trailing" secondItem="ugT-LR-wyp" secondAttribute="trailingMargin" constant="-32" id="H5M-JN-gyb"/>
                             <constraint firstItem="a7m-ta-BUY" firstAttribute="top" secondItem="Cd7-dU-sMn" secondAttribute="bottom" id="IqS-nB-Uvl"/>
                             <constraint firstItem="OjE-jG-1lG" firstAttribute="top" secondItem="a7m-ta-BUY" secondAttribute="bottom" id="Izu-6p-0Om"/>
                             <constraint firstItem="Cd7-dU-sMn" firstAttribute="centerY" secondItem="DOP-rr-Jjf" secondAttribute="centerY" id="QKn-JV-pvu"/>
                             <constraint firstItem="a7m-ta-BUY" firstAttribute="leading" secondItem="ugT-LR-wyp" secondAttribute="leading" id="VPW-m5-ZrB"/>
                             <constraint firstItem="Cd7-dU-sMn" firstAttribute="top" secondItem="7OO-rZ-PJg" secondAttribute="bottom" constant="8" id="XJg-I0-6Xw"/>
                             <constraint firstItem="Cd7-dU-sMn" firstAttribute="top" secondItem="pnY-P2-cQU" secondAttribute="bottom" id="mCI-A1-cb3"/>
-                            <constraint firstItem="7OO-rZ-PJg" firstAttribute="leading" secondItem="ugT-LR-wyp" secondAttribute="leadingMargin" id="o9j-Ys-uhA"/>
+                            <constraint firstItem="7OO-rZ-PJg" firstAttribute="leading" secondItem="ugT-LR-wyp" secondAttribute="leadingMargin" constant="32" id="o9j-Ys-uhA"/>
                             <constraint firstItem="Cd7-dU-sMn" firstAttribute="leading" secondItem="ugT-LR-wyp" secondAttribute="leading" id="vc1-AL-a4D"/>
                             <constraint firstItem="DOP-rr-Jjf" firstAttribute="trailing" secondItem="ugT-LR-wyp" secondAttribute="trailingMargin" id="w48-nk-dwa"/>
                             <constraint firstItem="DOP-rr-Jjf" firstAttribute="leading" secondItem="ugT-LR-wyp" secondAttribute="leadingMargin" id="xtk-9F-1pE"/>

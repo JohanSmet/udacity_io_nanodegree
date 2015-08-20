@@ -17,7 +17,7 @@
 "conCoreDataError" = "Fout bij initialiseren van de CoreData-backend";
 
 /*  "%d students near this location" */
-"conStudentsNear" = "%d studenten nabij deze locatie";
+"conStudentsNear" = "%d studenten nabij";
 
 /* Attention */
 "viewAttention" = "Aandacht";
