@@ -32,7 +32,7 @@ class FlickrClient : WebApiClient {
     // request interface
     //
     
-    func searchPhotoByGeo(latitude : Double, longitude : Double, maxResults : Int, completionHandler : (photos : [AnyObject]?, error : String?) -> Void) {
+    func searchPhotoByGeo(latitude : Double, longitude : Double, maxResults : Int, page : Int, completionHandler : (photos : [AnyObject]?, pages : Int, error : String?) -> Void) {
         
         let parameters : [String : AnyObject] = [
             "method"    : "flickr.photos.search",
@@ -41,22 +41,29 @@ class FlickrClient : WebApiClient {
             "nojsoncallback" : "1",
             "lat"       : "\(latitude)",
             "lon"       : "\(longitude)",
-            "per_page"  : "\(maxResults)"
+            "per_page"  : "\(maxResults)",
+            "page"      : "\(page)"
         ]
         
         // make request
         startTaskGET(FlickrClient.BASE_URL, method: "", parameters: parameters) { result, error in
             if let basicError = error as? NSError {
-                completionHandler(photos: nil, error: FlickrClient.formatBasicError(basicError))
+                completionHandler(photos: nil, pages : 0, error: FlickrClient.formatBasicError(basicError))
             } else if let httpError = error as? NSHTTPURLResponse {
-                completionHandler(photos : nil, error: FlickrClient.formatHttpError(httpError))
+                completionHandler(photos : nil, pages : 0, error: FlickrClient.formatHttpError(httpError))
             } else {
                 let httpResult = result as! NSDictionary;
                 
                 let photos = httpResult.valueForKey("photos") as! NSDictionary
                 let photo  = photos.valueForKey("photo") as? [AnyObject]
+                var pages  = (photos.valueForKey("pages") as? Int) ?? 0
                 
-                completionHandler(photos: photo, error: nil)
+                // flickr returns at most 4000 matches - cap the number of pages
+                if maxResults != 0 && pages > (4000 / maxResults) {
+                    pages = 4000 / maxResults
+                }
+                
+                completionHandler(photos: photo, pages : pages, error: nil)
             }
         }
     }

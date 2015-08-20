@@ -24,6 +24,7 @@ class Pin : NSManagedObject,
     @NSManaged var id : String
     @NSManaged var latitude : NSNumber
     @NSManaged var longitude : NSNumber
+    @NSManaged var pages : NSNumber
     @NSManaged var photos : [Photo]
     
     var animate : Bool = false
@@ -47,6 +48,7 @@ class Pin : NSManagedObject,
         self.id         = NSUUID().UUIDString
         self.latitude   = NSNumber(double: latitude)
         self.longitude  = NSNumber(double: longitude)
+        self.pages      = NSNumber(int: 0)
         self.animate    = true
     }
     

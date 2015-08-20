@@ -9,6 +9,7 @@
         <attribute name="id" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="latitude" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="longitude" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="pages" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="photos" toMany="YES" deletionRule="Nullify" destinationEntity="Photo" inverseName="location" inverseEntity="Photo" syncable="YES"/>
     </entity>
     <entity name="Student" representedClassName="Student" syncable="YES">
@@ -18,7 +19,7 @@
     </entity>
     <elements>
         <element name="Photo" positionX="-20" positionY="-0" width="128" height="88"/>
-        <element name="Pin" positionX="-207" positionY="-18" width="128" height="103"/>
+        <element name="Pin" positionX="-207" positionY="-18" width="128" height="120"/>
         <element name="Student" positionX="-216" positionY="-153" width="128" height="90"/>
     </elements>
 </model>
