@@ -44,9 +44,7 @@ class PhotoDownloadService {
                                         maxResults: NUM_PHOTOS_PER_LOCATION, page: page) { flickrPhotos, pages, error in
             
             // store the number of pages for the location
-            dispatch_sync(dispatch_get_main_queue()) {
-                location.pages = pages
-            }
+            location.pages = pages
 
             if let photos = flickrPhotos as? [[String : AnyObject]] {
                 
@@ -65,29 +63,37 @@ class PhotoDownloadService {
     
     static private func createPhotosCoreData(location : Pin, flickrPhotos : [[String : AnyObject]]) {
         
+        for flickrPhoto in flickrPhotos {
+            let url = flickrClient().urlForPhoto(flickrPhoto, size: "q")
+            let photo = Photo(flickrUrl: url, location: location, context: coreDataStackManager().managedObjectContext!)
+        }
+        
         dispatch_sync(dispatch_get_main_queue()) {
-            for flickrPhoto in flickrPhotos {
-                let url = flickrClient().urlForPhoto(flickrPhoto, size: "q")
-                let photo = Photo(flickrUrl: url, location: location, context: coreDataStackManager().managedObjectContext!)
-            }
-            
             coreDataStackManager().saveContext()
         }
     }
     
     static private func downloadPhotos(location : Pin) {
         
+        let dispatchGroup = dispatch_group_create()
+        
         for photo in dataContext().fetchIncompletePhotosOfPin(location) {
             // do not make to many concurrent connections to flickr
             dispatch_semaphore_wait(PhotoDownloadService.flickrLimit, DISPATCH_TIME_FOREVER)
             
             // download the image itself from flickr
-            dispatch_async(PhotoDownloadService.flickrQueue) {
+            dispatch_group_async(dispatchGroup, PhotoDownloadService.flickrQueue) {
                 PhotoDownloadService.downloadFlickrPhoto(photo)
                 dispatch_semaphore_signal(PhotoDownloadService.flickrLimit)
             }
         }
         
+        // save the context when the photos have finished downloading
+        dispatch_group_notify(dispatchGroup, PhotoDownloadService.flickrQueue) {
+            dispatch_sync(dispatch_get_main_queue()) {
+                coreDataStackManager().saveContext()
+            }
+        }
     }
     
     static private func downloadFlickrPhoto(photo : Photo) {
@@ -102,11 +108,7 @@ class PhotoDownloadService {
         photoData?.writeToFile(path, atomically: false)
         
         // update the photo record in coredata
-        dispatch_sync(dispatch_get_main_queue()) {
-            photo.localUrl = filename
-            coreDataStackManager().saveContext()
-        }
-        
+        photo.localUrl = filename
     }
     
     ///////////////////////////////////////////////////////////////////////////////////
