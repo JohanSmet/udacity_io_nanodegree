@@ -84,14 +84,9 @@ class UdacityParseClient : WebApiClient {
     // singleton
     //
     
-    class func instance() -> UdacityParseClient {
-        
-        struct Singleton {
-            static var instance = UdacityParseClient()
-        }
-        
-        return Singleton.instance
-    }
-    
+    static let instance = UdacityParseClient()
+}
 
+func udacityParseClient() -> UdacityParseClient {
+    return UdacityParseClient.instance
 }

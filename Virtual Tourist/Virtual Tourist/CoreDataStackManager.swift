@@ -64,16 +64,10 @@ class CoreDataStackManager {
     // singleton
     //
     
-    class func sharedInstance() -> CoreDataStackManager {
-        struct Static {
-            static let instance = CoreDataStackManager()
-        }
-        
-        return Static.instance
-    }
+    static let sharedInstance = CoreDataStackManager()
 }
 
 // shorthand way to get the CoreDataStackManager shared instance
 func coreDataStackManager() -> CoreDataStackManager {
-    return CoreDataStackManager.sharedInstance()
+    return CoreDataStackManager.sharedInstance
 }

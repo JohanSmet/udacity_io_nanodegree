@@ -109,16 +109,10 @@ class DataContext {
     //
     // singleton
     //
-
-    class func sharedInstance() -> DataContext {
-        struct Static {
-            static let instance = DataContext()
-        }
-        
-        return Static.instance
-    }
+    
+    static let sharedInstance = DataContext()
 }
 
 func dataContext() -> DataContext {
-    return DataContext.sharedInstance()
+    return DataContext.sharedInstance
 }

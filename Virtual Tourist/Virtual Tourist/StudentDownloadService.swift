@@ -30,7 +30,7 @@ class StudentDownloadService {
     static func downloadStudentLocations(completionHandlerUI : (error : String?) -> Void) {
         
         // load the data from the udacity parse service
-        UdacityParseClient.instance().listStudentLocations(StudentDownloadService.MAX_FETCH_STUDENTS, skipCount : 0) { studentLocations, parseError in
+        UdacityParseClient().listStudentLocations(StudentDownloadService.MAX_FETCH_STUDENTS, skipCount : 0) { studentLocations, parseError in
             
             // process the data
             if let studentList = studentLocations as? [[String : AnyObject]] {

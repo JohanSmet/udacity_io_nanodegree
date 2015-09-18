@@ -100,17 +100,10 @@ class FlickrClient : WebApiClient {
     // singleton
     //
     
-    class func instance() -> FlickrClient {
-        
-        struct Singleton {
-            static var instance = FlickrClient()
-        }
-        
-        return Singleton.instance
-    }
+    static let instance	= FlickrClient()
 }
 
 
 func flickrClient() -> FlickrClient {
-    return FlickrClient.instance()
+    return FlickrClient.instance
 }
