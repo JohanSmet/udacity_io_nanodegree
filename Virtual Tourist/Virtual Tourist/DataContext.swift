@@ -30,7 +30,13 @@ class DataContext {
         let fetchRequest = NSFetchRequest(entityName: "Pin")
         
         // execute the fetch request
-        let results = coreDataStackManager().managedObjectContext!.executeFetchRequest(fetchRequest, error: error)
+        let results: [AnyObject]?
+        do {
+            results = try coreDataStackManager().managedObjectContext!.executeFetchRequest(fetchRequest)
+        } catch let error1 as NSError {
+            error.memory = error1
+            results = nil
+        }
         
         // save results
         self.pins = results as! [Pin]
@@ -66,13 +72,13 @@ class DataContext {
         let fetchRequest = NSFetchRequest(entityName: "Photo")
         fetchRequest.predicate       = NSPredicate(format: "location == %@", location)
         
-        deletePhotos(coreDataStackManager().managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as! [Photo])
+        deletePhotos((try! coreDataStackManager().managedObjectContext!.executeFetchRequest(fetchRequest)) as! [Photo])
     }
     
     func fetchIncompletePhotosOfPin(location : Pin) -> [Photo] {
         let fetchRequest = NSFetchRequest(entityName: "Photo")
         fetchRequest.predicate       = NSPredicate(format: "location == %@ && localUrl = nil", location)
-        return coreDataStackManager().managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as! [Photo]
+        return (try! coreDataStackManager().managedObjectContext!.executeFetchRequest(fetchRequest)) as! [Photo]
     }
     
     func allPhotosOfPinComplete(location : Pin) ->  Bool {
@@ -93,7 +99,7 @@ class DataContext {
         let fetchRequest = NSFetchRequest(entityName: "Student")
         fetchRequest.predicate = NSPredicate(format: "uniqueKey IN %@", keys)
         
-        return coreDataStackManager().managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as! [Student]
+        return (try! coreDataStackManager().managedObjectContext!.executeFetchRequest(fetchRequest)) as! [Student]
     }
     
     func countStudentsNearLocation(location : Pin) -> Int {

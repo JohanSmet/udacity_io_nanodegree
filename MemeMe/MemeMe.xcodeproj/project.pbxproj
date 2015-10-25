@@ -177,6 +177,7 @@
 		04050AB11B0536F000D1DD3E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = Justcode.be;
 				TargetAttributes = {

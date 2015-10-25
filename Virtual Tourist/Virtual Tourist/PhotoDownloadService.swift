@@ -65,7 +65,7 @@ class PhotoDownloadService {
         
         for flickrPhoto in flickrPhotos {
             let url = flickrClient().urlForPhoto(flickrPhoto, size: "q")
-            let photo = Photo(flickrUrl: url, location: location, context: coreDataStackManager().managedObjectContext!)
+            let _ = Photo(flickrUrl: url, location: location, context: coreDataStackManager().managedObjectContext!)
         }
         
         dispatch_sync(dispatch_get_main_queue()) {

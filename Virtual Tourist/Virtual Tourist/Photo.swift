@@ -47,7 +47,10 @@ class Photo : NSManagedObject {
         if let localUrl = self.localUrl {
             let documentsDirectory: AnyObject = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0]
             let path = documentsDirectory.stringByAppendingPathComponent(localUrl)
-            NSFileManager.defaultManager().removeItemAtPath(path, error: nil)
+            do {
+                try NSFileManager.defaultManager().removeItemAtPath(path)
+            } catch _ {
+            }
         }
     }
 }

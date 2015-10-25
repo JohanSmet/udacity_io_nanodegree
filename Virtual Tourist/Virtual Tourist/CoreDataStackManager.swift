@@ -27,9 +27,14 @@ class CoreDataStackManager {
         let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
         let storeUrl = urls[urls.count-1].URLByAppendingPathComponent(SQLITE_FILE_NAME)
         
-        if coordinator.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: storeUrl, options: nil, error: &self.lastError) == nil {
+        do {
+            try coordinator.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: storeUrl, options: nil)
+        } catch var error as NSError {
+            self.lastError = error
             NSLog("Unresolved error \(self.lastError), \(self.lastError!.userInfo)")
             return nil                                    // exit !!!
+        } catch {
+            fatalError()
         }
         
         // finally, create the managed object context
@@ -49,7 +54,10 @@ class CoreDataStackManager {
             return true
         }
         
-        if !managedObjectContext!.save(&self.lastError) {
+        do {
+            try managedObjectContext!.save()
+        } catch let error as NSError {
+            self.lastError = error
             NSLog("Unresolved error \(self.lastError), \(self.lastError!.userInfo)")
             return false
         }

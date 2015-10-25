@@ -69,10 +69,14 @@ class PhotoViewController : UIViewController,
         
         // load the photo's from core data
         var error: NSError?
-        fetchedResultsController.performFetch(&error)
+        do {
+            try fetchedResultsController.performFetch()
+        } catch let error1 as NSError {
+            error = error1
+        }
         
         if let error = error {
-            alertOk(self, error.localizedDescription);
+            alertOk(self, message: error.localizedDescription);
         }
         
         // do some UI tweaks based on the available photos
@@ -110,7 +114,7 @@ class PhotoViewController : UIViewController,
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let sectionInfo = fetchedResultsController.sections![section] as! NSFetchedResultsSectionInfo
+        let sectionInfo = fetchedResultsController.sections![section] 
         return sectionInfo.numberOfObjects
     }
     
@@ -129,7 +133,7 @@ class PhotoViewController : UIViewController,
             cell.stateWaiting()
         }
         
-        if let foundIndex = find(selectedPhotos, photo) {
+        if let _ = selectedPhotos.indexOf(photo) {
             cell.stateSelected()
         }
         
@@ -170,9 +174,8 @@ class PhotoViewController : UIViewController,
     }
     
     func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject,
-                    atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType,
-                    newIndexPath: NSIndexPath?) {
-            
+                    atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+        
         switch type {
                 
             case .Insert:
@@ -250,7 +253,7 @@ class PhotoViewController : UIViewController,
     }
     
     private func deselectPhoto(photo : Photo) {
-        if let foundIndex = find(selectedPhotos, photo) {
+        if let foundIndex = selectedPhotos.indexOf(photo) {
             selectedPhotos.removeAtIndex(foundIndex)
         }
         
@@ -283,7 +286,7 @@ class PhotoViewController : UIViewController,
         
         PhotoDownloadService.downloadPhotosForLocation(pin) { error in
             if let error = error {
-                alertOkAsync(self, error);
+                alertOkAsync(self, message: error);
             }
         }
     }

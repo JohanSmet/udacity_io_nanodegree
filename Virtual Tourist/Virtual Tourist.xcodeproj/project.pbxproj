@@ -14,7 +14,6 @@
 		0405C44B1B77F3C6005A1705 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0405C44A1B77F3C6005A1705 /* Photo.swift */; };
 		040631501B7F9D990016E933 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 040631521B7F9D990016E933 /* Localizable.strings */; };
 		0406315F1B7F9F4B0016E933 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 040631611B7F9F4B0016E933 /* InfoPlist.strings */; };
-		040631641B7F9F4B0016E933 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 040631661B7F9F4B0016E933 /* InfoPlist.strings */; };
 		04077CF91B83C6CD00AF4D90 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04077CF81B83C6CD00AF4D90 /* Student.swift */; };
 		040ABEA11B7BE83F00A89E02 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040ABEA01B7BE83F00A89E02 /* PhotoCell.swift */; };
 		040C8CC41B73EEB3005A94EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C8CC31B73EEB3005A94EA /* AppDelegate.swift */; };
@@ -23,7 +22,6 @@
 		040C8CCC1B73EEB3005A94EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 040C8CCA1B73EEB3005A94EA /* Main.storyboard */; };
 		040C8CCE1B73EEB3005A94EA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 040C8CCD1B73EEB3005A94EA /* Images.xcassets */; };
 		040C8CD11B73EEB3005A94EA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 040C8CCF1B73EEB3005A94EA /* LaunchScreen.xib */; };
-		040C8CDD1B73EEB3005A94EA /* Virtual_TouristTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C8CDC1B73EEB3005A94EA /* Virtual_TouristTests.swift */; };
 		040C8CE71B73F018005A94EA /* CoreDataStackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C8CE61B73F018005A94EA /* CoreDataStackManager.swift */; };
 		042258151B8393600000D344 /* UdacityParseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042258141B8393600000D344 /* UdacityParseClient.swift */; };
 		042258181B83942F0000D344 /* StudentDownloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042258171B83942F0000D344 /* StudentDownloadService.swift */; };
@@ -31,16 +29,6 @@
 		04EDD8DD1B77B1BC00B9A09C /* WebApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EDD8DC1B77B1BC00B9A09C /* WebApiClient.swift */; };
 		04EDD8E01B77B23D00B9A09C /* FlickrClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EDD8DF1B77B23D00B9A09C /* FlickrClient.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		040C8CD71B73EEB3005A94EA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 040C8CB61B73EEB3005A94EA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 040C8CBD1B73EEB3005A94EA;
-			remoteInfo = "Virtual Tourist";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0402DFEA1B764C67007910C8 /* Pin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pin.swift; sourceTree = "<group>"; };
@@ -68,7 +56,6 @@
 		040C8CC81B73EEB3005A94EA /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		040C8CCD1B73EEB3005A94EA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "Virtual Tourist/Images.xcassets"; sourceTree = "<group>"; };
 		040C8CD01B73EEB3005A94EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		040C8CD61B73EEB3005A94EA /* Virtual TouristTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Virtual TouristTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		040C8CDB1B73EEB3005A94EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		040C8CDC1B73EEB3005A94EA /* Virtual_TouristTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Virtual_TouristTests.swift; sourceTree = "<group>"; };
 		040C8CE61B73F018005A94EA /* CoreDataStackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStackManager.swift; sourceTree = "<group>"; };
@@ -81,13 +68,6 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		040C8CBB1B73EEB3005A94EA /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		040C8CD31B73EEB3005A94EA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -121,7 +101,6 @@
 			isa = PBXGroup;
 			children = (
 				040C8CBE1B73EEB3005A94EA /* Virtual Tourist.app */,
-				040C8CD61B73EEB3005A94EA /* Virtual TouristTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -254,39 +233,19 @@
 			productReference = 040C8CBE1B73EEB3005A94EA /* Virtual Tourist.app */;
 			productType = "com.apple.product-type.application";
 		};
-		040C8CD51B73EEB3005A94EA /* Virtual TouristTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 040C8CE31B73EEB3005A94EA /* Build configuration list for PBXNativeTarget "Virtual TouristTests" */;
-			buildPhases = (
-				040C8CD21B73EEB3005A94EA /* Sources */,
-				040C8CD31B73EEB3005A94EA /* Frameworks */,
-				040C8CD41B73EEB3005A94EA /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				040C8CD81B73EEB3005A94EA /* PBXTargetDependency */,
-			);
-			name = "Virtual TouristTests";
-			productName = "Virtual TouristTests";
-			productReference = 040C8CD61B73EEB3005A94EA /* Virtual TouristTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		040C8CB61B73EEB3005A94EA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = Justcode.be;
 				TargetAttributes = {
 					040C8CBD1B73EEB3005A94EA = {
 						CreatedOnToolsVersion = 6.4;
-					};
-					040C8CD51B73EEB3005A94EA = {
-						CreatedOnToolsVersion = 6.4;
-						TestTargetID = 040C8CBD1B73EEB3005A94EA;
 					};
 				};
 			};
@@ -305,7 +264,6 @@
 			projectRoot = "";
 			targets = (
 				040C8CBD1B73EEB3005A94EA /* Virtual Tourist */,
-				040C8CD51B73EEB3005A94EA /* Virtual TouristTests */,
 			);
 		};
 /* End PBXProject section */
@@ -320,14 +278,6 @@
 				040C8CD11B73EEB3005A94EA /* LaunchScreen.xib in Resources */,
 				040C8CCE1B73EEB3005A94EA /* Images.xcassets in Resources */,
 				0406315F1B7F9F4B0016E933 /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		040C8CD41B73EEB3005A94EA /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				040631641B7F9F4B0016E933 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,23 +307,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		040C8CD21B73EEB3005A94EA /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				040C8CDD1B73EEB3005A94EA /* Virtual_TouristTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		040C8CD81B73EEB3005A94EA /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 040C8CBD1B73EEB3005A94EA /* Virtual Tourist */;
-			targetProxy = 040C8CD71B73EEB3005A94EA /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		040631521B7F9D990016E933 /* Localizable.strings */ = {
@@ -447,6 +381,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -513,6 +448,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Virtual Tourist/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "be.justcode.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -523,41 +459,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Virtual Tourist/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "be.justcode.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		040C8CE41B73EEB3005A94EA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "Virtual TouristTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Virtual Tourist.app/Virtual Tourist";
-			};
-			name = Debug;
-		};
-		040C8CE51B73EEB3005A94EA /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "Virtual TouristTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Virtual Tourist.app/Virtual Tourist";
 			};
 			name = Release;
 		};
@@ -578,15 +481,6 @@
 			buildConfigurations = (
 				040C8CE11B73EEB3005A94EA /* Debug */,
 				040C8CE21B73EEB3005A94EA /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		040C8CE31B73EEB3005A94EA /* Build configuration list for PBXNativeTarget "Virtual TouristTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				040C8CE41B73EEB3005A94EA /* Debug */,
-				040C8CE51B73EEB3005A94EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

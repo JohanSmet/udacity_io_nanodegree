@@ -111,10 +111,9 @@ class WebApiClient {
             
             // optional body
             if let jsonBody: AnyObject = jsonBody {
-                var jsonError : NSError? = nil
-                request.HTTPBody = NSJSONSerialization.dataWithJSONObject(jsonBody, options: NSJSONWritingOptions.PrettyPrinted, error: &jsonError)
-            
-                if let error = jsonError {
+                do {
+                    request.HTTPBody = try NSJSONSerialization.dataWithJSONObject(jsonBody, options: NSJSONWritingOptions.PrettyPrinted)
+                } catch let error as NSError {
                     completionHandler(result: nil, error: String.localizedStringWithFormat(NSLocalizedString("cliInternalJsonError", comment:"Internal error : invalid jsonBody (error: %s)"), error))
                     return nil                              // exit !!!
                 }
@@ -141,7 +140,15 @@ class WebApiClient {
                 
                 // parse the JSON
                 var parseError : NSError? = nil
-                let parseResult: AnyObject! = WebApiClient.parseJSON(data.subdataWithRange(NSMakeRange(self.dataOffset, data.length - self.dataOffset)), errorPtr: &parseError)
+                let parseResult: AnyObject!
+                do {
+                    parseResult = try WebApiClient.parseJSON(data!.subdataWithRange(NSMakeRange(self.dataOffset, data!.length - self.dataOffset)))
+                } catch let error as NSError {
+                    parseError = error
+                    parseResult = nil
+                } catch {
+                    fatalError()
+                }
                 completionHandler(result: parseResult, error: parseError)
             }
             
@@ -178,9 +185,19 @@ class WebApiClient {
         return result;
     }
     
-    private class func parseJSON(data : NSData, errorPtr : NSErrorPointer) -> AnyObject! {
-        let parsedResult : AnyObject? = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments, error: errorPtr)
-        return parsedResult
+    private class func parseJSON(data : NSData) throws -> AnyObject {
+        var errorPtr: NSError! = NSError(domain: "Migrator", code: 0, userInfo: nil)
+        let parsedResult : AnyObject?
+        do {
+            parsedResult = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments)
+        } catch let error as NSError {
+            errorPtr = error
+            parsedResult = nil
+        }
+        if let value = parsedResult {
+            return value
+        }
+        throw errorPtr
     }
     
     private class func httpStatusIsError(statusCode : Int) -> Bool {

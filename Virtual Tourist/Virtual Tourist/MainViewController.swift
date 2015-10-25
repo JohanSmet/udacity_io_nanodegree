@@ -46,7 +46,7 @@ class MainViewController: UIViewController,
         
         // make sure core data can be initialised properly
         if coreDataStackManager().managedObjectContext == nil {
-            alertOk(self, NSLocalizedString("conCoreDataError", comment: "Unable to initalize CoreData-backend"))
+            alertOk(self, message: NSLocalizedString("conCoreDataError", comment: "Unable to initalize CoreData-backend"))
             return
         }
         
@@ -79,7 +79,7 @@ class MainViewController: UIViewController,
     // MKMapViewDelegate
     //
     
-    func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         
         if let pin = annotation as? Pin {
             let identifier = "touristPin"
@@ -98,7 +98,7 @@ class MainViewController: UIViewController,
         return nil;
     }
     
-    func mapView(mapView: MKMapView!, didSelectAnnotationView view: MKAnnotationView!) {
+    func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
         let photoVC = self.storyboard?.instantiateViewControllerWithIdentifier("PhotoViewController") as! PhotoViewController
         photoVC.pin = view.annotation as! Pin
         self.navigationController?.pushViewController(photoVC, animated: true)
@@ -107,7 +107,7 @@ class MainViewController: UIViewController,
         mapView.deselectAnnotation(view.annotation, animated: false)
     }
     
-    func mapView(mapView: MKMapView!, regionDidChangeAnimated animated: Bool) {
+    func mapView(mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         saveMapSettings()
     }
     
@@ -141,7 +141,7 @@ class MainViewController: UIViewController,
                 // start downloading photos for this location
                 PhotoDownloadService.downloadPhotosForLocation(currentPin) { downloadError in
                     if let error = downloadError {
-                        alertOkAsync(self, error)
+                        alertOkAsync(self, message: error)
                     }
                 }
                 break

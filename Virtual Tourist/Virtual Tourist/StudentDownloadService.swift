@@ -53,19 +53,19 @@ class StudentDownloadService {
         // build a dictionary while filtering out any duplicates
         var uniqueStudents : [String : [String : AnyObject]] = [:]
         
-        for student in students.reverse() {
+        for student in Array(students.reverse()) {
             uniqueStudents[student["uniqueKey"]! as! String] = student
         }
         
         // retrieve and already existing students
-        for student in dataContext().fetchStudentForKeys(uniqueStudents.keys.array) {
+        for student in dataContext().fetchStudentForKeys([String] (uniqueStudents.keys)) {
             student.update(uniqueStudents[student.uniqueKey]!)
             uniqueStudents.removeValueForKey(student.uniqueKey)
         }
         
         // create remaining students
-        for (key, student) in uniqueStudents {
-            let newStudent = Student(values: student, context: coreDataStackManager().managedObjectContext!)
+        for (_, student) in uniqueStudents {
+            _ = Student(values: student, context: coreDataStackManager().managedObjectContext!)
         }
         
         // save
